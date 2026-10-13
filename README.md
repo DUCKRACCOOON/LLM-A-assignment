@@ -2,6 +2,17 @@
 
 SWE3011 Introduction to Artificial Intelligence, Fall 2026 과제 자료와 논문 재현을 위한 팀 작업 저장소입니다. 초기 자료는 `gm` 브랜치에 정리했습니다.
 
+## sm 브랜치 GPT 재현 결과 — 2026-10-13
+
+GPT-3.5 Turbo 기반 재현과 분석 결과를 추가했습니다. 실행 절차와 논문 설정과의 차이는 [재현 README](reproduction/README.md), 상세 수치는 [HTML 보고서](results/report/report.html)와 [Table 1 CSV](results/report/table1.csv)에 있습니다.
+
+- 본 실험: 공개 1,000문제, A*·Dynamic Weighted A*·GPT-only 3종·LLM-A* 3종의 총 8개 조건, GPT 응답 3,000개와 평가 행 8,000개
+- 예비 실험: 별도 합성 10문제, GPT 응답 30개와 평가 행 80개
+- GPT 확장성 실험: 10문제 × 10개 규모, 응답 100개와 평가 행 300개
+- 원본 알고리즘 비교·최단거리·충돌·파싱 테스트와 [응답/평가 완전성 검증](results/verification.json) 포함
+
+이번 업로드는 완료된 GPT 작업의 스냅샷입니다. 진행 중인 Llama3 실행기·서버 설정·결과·배포 ZIP은 제외했습니다. 아래의 초기 계획은 이전 자료로 보존하며, 실제 GPT 재현 조건은 재현 README를 기준으로 확인합니다.
+
 ## 자료 읽는 순서
 
 1. [과제 안내서](<materials/SWE3011_41 Assignment Notice (1).pdf>)
@@ -21,7 +32,7 @@ SWE3011 Introduction to Artificial Intelligence, Fall 2026 과제 자료와 논�
 - `LLM-Astar_Project_Plan.md`: 제출 요건, 재현 범위, 실험 설계와 일정
 - `UPSTREAM.md`: 원본 출처와 기준 커밋
 
-## 현재 진행 상태
+## 초기 자료 정리 상태 — 2026-10-11
 
 2026년 10월 11일 기준으로 자료 읽기, 원본 확보, 코드 리뷰와 일부 오프라인 동작 검증까지 완료했습니다. 실제 LLM API를 사용한 Table 1 전체 재현과 제안 알고리즘 실험은 아직 수행하지 않았습니다.
 
@@ -35,7 +46,7 @@ SWE3011 Introduction to Artificial Intelligence, Fall 2026 과제 자료와 논�
 python review/check_baseline.py
 ```
 
-실험 환경 설정과 전체 재현 명령은 구현 후 추가합니다. 이 README는 현재 자료 저장소 안내이며 최종 제출용 실행 문서가 아닙니다.
+완료된 GPT 작업의 환경 설정과 실행 명령은 [재현 README](reproduction/README.md)에 추가했습니다. 최종 과제 제출 범위의 완료와는 구분합니다.
 
 ## 출처와 사용 범위
 
