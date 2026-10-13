@@ -1,0 +1,284 @@
+{
+  "rows": [
+    {
+      "method": "astar",
+      "model": null,
+      "prompt_style": null,
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 100.0,
+      "operation_n": 1000,
+      "storage_percent": 100.0,
+      "storage_n": 1000,
+      "length_percent": 100.0,
+      "length_n": 1000
+    },
+    {
+      "method": "dwa",
+      "model": null,
+      "prompt_style": null,
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 59.26582125018247,
+      "operation_n": 1000,
+      "storage_percent": 78.5245128479045,
+      "storage_n": 1000,
+      "length_percent": 100.24170362516689,
+      "length_n": 1000
+    },
+    {
+      "method": "llm_only",
+      "model": "gpt-4o-mini-2024-07-18",
+      "prompt_style": "standard",
+      "n": 30,
+      "valid_n": 1,
+      "valid_percent": 3.3333333333333335,
+      "failures": {
+        "collision": 25,
+        "missing_list": 3,
+        "malformed_coordinate": 1
+      },
+      "operation_percent": null,
+      "operation_n": 0,
+      "storage_percent": null,
+      "storage_n": 0,
+      "length_percent": 128.1508964068163,
+      "length_n": 1
+    },
+    {
+      "method": "llm_only",
+      "model": "gpt-4o-mini-2024-07-18",
+      "prompt_style": "cot",
+      "n": 30,
+      "valid_n": 1,
+      "valid_percent": 3.3333333333333335,
+      "failures": {
+        "collision": 27,
+        "wrong_endpoints": 1,
+        "outside_boundary": 1
+      },
+      "operation_percent": null,
+      "operation_n": 0,
+      "storage_percent": null,
+      "storage_n": 0,
+      "length_percent": 129.16441058810494,
+      "length_n": 1
+    },
+    {
+      "method": "llm_only",
+      "model": "gpt-4o-mini-2024-07-18",
+      "prompt_style": "repe",
+      "n": 30,
+      "valid_n": 1,
+      "valid_percent": 3.3333333333333335,
+      "failures": {
+        "collision": 29
+      },
+      "operation_percent": null,
+      "operation_n": 0,
+      "storage_percent": null,
+      "storage_n": 0,
+      "length_percent": 111.00154670780267,
+      "length_n": 1
+    },
+    {
+      "method": "llm_only",
+      "model": "gpt-3.5-turbo-0125",
+      "prompt_style": "standard",
+      "n": 30,
+      "valid_n": 1,
+      "valid_percent": 3.3333333333333335,
+      "failures": {
+        "collision": 24,
+        "missing_list": 4,
+        "outside_boundary": 1
+      },
+      "operation_percent": null,
+      "operation_n": 0,
+      "storage_percent": null,
+      "storage_n": 0,
+      "length_percent": 96.52746279041668,
+      "length_n": 1
+    },
+    {
+      "method": "llm_only",
+      "model": "gpt-3.5-turbo-0125",
+      "prompt_style": "cot",
+      "n": 30,
+      "valid_n": 3,
+      "valid_percent": 10.0,
+      "failures": {
+        "collision": 19,
+        "outside_boundary": 8
+      },
+      "operation_percent": null,
+      "operation_n": 0,
+      "storage_percent": null,
+      "storage_n": 0,
+      "length_percent": 100.5223709572279,
+      "length_n": 3
+    },
+    {
+      "method": "llm_only",
+      "model": "gpt-3.5-turbo-0125",
+      "prompt_style": "repe",
+      "n": 30,
+      "valid_n": 4,
+      "valid_percent": 13.333333333333334,
+      "failures": {
+        "collision": 24,
+        "outside_boundary": 2
+      },
+      "operation_percent": null,
+      "operation_n": 0,
+      "storage_percent": null,
+      "storage_n": 0,
+      "length_percent": 229.22109335763824,
+      "length_n": 4
+    },
+    {
+      "method": "llm_astar",
+      "model": "gpt-4o-mini-2024-07-18",
+      "prompt_style": "standard",
+      "n": 30,
+      "valid_n": 29,
+      "valid_percent": 96.66666666666667,
+      "failures": {
+        "malformed_coordinate": 1
+      },
+      "operation_percent": 55.28932102883092,
+      "operation_n": 29,
+      "storage_percent": 68.52520909099421,
+      "storage_n": 29,
+      "length_percent": 103.45516592681257,
+      "length_n": 29
+    },
+    {
+      "method": "llm_astar",
+      "model": "gpt-4o-mini-2024-07-18",
+      "prompt_style": "cot",
+      "n": 30,
+      "valid_n": 30,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 65.2191943207242,
+      "operation_n": 30,
+      "storage_percent": 77.19207923484154,
+      "storage_n": 30,
+      "length_percent": 103.66500403287382,
+      "length_n": 30
+    },
+    {
+      "method": "llm_astar",
+      "model": "gpt-4o-mini-2024-07-18",
+      "prompt_style": "repe",
+      "n": 30,
+      "valid_n": 30,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 68.70310867394227,
+      "operation_n": 30,
+      "storage_percent": 77.542325120288,
+      "storage_n": 30,
+      "length_percent": 102.51594911459388,
+      "length_n": 30
+    },
+    {
+      "method": "llm_astar",
+      "model": "gpt-3.5-turbo-0125",
+      "prompt_style": "standard",
+      "n": 30,
+      "valid_n": 30,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 51.60549520077249,
+      "operation_n": 30,
+      "storage_percent": 65.7930405768784,
+      "storage_n": 30,
+      "length_percent": 102.93633238253757,
+      "length_n": 30
+    },
+    {
+      "method": "llm_astar",
+      "model": "gpt-3.5-turbo-0125",
+      "prompt_style": "cot",
+      "n": 30,
+      "valid_n": 30,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 64.42618168731369,
+      "operation_n": 30,
+      "storage_percent": 75.75628452650407,
+      "storage_n": 30,
+      "length_percent": 103.26538831898515,
+      "length_n": 30
+    },
+    {
+      "method": "llm_astar",
+      "model": "gpt-3.5-turbo-0125",
+      "prompt_style": "repe",
+      "n": 30,
+      "valid_n": 30,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 90.28200693126452,
+      "operation_n": 30,
+      "storage_percent": 91.93299217545093,
+      "storage_n": 30,
+      "length_percent": 104.92210754062687,
+      "length_n": 30
+    },
+    {
+      "method": "goal_only",
+      "model": null,
+      "prompt_style": null,
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 34.31538343191994,
+      "operation_n": 1000,
+      "storage_percent": 56.23259601913805,
+      "storage_n": 1000,
+      "length_percent": 102.01647999370395,
+      "length_n": 1000
+    }
+  ],
+  "usage": {
+    "gpt-3.5-turbo-0125": {
+      "requests": 90,
+      "api_failures": 0,
+      "prompt_tokens": 70839,
+      "completion_tokens": 13653,
+      "cached_tokens": 0,
+      "transport_retries": 0,
+      "finish_reasons": {
+        "stop": 90
+      },
+      "mean_request_seconds": 1.9105724322247422,
+      "p95_request_seconds": 3.5792001998052
+    },
+    "gpt-4o-mini-2024-07-18": {
+      "requests": 90,
+      "api_failures": 0,
+      "prompt_tokens": 70719,
+      "completion_tokens": 46238,
+      "cached_tokens": 27648,
+      "transport_retries": 0,
+      "finish_reasons": {
+        "stop": 86,
+        "length": 4
+      },
+      "mean_request_seconds": 4.797360894425462,
+      "p95_request_seconds": 7.979533299803734
+    }
+  },
+  "baseline_cases": 1000,
+  "generations": 180,
+  "length_denominator": "Only collision-free paths with correct endpoints; see length_n. LLM-only operates on polylines.",
+  "status": "partial"
+}
