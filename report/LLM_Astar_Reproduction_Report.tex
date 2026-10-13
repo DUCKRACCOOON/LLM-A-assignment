@@ -1,61 +1,73 @@
 \documentclass[11pt]{article}
 \usepackage[preprint]{acl}
-\usepackage{times}
+\usepackage{fontspec}
+\usepackage{kotex}
+\setmainfont{Times New Roman}
+\setmainhangulfont{Malgun Gothic}
+\setmonofont{Consolas}
 \usepackage{latexsym}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
 \usepackage{microtype}
-\usepackage{inconsolata}
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{amsmath}
-\title{Reproducing LLM-A*: Separating Waypoint Guidance\protect\\from Heuristic Weighting}
-\author{SWE3011 Independent Reproduction --- Branch \texttt{gm}\\
-Experiment date: 13 October 2026}
+\renewcommand{\abstractname}{초록}
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@dblfptop}{0pt}
+\makeatother
+\title{LLM-A* 재현 및 분석:\protect\\waypoint 안내와 휴리스틱 가중치의 효과 비교}
+\author{SWE3011 인공지능개론 과제 / \texttt{gm} 개인 실험본\\
+실험일: 2026년 10월 13일 / 팀명과 저자는 최종본에서 기입}
 \begin{document}
 \maketitle
 \begin{abstract}
-We reproduce the 14-condition structure of Table 1 in \citet{meng2025} using 1,000 public path-planning queries, three original prompts, and two accessible OpenAI model snapshots. GPT-4o mini replaces Llama3 to match the course evaluation model; GPT-3.5 Turbo retains a connection to the original model family. We preserve the released search behavior and record 6,000 model responses. GPT-4o mini Few-shot LLM-A* uses 44.85\% of A* operations with 102.65\% relative path length and 100.00\% validity. However, a same-engine, LLM-free $g+2h$ control uses only 34.32\% of A* operations. A validity-gated proposal reduces operations relative to LLM-A*, but does not establish an advantage over that inexpensive control. We report failures, implementation ambiguities, paired uncertainty, and the limits of these findings.
+LLM-A*는 언어 모델이 제시한 중간 지점으로 탐색 방향을 유도하는 경로 계획 방법이다. 공개된 1,000문제에 원본 프롬프트 세 종류와 두 모델을 적용하여 논문 Table 1의 14개 조건을 재현했다. GPT-3.5 Turbo를 사용하고, 논문의 Llama3는 과제 평가 모델인 GPT-4o mini로 대체했다. 실제 응답 6,000개를 수집했으며 원본 탐색 코드와 동작을 대조했다. GPT-4o mini Few-shot의 LLM-A*는 일반 A* 대비 탐색 횟수 44.85\%, 경로 길이 102.65\%, 유효 경로 비율 100.00\%를 기록했다. 그러나 LLM 없이 목표 거리의 가중치만 두 배로 둔 $g+2h$의 탐색 횟수는 34.32\%였다. 잘못된 안내를 걸러내는 V-Gate는 원 LLM-A*보다 탐색을 줄였지만 이 대조군을 능가하지는 못했다. 이 결과를 바탕으로 waypoint 안내의 기여와 이번 재현의 한계를 분석한다.
 \end{abstract}
 
-\section{Problem and reproduction objective}
-LLM-A* combines language-model suggestions with grid search: the model supplies waypoints, while the search constructs a collision-free route. The course assignment requires reproducing the principal comparison, explaining discrepancies and limitations, and implementing an improvement with evidence. Our contribution is an auditable reproduction and a modest validation/fallback extension, not ownership of the original algorithm or a new search-theoretic guarantee.
+\section{재현 목적과 범위}
+\citet{meng2025}의 LLM-A*는 LLM이 생성한 waypoint와 A* 탐색을 결합한다. 제시된 좌표를 그대로 따라가는 대신 그 좌표와의 거리를 탐색 우선순위에 반영한다. 최종 목적지는 고정되어 있고 waypoint는 반드시 방문해야 하는 지점이 아니다.
 
-We use all 100 maps and 10 start--goal pairs per map from the released dataset. The nominal $50\times30$ environment is stored with exclusive upper bounds $[0,51]$ and $[0,31]$, corresponding to outer walls at 50 and 30. Horizontal and vertical obstacles are closed line segments. Search uses the original eight moves with Euclidean edge costs. The final goal remains fixed: suggested waypoints are heuristic targets, not mandatory path constraints.
+Table 1의 주요 비교를 재현한 뒤 원 방법의 한계를 찾아 개선안을 구현하고 평가했다. 원 알고리즘 및 공식 코드와 이번에 추가한 실험 실행기, 입력 어댑터, 검증 절차, V-Gate를 구분했다. 논문의 모든 실험을 반복한 것은 아니다. Table 1을 중심으로 진행했으며 논문의 10단계 크기 확장 실험은 수행하지 않았다.
 
-\section{Method and implementation fidelity}
-For goal $G$, active waypoint $T$, and cost-so-far $g$, the released implementation prioritizes
+공개 데이터의 맵 100개와 맵마다 주어진 출발점--목적지 10쌍을 모두 사용했다. 명목 크기는 $50\times30$이다. 데이터에는 상한을 포함하지 않는 범위 $[0,51]$, $[0,31]$로 저장되어 외곽 벽은 50과 30에 위치한다. 장애물은 수평 또는 수직 선분이다. 탐색은 원본과 같은 8방향 이동과 유클리드 이동 비용을 사용한다.
+
+\section{원 방법과 구현 검증}
+최종 목적지를 $G$, 현재 안내 지점을 $T$라 하면 공개된 구현은 다음 점수가 작은 후보부터 탐색한다.
 \begin{equation}
  f(n)=g(n)+\|n-G\|_2+\|n-T\|_2.
 \end{equation}
-It advances the target when a generated neighbor equals $T$, before checking collision or membership in CLOSED. It then rebuilds every OPEN entry. CLOSED is not reopened, duplicate queue pops count as operations, and the storage count includes infinite-cost entries in the $g$ dictionary. These details are preserved, including the strict waypoint boundary filter and the discrepancy between obstacle endpoint filtering and segment collision checks.
+$g(n)$은 출발점에서 현재 후보까지의 누적 비용이다. 뒤의 두 항은 각각 최종 목적지와 현재 waypoint까지의 거리이다.
 
-Our separate implementation caches collision results and uses a set for CLOSED membership without removing duplicate expansions. We checked 90 search executions on 30 prespecified queries against the untouched upstream code: paths, operation counts, storage counts, and lengths agreed. We also checked 3,000 continuous segments against Shapely and compared the 30 baseline lengths with an independently implemented Dijkstra search. Final auditing verifies all 1,000 A* lengths against Dijkstra, revalidates every successful recorded route, and checks 62 actual model outputs against upstream search. Input mutation is prevented. Unreachable and identical-endpoint inputs return structured results instead of the upstream exceptions; these changes are documented rather than attributed to the paper.
+원본은 생성한 이웃 좌표가 $T$와 같으면 충돌 및 CLOSED 검사 전에 안내 지점을 갱신하고 OPEN의 우선순위를 다시 계산한다. CLOSED에 들어간 노드는 다시 열지 않지만 큐에서 중복으로 꺼낸 항목도 탐색 횟수에 포함한다. 저장량은 비용 사전 $g$의 항목 수이며 무한 비용 항목도 포함한다. waypoint의 경계 필터와 장애물 끝점 필터도 원본 동작을 유지했다.
 
-\paragraph{Dynamic weighted A*.}
-The paper specifies initial weight 2 and decay 0.99, but the repository lacks this baseline. We decay after each non-goal pop, clamp the weight at 1, and rekey remaining OPEN entries. This is our explicit interpretation. It yields 59.27\% operations, 78.52\% storage and 100.24\% length, versus the paper's 60.91, 78.53 and 100.24. Similar values do not prove identical implementations.
+반복 실험을 위해 충돌 결과를 캐시하고 CLOSED 소속 검사에 집합을 사용했다. 탐색 순서와 중복 처리는 바꾸지 않았다. 미리 정한 30문제의 90회 탐색을 원본과 비교하여 경로, 탐색 횟수, 저장량과 길이의 일치를 확인했다. 연속 선분 3,000개의 충돌 판정도 Shapely와 대조했다. 최종 검사에서는 A* 전체 1,000개의 길이를 독립 Dijkstra 구현과 비교하고 모든 성공 경로를 다시 검사했다. 실제 모델 응답 62개도 수정하지 않은 원본 탐색 코드에 넣어 경로와 지표가 일치하는지 확인했다. 동일 출발점ㆍ목적지와 도달 불가능한 입력에 구조화된 결과를 반환하고 입력 사전을 직접 바꾸지 않는 부분은 원본과의 차이로 기록했다.
 
-\section{Experimental setup}
-Models are \texttt{gpt-4o-mini-2024-07-18} and \texttt{gpt-3.5-turbo-0125}; both returned their requested snapshot IDs. The assignment permits accessible models and primarily evaluates GPT-4o mini. Llama3 is not evaluated here, so this is a reproduction with a disclosed model substitution, not an exact repetition of both original models.
+\paragraph{Dynamic Weighted A*의 구현 가정.}
+논문에는 초기 가중치 2와 감쇠율 0.99가 제시되어 있지만 저장소에 해당 구현이 없다. 목표가 아닌 노드를 꺼낼 때마다 가중치를 0.99배로 줄이되 하한을 1로 두고 OPEN을 다시 정렬했다. 탐색 횟수, 저장량, 길이는 각각 59.27\%, 78.52\%, 100.24\%였다. 논문의 60.91\%, 78.53\%, 100.24\%와 비슷하지만 이것만으로 구현까지 같다고 판단하지 않는다.
 
-We load the original Few-shot (five examples), CoT (three), and RePE (three) templates unchanged. RePE is a single prompted generation, not an external iterative feedback loop. Each complete template is sent as one user message to Chat Completions, with temperature 0 and a 1,000-token output limit. The released GPT wrapper instead uses the legacy instruct Completion API and a newline stop. We remove that stop to permit multiline reasoning; this is a material API/termination difference. We do not request JSON-constrained output, repair coordinates, or regenerate poor paths.
+\section{실험 설정과 평가 지표}
+모델은 \texttt{gpt-4o-mini-2024-07-18}과 \texttt{gpt-3.5-turbo-0125}이다. 과제에서 접근 가능한 LLM을 허용하고 GPT-4o mini를 주 평가 모델로 지정했으므로 이를 포함했다. Llama3는 실행하지 않았으며 GPT-3.5 역시 원 실험과 동일한 버전이라고 주장하지 않는다. 원 코드의 Llama3는 Meta-Llama-3-8B-Instruct를 bfloat16으로 사용하고 전용 프롬프트와 8,000토큰 생성 상한을 적용한다. 이 조건을 추가해야 원 논문의 두 모델을 모두 다룰 수 있다. GPT-4o mini 결과를 Llama3의 재현 결과로 해석하지 않는다.
 
-The 30-query pilot selects pairs 0--2 in maps 0,10,\ldots,90. Its 180 responses are included in the 6,000 total because settings remain unchanged. Each response is shared between LLM-only and LLM-A* evaluation. Transport failures are bounded and recorded separately from poor generations. All 6,000 requests succeeded at the API level; 229 ended at the token limit. A successful HTTP request is not equivalent to a valid generated path. Generations, request settings, response model IDs, token usage, request IDs, timestamps, file hashes and code hashes are retained. No API key is included in the artifact.
+원본 Few-shot, CoT, RePE 프롬프트를 그대로 사용했다. 예시는 각각 5개, 3개, 3개이다. RePE는 한 번의 프롬프트에서 경로 평가를 요구하며 별도의 반복 피드백 루프를 만들지 않았다. 전체 프롬프트를 Chat Completions의 사용자 메시지 하나로 전달하고 temperature는 0, 출력 상한은 1,000토큰으로 설정했다. 원 코드의 instruct Completion API와 줄바꿈 종료 조건은 그대로 쓰지 않았다. 여러 줄의 응답을 받도록 종료 조건을 제거했으며 이 차이를 결과 비교 시 고려한다.
 
-\subsection{Metrics and denominators}
-For a metric $m$, we compute the percentage
+파일럿은 맵 번호 0,10,$\ldots$,90의 앞 세 문제씩, 총 30문제로 진행했다. 생성 설정이 바뀌지 않아 파일럿의 180개 응답도 본 실험 6,000개에 포함했다. 한 응답을 LLM-only와 LLM-A* 평가에 함께 사용했다. 경로가 잘못 나왔다는 이유로 다시 요청하거나 좌표를 보정하지 않았다. API 요청 6,000건은 모두 응답을 받았으며, 그중 229건은 토큰 상한에서 종료되었다. API 호출 성공과 유효한 경로 생성은 구분했다. 요청과 응답 원문, 모델 ID, 토큰 수, 종료 사유, 시각과 파일 해시를 저장했다. 인증 정보는 제출물에서 제외했다.
+
+\subsection{비율의 계산과 성공 기준}
+각 문제의 측정값을 같은 문제에서 일반 A*의 값으로 나눈 뒤 기하평균을 계산했다. 지표 $m$의 보고 값은 다음과 같다.
 \begin{equation}
 100\exp\left(\frac{1}{N}\sum_{i=1}^{N}\log\frac{m_i}{m_i^{A*}}\right).
 \end{equation}
-Lower is better; 44.59\% usage means a 55.41\% reduction. Operation and storage are code counters, not CPU instruction counts or bytes. A valid route must connect the specified endpoints, stay inside the boundary and avoid every obstacle; search routes must also use the eight legal moves.
+탐색 횟수, 저장량과 길이는 낮을수록 좋다. 예를 들어 40\%는 이 집계 방식에서 기준의 40\%를 사용했다는 뜻이며 전체 실행 시간이 40\%가 되었다는 뜻은 아니다. 탐색 횟수는 큐에서 꺼낸 횟수이지 CPU 명령어 수가 아니고, 저장량도 메모리 바이트 수가 아니다.
 
-LLM-only evaluates the raw parsed polyline without search-based repair. Operation/storage are undefined for this method. The paper does not fully specify treatment of failed paths in length aggregation. We report length conditional on validity with its explicit sample count. Validity always uses all 1,000 queries. A continuous polyline can be shorter than an eight-connected grid optimum, so such values do not imply a superior grid-optimal route. Paired comparisons use common successes and report their sample counts; failed runs remain in reliability statistics. In this run, no query is valid under all six LLM-only conditions, so a six-way common-success length comparison is undefined.
+유효 경로는 지정된 출발점과 목적지를 연결하고 경계 안에 있으며 장애물과 충돌하지 않는 경로이다. 탐색 경로에는 8방향 이동 조건도 검사했다. 성공률의 분모는 항상 1,000이다.
+
+LLM-only는 출력 좌표를 연결한 선분 경로를 그대로 평가했다. 탐색으로 수리하지 않았으므로 탐색 횟수와 저장량은 보고하지 않는다. 논문은 실패 경로의 길이 집계를 충분히 설명하지 않는다. 이번에는 유효 경로의 길이만 집계하고 표본 수를 표시했다. 서로 다른 성공 부분집합의 길이를 공정한 전체 성능 비교로 해석해서는 안 된다. 여섯 LLM-only 조건에서 모두 성공한 공통 문제는 없었다. 연속 선분의 길이는 8방향 격자의 최단 길이보다 짧을 수도 있으므로 두 이동 모델의 최적성을 혼동하지 않는다.
 
 \begin{table*}[t]
 \centering\small
 \begin{tabular}{lllrrrrr}
 \toprule
-Method & Model & Prompt & Op.\% & Storage\% & Length\% & Valid\% & Length $N$\\
+방법 & 모델 & 프롬프트 & 탐색(\%) & 저장(\%) & 길이(\%) & 유효(\%) & 길이 $N$\\
 \midrule
 A* & -- & -- & 100.00 & 100.00 & 100.00 & 100.00 & 1000 \\
 Dynamic WA* & -- & -- & 59.27 & 78.52 & 100.24 & 100.00 & 1000 \\
@@ -73,36 +85,38 @@ LLM-A* & G & CoT & 55.96 & 74.34 & 102.80 & 100.00 & 1000 \\
 LLM-A* & G & RePE & 72.49 & 86.55 & 102.39 & 100.00 & 1000 \\
 \bottomrule
 \end{tabular}
-\caption{Measured reproduction of the Table 1 structure; every row has 1,000 attempted queries. M=GPT-4o mini snapshot 2024-07-18; G=GPT-3.5 Turbo 0125. Missing metrics are undefined, not zero. Length uses valid paths only; original paper values are separately transcribed in Appendix~\ref{app:paper}.}
+\caption{Table 1의 14개 조건에 대한 재현 결과. 각 행은 1,000회 시도했다. M은 GPT-4o mini, G는 GPT-3.5 Turbo이다. 길이는 유효 경로에 한해서 집계했다. --는 0이 아니라 정의하지 않은 지표이다. 원 논문의 수치는 부록에 별도로 표시했다.}
 \label{tab:reproduction}
 \end{table*}
 
-\section{Results and discrepancy analysis}
-Table~\ref{tab:reproduction} is generated from saved case-level records. Across both models and three prompts, LLM-A* uses between 40.41\% and 72.49\% of A* operations. GPT-3.5 Few-shot yields 40.41\% operations, 61.34\% storage and 102.26\% length. The paper's GPT-3.5 Few-shot hybrid values are 57.39\% operations, 74.96\% storage, 102.44\% length and 100\% validity. Our differences can reflect snapshot/API changes, output termination, parser behavior and undocumented experimental details. We do not identify one cause without a controlled experiment.
+\section{재현 결과와 논문과의 차이}
+표~\ref{tab:reproduction}은 문제별 저장 기록에서 생성했다. 여섯 LLM-A* 조건의 탐색 횟수는 일반 A*의 40.41\%에서 72.49\% 사이였다. GPT-3.5 Few-shot에서는 탐색 횟수 40.41\%, 저장량 61.34\%, 길이 102.26\%를 기록했다. 원 논문의 GPT-3.5 Few-shot LLM-A*는 탐색 횟수 57.39\%, 저장량 74.96\%, 길이 102.44\%, 유효 경로 100\%였다. 수치는 다르지만 일반 A*보다 탐색을 줄이고 경로가 조금 길어지는 경향은 같았다. 모델 버전, API와 종료 조건, 파싱 및 평가 규칙의 차이가 영향을 줄 수 있으나 어느 요인이 얼마만큼 영향을 주었는지는 분리 실험을 하지 않아 알 수 없다.
 
-The strict two-coordinate parser flags 32 schema-invalid responses and 382 responses without a matching list. LLM-only validity ranges from 5.60\% to 12.10\%. In contrast, hybrid search validity is 100\% in this dataset even when its model output is not a valid route. A missing coordinate list falls back to start/goal in the released code, making $T=G$ and therefore $f=g+2h_G$. This is different from ordinary A*. Unevaluable list expressions can cause upstream failures. Conversely, triples are silently interpreted using their first two values, even when the model has echoed an obstacle list. We preserve that behavior in the hybrid reproduction and separately flag the schema violation; LLM-only and V-Gate require genuine two-coordinate points. This distinction matters when interpreting the paper's reported 100\% validity.
+두 숫자의 좌표를 요구하는 파서에서는 32개 응답의 좌표 형식이 맞지 않았고, 382개에서는 읽을 수 있는 목록을 찾지 못했다. LLM-only의 유효 경로 비율은 5.60\%에서 12.10\%였다. 반면 LLM-A*는 이 데이터에서 모두 유효한 경로를 찾았다. 원본은 좌표 목록이 없으면 출발점과 목적지를 대신 사용한다. 이때 $T=G$이므로 점수는 $g+2h_G$이다. 일반 A*로 돌아가는 것이 아니다. 숫자가 세 개 이상인 항목은 앞의 두 숫자를 사용하므로 출력 마지막에 반복된 장애물 목록도 waypoint로 해석될 수 있다. 재현에서는 이 동작을 유지하되 오류 여부를 따로 기록했다. LLM-only와 개선안은 두 숫자의 좌표를 요구한다. LLM-A*의 성공률 100\%가 LLM 출력의 정확도 100\%를 뜻하지 않는 이유이다.
 
-\subsection{Does the LLM explain the reduction?}
-We compare against the same search engine with $T$ fixed at $G$, requiring no LLM call. It achieves 34.32\% operations, 56.23\% storage and 102.02\% length, with 100\% validity. All six hybrid conditions have larger aggregate operation ratios than this no-LLM control. This does not imply the control wins on every individual query. Thus the reduction relative to A* alone does not isolate the contribution of language-model waypoints. A useful claim requires a stronger weighted-search control. This observation applies to the tested implementation and data, not every possible LLM-guided planner.
+\subsection{LLM 없는 대조군이 필요한 이유}
+LLM의 기여를 따로 확인하려고 같은 탐색 코드에서 $T$를 $G$로 고정했다. LLM을 호출하지 않으며 점수는 $g+2h_G$이다. 탐색 횟수 34.32\%, 저장량 56.23\%, 길이 102.02\%, 유효 경로 100\%를 기록했다. 여섯 LLM-A* 조건 모두 이 대조군보다 집계 탐색 횟수가 많았다. 다만 모든 개별 문제에서 대조군이 이겼다는 뜻은 아니다. 일반 A*보다 탐색을 줄였다는 사실만으로 그 효과를 LLM 안내의 기여라고 단정하기 어렵다.
 
-\section{Proposed method: validity-gated guidance}
-The pilot exposed collision-prone polylines and coordinate-schema violations. We propose V-Gate: accept the original LLM-A* guidance only when the complete suggested polyline has correct endpoints, stays in bounds, avoids obstacles, and uses integer coordinates. Otherwise use the same-engine $g+2h_G$ fallback. The rule is fixed for every map and does not use observed per-map performance. It introduces no new model requests or result-dependent retries.
+이 대조군은 논문 Table 1의 Dynamic Weighted A*와 다르다. Dynamic Weighted A*는 가중치가 줄어들지만 고정 $g+2h$는 끝까지 2를 유지한다. 이번 결과는 논문에 없던 비교 조건에서 확인한 추가 관측이다. 잘못된 waypoint가 불필요한 탐색을 유도할 수 있지만 이것만으로 전체 차이의 원인을 확정하지 않는다. 고정 가중치도 최단 경로를 보장하지 않으며 이번 결과를 모든 맵과 LLM 안내 방식에 일반화할 수 없다.
+
+\section{개선안: 유효성 검사 후 안내 선택}
+파일럿에서 충돌하는 선분 경로와 잘못된 좌표 형식이 관찰되었다. 이를 바탕으로 V-Gate를 구현했다. 생성 경로의 출발점과 목적지가 맞고 경계와 충돌 검사를 통과하며 모든 좌표가 정수일 때만 원래 LLM-A* 안내를 사용한다. 하나라도 실패하면 $g+2h_G$로 탐색한다. 모든 맵에 같은 규칙을 적용하며 개별 맵의 성능을 보고 규칙을 바꾸지 않았다.
 
 \begin{enumerate}
-\item Generate once using the selected original prompt and parse coordinates.
-\item Validate the full polyline and integer target coordinates.
-\item If accepted, run the original LLM-A* search; otherwise run target=goal search.
-\item Validate and report the returned route and all counters.
+\item 원본 프롬프트로 한 번 생성하고 좌표를 읽는다.
+\item 전체 선분 경로와 정수 좌표 조건을 검사한다.
+\item 통과하면 LLM-A*, 실패하면 $g+2h_G$로 탐색한다.
+\item 반환 경로의 유효성과 탐색 지표를 기록한다.
 \end{enumerate}
 
-This gate is a hypothesis about guidance reliability, not a guarantee of better guidance: feasible polylines may still be long, while collision-prone polylines can contain useful soft hints. We test it rather than assuming success. The gate also prevents malformed model output from crashing the proposed planner. No optimality or universal completeness theorem is claimed.
+유효한 경로도 길거나 탐색에 도움이 되지 않을 수 있다. 반대로 충돌하는 경로 안에도 유용한 중간 지점이 있을 수 있다. 그러므로 이 검사는 안내의 품질을 보장하는 규칙이 아니라 실험으로 확인할 가설이다. 잘못된 출력에 대한 예외 처리는 추가했지만 새로운 최적성 정리를 주장하지 않는다.
 
 \begin{table}[t]
 \centering\small
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{lrrrr}
 \toprule
-Method (M, Few-shot) & Op.\% & Store\% & Len.\% & Valid\%\\
+방법 & 탐색(\%) & 저장(\%) & 길이(\%) & 유효(\%)\\
 \midrule
 A* & 100.00 & 100.00 & 100.00 & 100.00 \\
 LLM-A* & 44.85 & 64.43 & 102.65 & 100.00 \\
@@ -112,51 +126,57 @@ A* fallback & 93.25 & 96.87 & 100.19 & 100.00 \\
 g+2h & 34.32 & 56.23 & 102.02 & 100.00 \\
 \bottomrule
 \end{tabular}
-\caption{Proposal and ablations on 1,000 queries. Schema-only removes spatial validation but retains a strict two-coordinate schema check; A* fallback replaces the weighted fallback.}
+\caption{GPT-4o mini Few-shot의 개선안 및 구성 요소 비교. Schema-only는 공간 검사를 제거한 조건이고 A* fallback은 실패 시 일반 A*를 쓰는 조건이다. 같은 1,000개 응답을 사용했다.}
 \label{tab:ablation}
 \end{table}
 
-For GPT-4o mini Few-shot, V-Gate accepts 56 of 1,000 responses, uses 34.63\% operations and 56.31\% storage, and produces 102.13\% relative length with 100.00\% validity. We resample maps with replacement (2,000 bootstrap replicates, seed 20261013), keeping their within-map pairs together. These intervals describe variation across this map sample; they are not uncertainty over repeated model generations. The paired V-Gate/LLM-A* operation ratio is 77.22\%, with a map-bootstrap 95\% interval [73.98, 80.43]\% over 1000 common-success cases. The no-LLM control is crucial: an improvement over LLM-A* can arise primarily by rejecting its guidance. V-Gate still pays for a model response before rejecting it and should not be advertised as cheaper than LLM-free search.
+GPT-4o mini Few-shot에서 V-Gate는 1,000개 안내 중 56개를 채택했다. 탐색 횟수 34.63\%, 저장량 56.31\%, 길이 102.13\%, 유효 경로 100.00\%를 기록했다. 맵 안의 문제들을 함께 유지하면서 맵 단위로 2,000번 복원 추출했다. 난수 시드는 20261013이다. 동일 문제에서 V-Gate/LLM-A* 탐색 횟수 비율의 기하평균은 77.22\%였고 맵 단위 bootstrap 95\% 구간은 [73.98, 80.43]\%였다. 비교 표본은 1000문제이다. 이는 맵 표본에 따른 변동이며 LLM을 반복 호출했을 때의 불확실성을 나타내지는 않는다.
+
+추가 확인에서 원 LLM-A*보다 탐색 횟수가 줄어든 문제는 530개, 같은 문제는 272개, 늘어난 문제는 198개였다. 파일럿에 사용한 맵 전체를 제외한 900문제에서도 탐색 횟수 비율은 77.66\%였다. 이는 저장된 공개 결과의 사후 부분집합 분석이며 새로 수집한 비공개 시험 결과는 아니다.
+
+V-Gate가 원 LLM-A*보다 좋아졌다는 점은 확인했지만 LLM 없는 대조군을 능가했다는 근거는 없다. 안내를 대부분 거부했으므로 개선의 상당 부분이 가중 탐색으로 전환한 데서 나왔을 가능성이 있다. 구성 요소 실험에서도 공간 검사를 제거하면 원 LLM-A*와 비슷해지고, 실패 시 일반 A*를 쓰면 탐색량이 크게 증가했다. 거부할 응답도 먼저 생성하므로 API 비용은 없어지지 않는다.
 
 \begin{figure*}[t]
 \centering\includegraphics[width=\textwidth]{figures/comparison.png}
-\caption{Operation and length ratios for both models and all prompts. The dashed line is the LLM-free $g+2h$ control. Conditional length/operation sample sizes are in the machine-readable tables.}
+\caption{두 모델과 세 프롬프트에서 LLM-A*와 V-Gate를 비교한 결과. 점선은 LLM 없는 고정 $g+2h$이다. M과 G는 표~\ref{tab:reproduction}과 같은 모델이다.}
 \end{figure*}
 
-\section{New maps, costs and case analysis}
-We generate ten new maps with seed 20261013, four horizontal and four vertical barriers, and three reachable pairs per map. Sizes alternate among $32\times22$, $52\times32$, and $72\times42$. Reachability and baseline length are checked using Dijkstra. The same input adapter and Few-shot template run without map-specific edits; GPT-4o mini produces 30 new responses. LLM-A* and V-Gate both succeed on 30/30 queries. Their operation ratios are 42.12\% and 33.39\%, respectively; the LLM-free control uses 30.51\%. LLM-only succeeds on 9/30. This small smoke evaluation checks portability, not broad generalization. Original prompts omit explicit boundary dimensions, a limitation for varying map sizes.
+\section{새 맵, 비용 및 개별 사례}
+난수 시드 20261013으로 새 맵 10개를 만들고 각 맵에서 도달 가능한 세 문제를 선택했다. 수평ㆍ수직 장애물은 각각 네 개이며 크기는 $32\times22$, $52\times32$, $72\times42$를 번갈아 적용했다. Dijkstra로 도달 가능성과 기준 길이를 확인한 뒤 GPT-4o mini Few-shot으로 30개 응답을 새로 받았다. LLM-A*와 V-Gate는 모두 30문제에 성공했으며 탐색 횟수 비율은 각각 42.12\%, 33.39\%였다. LLM 없는 대조군은 30.51\%였고 LLM-only는 9/30문제에 성공했다. 새 입력에서 실행되는지 확인하는 소규모 검사이며 숨겨진 평가 환경 전체를 대표하지 않는다. 원본 프롬프트에는 경계 크기가 직접 포함되지 않아 크기가 다른 맵에서 한계가 있을 수 있다.
 
-The main experiment consumed 4,730,480 input tokens and 2,031,098 output tokens, with an estimated standard API cost of USD 3.104. Mean per-request latencies were GPT-3.5 1.81 seconds, GPT-4o mini 4.85 seconds. Estimates use the published standard per-token rates at the time of writing \citep{openai_mini,openai_gpt35}; they are not account invoices. Development access probes and the natural-language adapter smoke test are recorded separately and excluded from the principal 6,000-response usage total. Latency includes service/network delay; cached search replay excludes it. CPU timing in this implementation is not a benchmark of the unmodified plotting-heavy upstream program.
+본 실험은 입력 4,730,480토큰과 출력 2,031,098토큰을 사용했다. 표준 요금 추산은 미화 3.104달러이다. 평균 요청 지연은 GPT-3.5 1.81초, GPT-4o mini 4.85초였다. 비용은 모델 문서의 표준 토큰 요금으로 추산했으며 실제 청구액은 아니다\citep{openai_mini,openai_gpt35}. 모델 접근 확인, 자연어 입력 확인과 새 맵 30회는 본 실험 비용에서 제외했다. 요청 지연에는 네트워크와 서비스 대기가 포함된다. 저장 응답으로 탐색만 다시 실행하는 시간과 처음부터 LLM을 호출하는 시간을 구분했다. 최적화한 실행기의 CPU 시간을 원본 프로그램과의 속도 개선 근거로 사용하지 않았다.
 
-Exact prompt-example overlaps were Few-shot: 5, CoT: 3, RePE: 3. We retain the full dataset for the primary table and supply separate overlap-excluded aggregates; these are not held-out data. Figure~\ref{fig:cases} uses deterministic selections among GPT-4o mini Few-shot joint successes: median and maximum operation ratio relative to $g+2h$, with case ID as tie-breaker. These are illustrative cases, not substitutes for the full distribution. Original LLM outputs, targets and actual paths are saved so a waypoint need not be mistaken for a mandatory visited vertex.
+프롬프트 예시와 문제의 모든 입력 필드가 일치하는 경우는 Few-shot 5개, CoT 3개, RePE 3개였다. 주 표는 전체 데이터를 유지하고 이 문제들을 제외한 집계도 별도로 저장했다. 예시와 겹치는 공개 데이터를 독립 시험 데이터라고 부르지 않았다. 그림~\ref{fig:cases}에는 GPT-4o mini Few-shot에서 LLM-A*와 $g+2h$의 탐색 횟수 비율이 중앙값인 사례와 가장 큰 사례를 표시했다. 동률은 문제 ID 순으로 정했다. 전체 성능은 모든 문제로 계산했으며 두 사례는 설명용이다. 출력 원문과 실제 경로를 저장하여 waypoint와 실제 방문한 좌표를 구분할 수 있게 했다.
 
 \begin{figure*}[t]
 \centering\includegraphics[width=\textwidth]{figures/cases.png}
-\caption{Selected original LLM-A* routes (blue), generated waypoint polylines (orange, dashed), and LLM-free control routes (green). Gray points are popped grid states. Case IDs permit replay from the saved records.}
+\caption{실제 LLM-A* 경로, 생성된 waypoint 선분과 LLM 없는 대조군의 경로. 회색 점은 큐에서 꺼낸 격자 상태이다. 문제 ID로 저장 기록을 다시 확인할 수 있다.}
 \label{fig:cases}
 \end{figure*}
 
-\section{Limitations and reproducibility}
-We use one generation per model/prompt/query; temperature zero does not establish deterministic outputs across repeated service calls. The second original model, Llama3, is absent. The DWA interpretation, endpoint geometry, legacy parser, 1,000-token limit and conditional length denominator all limit numerical comparability. The proposal was motivated using a public-data pilot and is not an independently tuned, held-out benchmark result. The new-map set is small. We have not run the paper's ten-scale scalability experiment, which is separate from the assignment's Table 1 target.
+\section{한계와 재현 방법}
+모델ㆍ프롬프트ㆍ문제마다 생성은 한 번씩이다. temperature 0도 반복 응답이 항상 같음을 보장하지 않는다. 원 논문의 Llama3가 빠졌으며 Dynamic Weighted A*의 해석, 파서, 출력 상한과 실패 경로의 길이 집계도 수치 비교의 한계이다. V-Gate는 공개 데이터의 파일럿을 바탕으로 정했으므로 독립된 비공개 시험 결과로 볼 수 없다. 새 맵은 표본이 작고 장애물 유형이 제한되어 있다. 숨겨진 환경의 점수나 다른 팀과의 순위는 이번 결과로 알 수 없다.
 
-The code package provides \texttt{requirements.txt}, a step-by-step README, unchanged upstream sources, generation/evaluation commands, cached responses and per-case records. Models are configurable at runtime for the TA. Structured and natural-language inputs are supported; the latter adds a parsing model call and is not mixed into the Table 1 experiment. Source provenance and implementation differences are documented in \texttt{reproduction/AUDIT.md}. Users can replay search and regenerate tables without credentials.
+코드에는 의존성 목록, README 실행 안내, 수정하지 않은 원본, 응답 원문과 문제별 결과를 포함한다. \texttt{python -m reproduction.verify}로 원본 대조 검사를 실행할 수 있다. 저장 응답으로 표를 재계산할 때는 API 키가 필요 없다. 모델은 실행 시 지정한다. 원본 형식의 사전 입력과 자연어 입력을 지원하되 자연어를 사전으로 바꾸는 추가 호출은 Table 1 실험에 섞지 않았다. 출처와 구현 차이는 \texttt{reproduction/AUDIT.md}에 기록했다.
 
-\section{AI assistance and submission status}
-Codex assisted with implementation, checks, experiment orchestration and this draft. Numerical claims come from stored experiments; assistance is not evidence that the student's independent understanding or contribution has been assessed. The student must review the explanation and factual attribution before team submission. This is the independent \texttt{gm} reproduction draft; team authorship/consolidation and individual contribution reports are separate. Individual reports must remain private as required by the assignment. No peer evaluation or response has yet been performed.
+\section{AI 도구 사용 범위}
+Codex를 코드 작성과 검증, 실험 실행, 결과 정리 및 보고서 초안 작성에 사용했다. 수치는 저장된 실제 실험 기록에서 가져왔다. 이 문서는 학생의 최종 검토가 필요한 개인 실험 초안이며 AI의 설명을 학생이 직접 확인한 것으로 간주하지 않는다. 팀 최종본에서는 실제 수행 내용과 이해한 해석을 확인하고 저자 정보를 반영해야 한다.
 
+\noindent\begin{minipage}{\columnwidth}
 \begin{thebibliography}{3}
 \bibitem[Meng et al.(2025)]{meng2025} Silin Meng, Yiwei Wang, Cheng-Fu Yang, Nanyun Peng, and Kai-Wei Chang. 2025. \emph{LLM-A*: Large Language Model Enhanced Incremental Heuristic Search on Path Planning}. arXiv:2407.02511v2. Code: \url{https://github.com/SilinMeng0510/llm-astar}, commit \texttt{9414ed8}.
-\bibitem[OpenAI(2026a)]{openai_mini} OpenAI. 2026a. GPT-4o mini model documentation. \url{https://developers.openai.com/api/docs/models/gpt-4o-mini}. Accessed 13 October 2026.
-\bibitem[OpenAI(2026b)]{openai_gpt35} OpenAI. 2026b. GPT-3.5 Turbo model documentation. \url{https://developers.openai.com/api/docs/models/gpt-3.5-turbo}. Accessed 13 October 2026.
+\bibitem[OpenAI(2026a)]{openai_mini} OpenAI. 2026a. GPT-4o mini model documentation. \url{https://developers.openai.com/api/docs/models/gpt-4o-mini}. 확인일: 2026년 10월 13일.
+\bibitem[OpenAI(2026b)]{openai_gpt35} OpenAI. 2026b. GPT-3.5 Turbo model documentation. \url{https://developers.openai.com/api/docs/models/gpt-3.5-turbo}. 확인일: 2026년 10월 13일.
 \end{thebibliography}
+\end{minipage}
 
 \appendix
-\section{Original reference values}\label{app:paper}
 \begin{table*}[t]
+\section{원 논문 Table 1의 참고 수치}\label{app:paper}
 \centering\small
 \begin{tabular}{lllrrrr}
 \toprule
-Method & Original model & Prompt & Op.\% & Storage\% & Length\% & Valid\%\\
+방법 & 원 모델 & 프롬프트 & 탐색(\%) & 저장(\%) & 길이(\%) & 유효(\%)\\
 \midrule
 A* & - & - & 100.00 & 100.00 & 100.00 & 100.00 \\
 Dynamic WA* & - & - & 60.91 & 78.53 & 100.24 & 100.00 \\
@@ -174,6 +194,6 @@ LLM-A* & Llama3 & CoT & 47.60 & 66.27 & 102.46 & 100.00 \\
 LLM-A* & Llama3 & RePE & 64.08 & 80.19 & 102.54 & 100.00 \\
 \bottomrule
 \end{tabular}
-\caption{Reference values transcribed from Table 1 of \citet{meng2025}, not measurements from our run. GPT-4o mini has no corresponding original-paper row. Original LLM-only length-denominator details are not fully specified.}
+\caption{원 논문 Table 1에서 옮긴 참고 수치이며 이번 실험 결과가 아니다. GPT-4o mini에 대응하는 원 논문 행은 없다. 원 논문의 LLM-only 길이 집계 분모는 충분히 명시되어 있지 않다.}
 \end{table*}
 \end{document}

@@ -8,6 +8,7 @@ from pathlib import Path
 from .core import Geometry, parse_output, search
 from .experiment import ROOT, MODELS, PROMPTS, PROMPT_FILE, cases, records
 from .summarize import aggregate
+from .report_ko import localized_fields
 
 
 def main():
@@ -80,11 +81,12 @@ def main():
     (out/'costs.json').write_text(json.dumps(dict(models=costs,total_estimated_usd=total_cost,
           sources=['https://developers.openai.com/api/docs/models/gpt-4o-mini','https://developers.openai.com/api/docs/models/gpt-3.5-turbo'],
           rates_checked='2026-10-13',scope='6000 primary requests only; excludes access probes, natural-language smoke, 30 new-map requests'),indent=2),encoding='utf-8')
-    plt.rcParams.update({'font.size':10,'axes.spines.top':False,'axes.spines.right':False,'figure.facecolor':'white'})
+    # The Korean report uses a system Korean font; figures retain model/prompt names.
+    plt.rcParams.update({'font.family':'Malgun Gothic','font.size':10,'axes.spines.top':False,'axes.spines.right':False,'figure.facecolor':'white','axes.unicode_minus':False})
     fig,axes=plt.subplots(1,2,figsize=(12,4.1),layout='constrained')
     labels=[('M' if m==model else 'G')+' / '+styles[p] for m in MODELS for p in PROMPTS]
     x=np.arange(6)
-    for ax,metric,title in zip(axes,['operation','length'],['Operations / A* (%)','Path length / A* (%)']):
+    for ax,metric,title in zip(axes,['operation','length'],['A* 대비 탐색 횟수 (%)','A* 대비 경로 길이 (%)']):
         a=[mainrows[('llm_astar',m,p)][metric+'_percent'] for m in MODELS for p in PROMPTS]
         b=[proprows[('validated',m,p)][metric+'_percent'] for m in MODELS for p in PROMPTS]
         if metric=='operation':
@@ -93,7 +95,7 @@ def main():
         else:
             ax.scatter(x-.12,a,label='LLM-A*',color='#2364aa',s=55,zorder=3)
             ax.scatter(x+.12,b,label='V-Gate',color='#ec9a29',s=55,zorder=3)
-        ax.axhline(control[metric+'_percent'],color='#23794f',ls='--',label='LLM-free g+2h')
+        ax.axhline(control[metric+'_percent'],color='#23794f',ls='--',label='LLM 없는 g+2h')
         ax.set_xticks(x,labels,rotation=28,ha='right');ax.set_title(title)
         ax.grid(axis='y',alpha=.15);ax.set_axisbelow(True)
         if metric=='length': ax.set_ylim(99.5,103.5)
@@ -105,7 +107,7 @@ def main():
     fig,axes=plt.subplots(1,2,figsize=(12,4.1),layout='constrained')
     genlookup={(g['case_id'],g['model'],g['prompt_style']):g for g in generations}
     traces=[]
-    for ax,r,label in zip(axes,choices,['Median operation ratio','Largest operation ratio']):
+    for ax,r,label in zip(axes,choices,['탐색 횟수 비율 중앙값 사례','탐색 횟수 비율 최대 사례']):
         q=query_by_id[r['case_id']]['query'];geo=Geometry(q)
         raw=genlookup[(r['case_id'],model,'standard')]['response']['choices'][0]['message'].get('content') or ''
         traced=search(q,geo,'llm_astar',raw,trace=True)
@@ -115,12 +117,12 @@ def main():
         for y,a,b in geo.horizontal:ax.plot([a,b],[y,y],color='#1b263b',lw=2)
         for x,a,b in geo.vertical:ax.plot([x,x],[a,b],color='#1b263b',lw=2)
         nodes,_=parse_output(raw,upstream=True)
-        if nodes:ax.plot(*zip(*nodes),'o--',color='#d78521',ms=3,lw=1,label='Generated points')
-        ax.plot(*zip(*r['path']),color='#2364aa',lw=2,label='LLM-A* route')
-        ax.plot(*zip(*control_cases[r['case_id']]['path']),color='#23794f',lw=1.5,ls=':',label='g+2h route')
+        if nodes:ax.plot(*zip(*nodes),'o--',color='#d78521',ms=3,lw=1,label='생성한 waypoint')
+        ax.plot(*zip(*r['path']),color='#2364aa',lw=2,label='LLM-A* 경로')
+        ax.plot(*zip(*control_cases[r['case_id']]['path']),color='#23794f',lw=1.5,ls=':',label='g+2h 경로')
         ax.scatter(*q['start'],marker='s',s=55,color='black',zorder=5)
         ax.scatter(*q['goal'],marker='*',s=100,color='#aa2222',zorder=5)
-        ax.set(xlim=(geo.x0,geo.x1),ylim=(geo.y0,geo.y1),aspect='equal',title=f"{label}: {r['case_id']}\nLLM-A* / g+2h ops = {r['operation']/control_cases[r['case_id']]['operation']:.2f}")
+        ax.set(xlim=(geo.x0,geo.x1),ylim=(geo.y0,geo.y1),aspect='equal',title=f"{label}: {r['case_id']}\nLLM-A* / g+2h 탐색 횟수 = {r['operation']/control_cases[r['case_id']]['operation']:.2f}")
     axes[0].legend(loc='lower left',fontsize=8)
     fig.savefig(figures/'cases.png',dpi=200);plt.close(fig)
     (out/'case_traces.json').write_text(json.dumps(traces,indent=2),encoding='utf-8')
@@ -143,6 +145,14 @@ def main():
       COST_TEXT=f"The main experiment consumed {sum(u['prompt_tokens'] for u in costs.values()):,} input tokens and {sum(u['completion_tokens'] for u in costs.values()):,} output tokens, with an estimated standard API cost of USD {total_cost:.3f}. Mean per-request latencies were "+', '.join(('GPT-4o mini' if m==model else 'GPT-3.5')+f" {u['mean_request_seconds']:.2f} seconds" for m,u in costs.items())+'.',
       OVERLAP_TEXT='Exact prompt-example overlaps were '+', '.join(f"{styles[p]}: {len(overlap[p])}" for p in PROMPTS)+'. We retain the full dataset for the primary table and supply separate overlap-excluded aggregates; these are not held-out data.',
       ORIGINAL='\n'.join(' & '.join([str(v) for v in r[:3]]+[fmt(v) for v in r[3:]])+r' \\' for r in json.loads((report/'paper_table1.json').read_text())['rows']))
+    replacements.update(localized_fields(rows,gpt,proposal,ci,nr,integrity,finish,schema_count,
+                                        schema,costs,total_cost,overlap,styles))
+    audit=json.loads((ROOT/'results/verification/performance_audit.json').read_text(encoding='utf-8'))
+    count=audit['against_original']['operation']
+    excluded=audit['excluding_pilot_maps']
+    replacements['PERFORMANCE_AUDIT']=(f"추가 확인에서 원 LLM-A*보다 탐색 횟수가 줄어든 문제는 {count['better']}개, 같은 문제는 {count['equal']}개, 늘어난 문제는 {count['worse']}개였다. "
+        f"파일럿에 사용한 맵 전체를 제외한 {excluded['n']}문제에서도 탐색 횟수 비율은 {pct(excluded['comparison']['operation']['ratio_percent'])}였다. "
+        "이는 저장된 공개 결과의 사후 부분집합 분석이며 새로 수집한 비공개 시험 결과는 아니다.")
     template=(report/'report_template.tex').read_text(encoding='utf-8')
     for key,value in replacements.items():template=template.replace('@@'+key+'@@',value)
     assert '@@' not in template

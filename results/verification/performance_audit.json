@@ -1,0 +1,194 @@
+{
+  "scope": "Post-hoc audit of saved records; no new generations or algorithm changes.",
+  "primary_model": "gpt-4o-mini-2024-07-18",
+  "prompt": "standard",
+  "n": 1000,
+  "against_original": {
+    "operation": {
+      "better": 530,
+      "equal": 272,
+      "worse": 198,
+      "n": 1000,
+      "maps": 100,
+      "ratio_percent": 77.2168625745229,
+      "ci95": [
+        73.97554481771891,
+        80.42957370075014
+      ],
+      "repetitions": 2000
+    },
+    "storage": {
+      "better": 529,
+      "equal": 296,
+      "worse": 175,
+      "n": 1000,
+      "maps": 100,
+      "ratio_percent": 87.39333269516165,
+      "ci95": [
+        85.52829087264573,
+        89.20963276156299
+      ],
+      "repetitions": 2000
+    },
+    "length": {
+      "better": 256,
+      "equal": 596,
+      "worse": 148,
+      "n": 1000,
+      "maps": 100,
+      "ratio_percent": 99.49422937596137,
+      "ci95": [
+        99.27757314812501,
+        99.71950779691765
+      ],
+      "repetitions": 2000
+    }
+  },
+  "against_goal_only": {
+    "operation": {
+      "better": 14,
+      "equal": 953,
+      "worse": 33,
+      "n": 1000,
+      "maps": 100,
+      "ratio_percent": 100.92408156795062,
+      "ci95": [
+        100.25738075635692,
+        101.6595919650416
+      ],
+      "repetitions": 2000
+    },
+    "storage": {
+      "better": 22,
+      "equal": 951,
+      "worse": 27,
+      "n": 1000,
+      "maps": 100,
+      "ratio_percent": 100.13842586607169,
+      "ci95": [
+        99.86718774093656,
+        100.42387765639096
+      ],
+      "repetitions": 2000
+    },
+    "length": {
+      "better": 11,
+      "equal": 969,
+      "worse": 20,
+      "n": 1000,
+      "maps": 100,
+      "ratio_percent": 100.10773439514668,
+      "ci95": [
+        100.02815169971436,
+        100.1908570378985
+      ],
+      "repetitions": 2000
+    }
+  },
+  "excluding_pilot_maps": {
+    "n": 900,
+    "comparison": {
+      "operation": {
+        "better": 482,
+        "equal": 241,
+        "worse": 177,
+        "n": 900,
+        "maps": 90,
+        "ratio_percent": 77.65690660185902,
+        "ci95": [
+          74.44632275286597,
+          80.85749885835195
+        ],
+        "repetitions": 2000
+      },
+      "storage": {
+        "better": 480,
+        "equal": 265,
+        "worse": 155,
+        "n": 900,
+        "maps": 90,
+        "ratio_percent": 87.67894787159604,
+        "ci95": [
+          85.75266625087188,
+          89.40892900330428
+        ],
+        "repetitions": 2000
+      },
+      "length": {
+        "better": 234,
+        "equal": 540,
+        "worse": 126,
+        "n": 900,
+        "maps": 90,
+        "ratio_percent": 99.47655045432705,
+        "ci95": [
+          99.23136413304665,
+          99.72220744826605
+        ],
+        "repetitions": 2000
+      }
+    },
+    "warning": "A retrospective subset, not a newly collected blind test."
+  },
+  "new_maps": {
+    "operation": {
+      "better": 12,
+      "equal": 13,
+      "worse": 5,
+      "n": 30,
+      "maps": 10,
+      "ratio_percent": 79.27970977201718,
+      "ci95": [
+        62.645533745756325,
+        96.38172182870632
+      ],
+      "repetitions": 2000
+    },
+    "storage": {
+      "better": 11,
+      "equal": 15,
+      "worse": 4,
+      "n": 30,
+      "maps": 10,
+      "ratio_percent": 90.8413349662759,
+      "ci95": [
+        82.4273490928541,
+        98.2506714039031
+      ],
+      "repetitions": 2000
+    },
+    "length": {
+      "better": 4,
+      "equal": 22,
+      "worse": 4,
+      "n": 30,
+      "maps": 10,
+      "ratio_percent": 99.96383685660524,
+      "ci95": [
+        99.13673629449025,
+        100.85013233902225
+      ],
+      "repetitions": 2000
+    }
+  },
+  "judgment": {
+    "released_search_fidelity": "Supported by upstream parity and independent path checks.",
+    "original_model_coverage": "Incomplete: Llama3 absent; model substitution disclosed.",
+    "public_performance": "V-Gate improves over original LLM-A*, not over the g+2h control.",
+    "hidden_score": "Unknown: hidden data and scoring weights unavailable.",
+    "next_evidence": "Freeze the method before a larger independent new-map evaluation."
+  },
+  "llama3": {
+    "model_id": "meta-llama/Meta-Llama-3-8B-Instruct",
+    "dtype": "bfloat16",
+    "source_max_new_tokens": 8000,
+    "source_do_sample": false,
+    "prompt_family": "llama_prompt, not gpt_prompt",
+    "measured": false,
+    "local_gpu": "Intel UHD Graphics 730; no CUDA device",
+    "local_ram_gib": 15.6,
+    "local_torch": "2.12.1+cpu",
+    "responsibility": "Teammate will run Llama3; user explicitly excluded it from this workspace task.",
+    "status": "Not run here; teammate results not yet received or merged."
+  }
+}

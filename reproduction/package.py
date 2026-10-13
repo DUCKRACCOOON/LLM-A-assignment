@@ -10,7 +10,9 @@ def main():
     destination=ROOT/'output/LLM_Astar_CodeFile.zip'
     destination.parent.mkdir(exist_ok=True)
     directories=['reproduction','source_code','report','results/main','results/generalization','results/verification','최신','review','materials']
-    files=[ROOT/n for n in ['README.md','requirements.txt','.env.example','UPSTREAM.md','LLM-Astar_Project_Plan.md']]
+    files=[ROOT/n for n in ['README.md','requirements.txt','.env.example','UPSTREAM.md','LLM-Astar_Project_Plan.md',
+                           'output/LLM_Astar_Report_KO.txt','output/ai_check/copyleaks_result.png',
+                           'output/ai_check/copyleaks_result.txt']]
     for directory in directories:
         files.extend(p for p in (ROOT/directory).rglob('*') if p.is_file())
     # Do not include development snapshots or compiled/cache/private files.
