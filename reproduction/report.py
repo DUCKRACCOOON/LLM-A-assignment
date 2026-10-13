@@ -82,7 +82,7 @@ def main():
           sources=['https://developers.openai.com/api/docs/models/gpt-4o-mini','https://developers.openai.com/api/docs/models/gpt-3.5-turbo'],
           rates_checked='2026-10-13',scope='6000 primary requests only; excludes access probes, natural-language smoke, 30 new-map requests'),indent=2),encoding='utf-8')
     # The Korean report uses a system Korean font; figures retain model/prompt names.
-    plt.rcParams.update({'font.family':'Malgun Gothic','font.size':10,'axes.spines.top':False,'axes.spines.right':False,'figure.facecolor':'white','axes.unicode_minus':False})
+    plt.rcParams.update({'font.family':['Times New Roman','Batang'],'font.size':10,'axes.spines.top':False,'axes.spines.right':False,'figure.facecolor':'white','axes.unicode_minus':False})
     fig,axes=plt.subplots(1,2,figsize=(12,4.1),layout='constrained')
     labels=[('M' if m==model else 'G')+' / '+styles[p] for m in MODELS for p in PROMPTS]
     x=np.arange(6)

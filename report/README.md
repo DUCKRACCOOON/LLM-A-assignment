@@ -20,8 +20,9 @@ python -m reproduction.report_text
 tectonic --outdir ../output/pdf LLM_Astar_Reproduction_Report.tex
 ```
 
-XeLaTeX 계열의 컴파일러, `kotex`, Windows 기본 글꼴 Times New Roman,
-Malgun Gothic, Consolas를 사용한다. 다른 OS에서는 설치된 한글 글꼴로
+XeLaTeX 계열의 컴파일러와 `kotex`를 사용한다. 논문 본문은 영문 Times New Roman과
+한글 바탕(Batang), 코드 표기는 Consolas를 사용하고 그림에도 Times New Roman과
+바탕을 적용했다. 바탕의 제목 굵기는 `AutoFakeBold=1.8`로 지정했다. 다른 OS에서는 설치된 한글 글꼴로
 `report_template.tex`의 글꼴 설정을 변경해야 한다. 이 설정은 실험 결과에 영향을 주지 않는다.
 
 지속되는 본문 수정은 `report_template.tex`, 수치와 연결되는 한국어 문장은
@@ -81,3 +82,8 @@ PDF 추출 과정에서 한글 띄어쓰기가 사라지는 문제를 피하려�
 본인이 설명할 수 있는 내용과 동의하는 해석으로 수정해야 한다. 사실이나 수치는 바꾸지
 말고, 실제로 확인한 판단과 남은 의문을 반영한다. 검사 수치를 낮추기 위한 반복 변환은
 하지 않았다. 이후 원고를 수정하면 이 기록은 수정 전 버전에 대한 결과로 남는다.
+
+이후 사용자의 요청으로 한글 글꼴을 바탕으로 바꾸고 영문 Times New Roman과
+맞췄다. 그림도 같은 계열로 갱신했다. 검사에 사용한 평문은 그대로임을 확인했으며
+AI 검사를 다시 실행하지 않았다. 검사 기록의 PDF·원고 해시는 글꼴 변경 전
+`1effcee` 커밋의 파일에 해당한다.
