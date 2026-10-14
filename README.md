@@ -1,109 +1,39 @@
-# LLM-A* assignment
+# LLM-A* 팀 공용 자료
 
-SWE3011, Fall 2026. 팀원 3명이 각각 전체 재현 후 제출 기반을 선택한다. `gm`은 사용자의 독립 재현이다.
+`main`은 팀 분담과 공통 참고 자료를 관리하는 공간이다. 개인별 재현 코드, 실행 결과, 보고서 초안과 작업 계획은 각자의 브랜치에서 관리한다.
 
-**2026-10-14 팀 분담:** [개선 방법 실험 분담표](최신/팀_개선방법_실험_분담.md)에 규민·준연·승민 각 6개를 배정했다. 규민·준연은 각각 승민 기실험 2개와 신규 4개, 승민은 기실험 6개를 담당한다. 최초 실험자와 최종 담당자를 구분한다. 이 `main`은 공통 문서용으로 `gm`에서 생성했으며, 아래 기존 코드·결과는 gm 기반 스냅샷이다. 팀 최종 제출 버전 선정과는 별개다.
+## 먼저 볼 문서
 
-**2026-10-13: 6,000개 실제 응답 수집과 Table 1의 14개 조건 ×1,000문제 평가를 완료했다.** V-Gate 개선안·ablation 18,000건, 새 맵 30문제, 원본 동등성·전체 경로·독립 Dijkstra 검증도 완료했다. API 전송 오류는 0건이다. 보고서는 제출 전 팀 정보와 설명을 검토할 초안이다.
+- [개선 방법 실험 분담](docs/팀_개선방법_실험_분담.md): 규민·준연·승민 각 6개, 기실험 인계와 최초 실험자 기록.
+- [공통 실험·결과 공유 기준](docs/공통_실험_기준.md): 비교 조건, 결과 기록과 자료 인계 기준.
+- [과제 안내서](<materials/SWE3011_41 Assignment Notice (1).pdf>)
+- [대상 논문](materials/인지개과제_논문.pdf)
+- [원본 연구 코드](source_code/README.md), [코드·자료 출처](UPSTREAM.md), [원본 MIT 라이선스](source_code/LICENSE)
 
-## 결과
+## 담당 요약
 
-- [한국어 결과·해석](최신/재현_실험_결과.md)
-- [V-Gate 이후 개선 방법 13가지 조사](최신/V-Gate_이후_개선_방법_조사.md): 2026-10-14 문헌 조사와 추천 조합. 새 실험을 진행하지 않은 제안 문서.
-- [전체 14행 표](results/main/table1.md), [CSV](results/main/table1.csv), [집계 JSON](results/main/summary.json)
-- [ACL 보고서 PDF](output/pdf/LLM_Astar_Reproduction_Report.pdf), [LaTeX](report/LLM_Astar_Reproduction_Report.tex)
-- [코드·응답·문서 ZIP](output/LLM_Astar_CodeFile.zip)
-- [실행 규약](reproduction/PROTOCOL.md), [구현 출처·검증·AI 지원 기록](reproduction/AUDIT.md)
+| 담당자 | 기실험 항목 | 신규 항목 | 총 담당 |
+| --- | ---: | ---: | ---: |
+| 규민 | 2 | 4 | 6 |
+| 준연 | 2 | 4 | 6 |
+| 승민 | 6 | 0 | 6 |
 
-GPT-4o mini Few-shot LLM-A*는 A* 대비 연산량 44.85%, 경로 길이 102.65%, 유효 경로 100%였다. V-Gate는 연산량 34.63%였지만 LLM 없는 g+2h도 34.32%였다. **LLM 안내가 단순 가중 탐색보다 유리하다는 결론은 얻지 못했다.** 감소의 원인을 구분하는 대조 분석을 보고서에 담았다.
+규민에게는 통로·우회 종류 안내와 Conformal, 준연에게는 CHOMP와 Fast Marching의 기실험 결과를 인계한다. 해당 항목의 최초 실험자는 승민으로 유지한다. 기실험 여부는 팀원이 전달한 상태이며 실제 코드·설정·결과 확인 상태는 별도로 기록한다.
 
-## 설치
+## 브랜치 역할
 
-Python 3.10 이상. 탐색·API 호출·집계는 표준 라이브러리만 사용한다. 원본 비교·그림 생성에는 아래 패키지가 필요하다. 실제 버전은 [환경 기록](results/verification/environment.json)에 있다. torch나 모델 가중치는 필요 없다.
+- `main`: 공통 문서, 과제 자료, 원본 연구 코드와 출처.
+- [gm](https://github.com/DUCKRACCOOON/LLM-A-assignment/tree/gm): 규민의 개인 구현·실험·분석 자료.
+- [sm](https://github.com/DUCKRACCOOON/LLM-A-assignment/tree/sm): 승민의 개인 구현·실험·분석 자료.
+- 준연의 작업 브랜치는 아직 이 문서에서 지정하지 않는다. 확인되면 링크를 추가한다.
 
-```bash
-python -m venv .venv
-# Windows PowerShell: .venv\Scripts\Activate.ps1
-# macOS/Linux: source .venv/bin/activate
-python -m pip install -r requirements.txt
-```
+개인 실험 결과는 브랜치·커밋·파일 링크로 공유한다. 팀이 제출 기반을 선정하기 전에는 개인 브랜치 전체를 공용 결과로 합치지 않는다. 분담표의 최종 담당과 최초 구현·실험 기여를 구분한다.
 
-캐시 재생에는 API 키가 필요 없다. 새 응답을 생성할 때만 환경변수 `OPENAI_API_KEY` 또는 로컬 `.env`에 설정한다. `.env.example`은 값 없는 예시다. 실제 키는 Git·ZIP에 포함하지 않는다.
+## 공용 폴더
 
-## 검증과 저장 응답 재생
+- `docs/`: 팀 분담과 공통 실험 기준.
+- `materials/`: 사용자가 제공한 과제 안내서와 논문.
+- `source_code/`: 과제에서 지정한 공식 연구 저장소의 원본 스냅샷. 팀의 개선 구현이 아니다.
+- `UPSTREAM.md`: 원본 저장소, 기준 커밋, 라이선스와 자료 출처.
 
-```bash
-python -m reproduction.summarize --output results/main
-python -m reproduction.verify
-python -m reproduction.verify_results
-```
-
-`verify`는 모델 패키지를 빈 모듈로 대체하고 고정 응답으로 원본 탐색·충돌 코드와 비교한다. `verify_results`는 6,000개 요청, 15,000개 평가 기록(A*/DWA/g+2h 포함), 모든 성공 경로, 전체 1,000개의 Dijkstra 최단거리, 실제 응답 62건의 원본 동등성을 검사한다.
-
-처음부터 재계산하려면 새 폴더에 원문 응답만 복사한다. PowerShell 예시:
-
-```powershell
-New-Item -ItemType Directory -Force results/replay
-Copy-Item results/main/generations.jsonl results/replay/generations.jsonl
-python -m reproduction.experiment evaluate --output results/replay
-python -m reproduction.summarize --output results/replay
-python -m reproduction.diagnostics --output results/replay
-```
-
-외부 패키지를 비활성화한 별도 Python에서도 15,000개 지표·경로가 모두 일치했다. [API 호출 0회 재생 검사](results/verification/clean_replay.json).
-
-## 새 응답 생성
-
-아래는 새 폴더에 실제 API 요청을 만드는 명령이다. 같은 폴더를 재사용하면 기록된 요청을 건너뛴다. 본 실험 결과 확인에는 다시 호출할 필요가 없다.
-
-```bash
-python -m reproduction.experiment generate --limit 30 --output results/new_run --workers 12
-python -m reproduction.experiment generate --output results/new_run --workers 24
-python -m reproduction.experiment evaluate --output results/new_run
-python -m reproduction.summarize --output results/new_run
-python -m reproduction.diagnostics --output results/new_run
-```
-
-기본 모델은 `gpt-4o-mini-2024-07-18`, `gpt-3.5-turbo-0125`다. 논문의 Llama3를 GPT-4o mini로 대체했다. 모델 변경은 `--models`와 새 폴더로 명시한다. 종료된 모델을 자동 대체하지 않는다. 원 프롬프트 세 가지, temperature=0, max_tokens=1000, 제한된 전송 재시도를 사용한다. [실행 규약](reproduction/PROTOCOL.md).
-
-## 과제 평가용 입력과 출력
-
-```python
-from reproduction.planners import AStar, LLMAStar, Proposed
-query = {
-    "start": [5, 5], "goal": [20, 20],
-    "range_x": [0, 51], "range_y": [0, 31],
-    "horizontal_barriers": [[10, 0, 25], [15, 30, 50]],
-    "vertical_barriers": [[25, 10, 22]],
-}
-baseline = AStar().searching(query, filepath="astar.png")
-original = LLMAStar(model="gpt-4o-mini", prompt="standard").searching(query, filepath="llm_astar.png")
-improved = Proposed(model="gpt-4o-mini", prompt="standard").searching(query, filepath="proposed.png")
-print(improved["operation"], improved["storage"], improved["length"])
-```
-
-원본 `searching(query, filepath=...)`, `operation/storage/length`, hybrid의 `llm_output`을 제공하고 `path/valid/error` 등을 추가한다. `filepath=None`이면 그림을 생략한다. 자연어 입력은 원 parsing prompt로 dict로 변환하므로 모델 호출이 추가된다. Table 1은 dict 입력이다. 별도 TA 진입점이 공지되면 이 클래스를 연결한다. 새 맵마다 수동 수정할 필요가 없다.
-
-## 추가 분석과 보고서
-
-```bash
-python -m reproduction.generalization             # 새 맵 저장 응답 재평가
-python -m reproduction.generalization --generate  # 응답이 없으면 최대 30회 생성
-python -m reproduction.report                     # 그림·LaTeX·한국어 설명 생성
-python -m reproduction.package                    # 코드 ZIP 생성
-```
-
-컴파일은 [보고서 README](report/README.md)를 참고한다. `seconds`는 명시된 API/탐색 단계 값이며 원본 전체 프로그램의 실행시간 비교가 아니다. 예시 중복 5/3/3문제 제외 결과, LLM-only 공통 성공 집합, 비용·지연, 맵 bootstrap은 `results/main`에 있다. LLM-only 여섯 조건의 공통 성공 사례는 0개여서 그 집합의 평균 길이를 계산하지 않았다.
-
-## 폴더와 출처
-
-- `materials/`: [안내서](<materials/SWE3011_41 Assignment Notice (1).pdf>), [논문](materials/인지개과제_논문.pdf)
-- `source_code/`: [공식 코드](https://github.com/SilinMeng0510/llm-astar)의 원본. [기준 커밋](UPSTREAM.md)과 [MIT 라이선스](source_code/LICENSE)
-- `review/`: [논문 리뷰](review/PAPER_REVIEW.md), [코드 리뷰](review/CODE_REVIEW.md), [waypoint 문답](review/WAYPOINT_QA.md)
-- `reproduction/`: 구현·실험·집계·검증·제안법
-- `results/main/`: 최종 응답/결과. `results/development/`는 수정 전 개발 기록이며 최종 표에 사용하지 않는다.
-- `results/generalization/`, `results/verification/`: 새 맵·검증 기록
-- `report/`, `output/`: ACL 초안·그림·PDF·코드 ZIP
-- `최신/`: 최신 설명과 [과제 지침 대응](최신/과제_지침_대응.md)
-
-논문·과제 문서의 권리는 각 권리자에게 있다. 원본 이식과 새 구현은 [AUDIT](reproduction/AUDIT.md)에 구분했다. 팀 최종 버전 선택, 팀명·저자·제출 파일명 반영, 사용자의 설명·문장 검토, 개인 기여 보고서, 실제 제출·동료평가·답변은 별도다. Codex의 지원을 기록했으며 AI 탐지 회피나 결과 조작을 하지 않는다. 개인 기여 보고서는 공유 저장소에 넣지 않는다.
+개인별 코드·로그·평가 결과·보고서·환경 파일은 이 공용 트리에 포함하지 않는다. 공통 문서가 필요하면 개인 파일 전체를 복사하기보다 필요한 내용을 검토해 별도 문서로 정리한다.
