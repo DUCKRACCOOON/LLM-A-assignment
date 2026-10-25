@@ -1,0 +1,100 @@
+{
+  "status": "passed",
+  "reference_cases": 2160,
+  "full_scan_selection_checks": 30860,
+  "independent_collision_checks": 34624,
+  "heuristic_checks": 75714,
+  "random_maps": 30,
+  "fixtures": 10,
+  "wrapped_conditions": [
+    "mha_dts_w200",
+    "mha_rr_w200",
+    "mha_ts_w200",
+    "mha_dts_nollm_w200",
+    "mha_wall_w200",
+    "mha_dts_w105"
+  ],
+  "aux_then_anchor_case": {
+    "path": [
+      "S",
+      "B",
+      "A",
+      "G"
+    ],
+    "goal_g": 12.0,
+    "operation": 6,
+    "storage": 4,
+    "unique_pops": 3,
+    "reexpansions": 1,
+    "infinite_g": 0,
+    "bound_factor": 4,
+    "anchor_key_at_goal": 12.0,
+    "goal_queue": 1,
+    "bound_limit": 48.0,
+    "search_pops": 6,
+    "reward_pops": 0,
+    "stale_pops": 2,
+    "heap_pushes": 10,
+    "peak_heap_entries": 5,
+    "successor_expansions": 4,
+    "anchor_fallbacks": 2,
+    "queue_expansions": [
+      2,
+      2
+    ],
+    "selection_audits": 5,
+    "bandit_choices": [
+      5
+    ],
+    "bandit_updates": [
+      0
+    ],
+    "bandit_rewards": [
+      0
+    ],
+    "bandit_alpha": [
+      1.0
+    ],
+    "bandit_beta": [
+      1.0
+    ],
+    "beta_samples": 0,
+    "bandit_rescales": 0,
+    "trace": [
+      {
+        "node": "S",
+        "g": 0.0,
+        "queue": 1,
+        "requested": 1,
+        "anchor_min": 0.0,
+        "selected_key": 0.0
+      },
+      {
+        "node": "A",
+        "g": 4.0,
+        "queue": 1,
+        "requested": 1,
+        "anchor_min": 1.0,
+        "selected_key": 4.0
+      },
+      {
+        "node": "B",
+        "g": 1.0,
+        "queue": 0,
+        "requested": 1,
+        "anchor_min": 1.0,
+        "selected_key": 1.0
+      },
+      {
+        "node": "A",
+        "g": 2.0,
+        "queue": 0,
+        "requested": 1,
+        "anchor_min": 2.0,
+        "selected_key": 2.0
+      }
+    ]
+  },
+  "scheduler_rescale_and_reward": "passed",
+  "seed_reproducibility_and_numeric_endpoints": "passed"
+}
