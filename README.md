@@ -6,6 +6,7 @@ SWE3011, Fall 2026. 팀원 3명이 각각 전체 재현 후 제출 기반을 선
 
 ## 결과
 
+- [규민 개선방법 실험 장부](experiments/README.md): **2026-10-25 K3 구현·검증 완료.** [K3 과정·결과·선정 메모](experiments/K3/REPORT.md). 공개 1,000문제에서 g+2h 대비 pop 48.74% 감소, 새 지도에서는 시간 증가도 확인했다.
 - [한국어 결과·해석](최신/재현_실험_결과.md)
 - [V-Gate 이후 개선 방법 13가지 조사](최신/V-Gate_이후_개선_방법_조사.md): 2026-10-14 문헌 조사와 추천 조합. 새 실험을 진행하지 않은 제안 문서.
 - [전체 14행 표](results/main/table1.md), [CSV](results/main/table1.csv), [집계 JSON](results/main/summary.json)

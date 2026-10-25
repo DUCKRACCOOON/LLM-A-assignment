@@ -118,7 +118,7 @@ def llm_only(query, geometry, text):
                 operation=None, storage=None, raw_waypoints=len(nodes))
 
 
-def search(query, geometry=None, method='astar', text='', trace=False):
+def search(query, geometry=None, method='astar', text='', trace=False, *, goal_heuristic=None):
     started = time.perf_counter()
     geometry = geometry or Geometry(query)
     start, goal = tuple(query['start']), tuple(query['goal'])
@@ -152,7 +152,10 @@ def search(query, geometry=None, method='astar', text='', trace=False):
 
     def h_goal(s):
         if s not in distances:
-            distances[s] = math.hypot(goal[0]-s[0], goal[1]-s[1])
+            # Optional injection for controlled experiments. All existing calls
+            # retain the original Euclidean heuristic and search semantics.
+            distances[s] = (math.hypot(goal[0]-s[0], goal[1]-s[1])
+                            if goal_heuristic is None else goal_heuristic(s))
         return distances[s]
 
     def priority(s):
