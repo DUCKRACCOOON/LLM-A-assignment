@@ -1,6 +1,8 @@
 # K3 — 벽을 반영한 기하학적 거리 하한
 
-규민 담당 K3, `gm` 브랜치, 2026-10-25. [후보 조사 2번](../../최신/V-Gate_이후_개선_방법_조사.md)의 단일 벽 완화 거리와 octile 거리의 최댓값을 구현했다. LLM 호출 없이 휴리스틱 자체의 효과를 검사하는 독립 실험이다. 원 논문 재현이나 최종 제출 개선안을 대체하지 않는다.
+규민 담당 K3, `gm` 브랜치, 2026-10-25. [후보 조사 2번](../../최신/V-Gate_이후_개선_방법_조사.md)의 단일 벽 완화 거리와 octile 거리의 최댓값을 구현하고 직선거리 기반 변형도 비교했다. LLM 호출 없이 휴리스틱 자체의 효과를 검사하는 독립 실험이다.
+
+**최종 선택은 직선거리＋벽 하한 (`g2h_wall_euclidean`)이다.** K3–K6 및 K6 후속 대조 뒤 사용자가 확정했다. [선정 기록](../../최신/최종_개선안_선정.md)에 최종 수식·근거·남은 작업을 정리했다. 아래 원 실험 설명과 `PRIMARY`는 사전에 정했던 octile＋벽 설정을 보존하며, 제출용 `Proposed` 연결은 후속 작업이다.
 
 - [실험 과정·결과·선정 판단](REPORT.md)
 - [실행 전에 고정한 규약](PROTOCOL.md)
@@ -54,7 +56,7 @@ from experiments.K3.heuristic import run_once
 
 # query: 원 재현과 같은 start/goal/range/barrier 사전
 baseline = run_once(query, 'g2h_euclidean')
-k3 = run_once(query, 'g2h_wall_octile')
+k3 = run_once(query, 'g2h_wall_euclidean')  # 최종 선택: 직선거리＋벽 하한
 print(baseline['operation'], k3['operation'])
 print(baseline['length'], k3['length'])
 ```
