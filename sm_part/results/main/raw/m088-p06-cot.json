@@ -1,0 +1,55 @@
+{
+  "case_id": "m088-p06",
+  "prompt_kind": "cot",
+  "created_utc": "2026-10-13T06:03:15.560012+00:00",
+  "payload": {
+    "model": "gpt-3.5-turbo-0125",
+    "messages": [
+      {
+        "role": "user",
+        "content": "\nIdentify a path between the start and goal points to navigate around obstacles and find the shortest path to the goal. \nHorizontal barriers are represented as [y, x_start, x_end], and vertical barriers are represented as [x, y_start, y_end].\nConclude your response with the generated path in the format \"Generated Path: [[x1, y1], [x2, y2], ...]\".\n\nStart Point: [5, 5]\nGoal Point: [20, 20]\nHorizontal Barriers: [[10, 0, 25], [15, 30, 50]]\nVertical Barriers: [[25, 10, 22]]\nThought: Identify a path from [5, 5] to [20, 20] while avoiding the horizontal barrier at y=10 spanning x=0 to x=25 by moving upwards and right, then bypass the vertical barrier at x=25 spanning y=10 to y=22, and finally move directly to [20, 20].\nGenerated Path: [[5, 5], [26, 9], [25, 23], [20, 20]]\n\nStart Point: [2, 3]\nGoal Point: [18, 8]\nHorizontal Barriers: [[7, 0, 10], [5, 30, 40]]\nVertical Barriers: [[14, 12, 30], [40, 0, 11]]\nThought: Navigate from [2, 3] to [18, 8] by moving upward-right to avoid the horizontal barrier at y=7 spanning x=0 to x=10, then proceed directly to [18, 8].\nGenerated Path: [[2, 3], [11, 6], [18, 8]]\n\nStart Point: [25, 25]\nGoal Point: [4, 4]\nHorizontal Barriers: [[7, 0, 20], [15, 10, 15]]\nVertical Barriers: [[10, 15, 30], [30, 0, 18], [10, 0, 5]]\nThought: Move from [25, 25] to [4, 4] by heading downward to bypass the horizontal barrier at y=7 spanning x=0 to x=20, and finally move directly to [4, 4], where bypass the vertical barrier at x=10 spanning y=0 to y=5.\nGenerated Path: [[25, 25], [21, 7], [10, 6], [4, 4]]\n\nStart Point: [20, 18]\nGoal Point: [33, 9]\nHorizontal Barriers: [[12, 42, 45], [28, 48, 51], [3, 23, 37], [14, 19, 22]]\nVertical Barriers: [[12, 18, 23], [31, 27, 29], [31, 5, 30]]\n"
+      }
+    ],
+    "temperature": 0,
+    "max_tokens": 1000
+  },
+  "payload_sha256": "8be9cde62466b98aa9e9d9a0d2d5fb50fff9e3759abe5e27b959a81ebe81202b",
+  "response": {
+    "id": "chatcmpl-EYPtSUj71gBRGjJuD3BpsmhUeQkkn",
+    "object": "chat.completion",
+    "created": 1791871394,
+    "model": "gpt-3.5-turbo-0125",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Thought: Find a path from [20, 18] to [33, 9] by moving left to avoid the horizontal barriers at y=12 spanning x=42 to x=45 and y=28 spanning x=48 to x=51, then navigate around the vertical barriers at x=12 spanning y=18 to y=23 and x=31 spanning y=27 to y=29, and finally move directly to [33, 9].\nGenerated Path: [[20, 18], [41, 12], [41, 27], [33, 9]]",
+          "refusal": null,
+          "annotations": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 630,
+      "completion_tokens": 121,
+      "total_tokens": 751,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "service_tier": "default",
+    "system_fingerprint": null
+  },
+  "request_id": "req_7defcc5c77ce4ee1b1eb4c8a077153a1",
+  "latency_seconds": 1.2972309002652764
+}

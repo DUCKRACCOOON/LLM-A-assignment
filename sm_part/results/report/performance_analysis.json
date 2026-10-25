@@ -1,0 +1,433 @@
+{
+  "scope": {
+    "cases": 1000,
+    "maps": 100,
+    "cached_responses": 3000,
+    "new_api_calls": 0,
+    "search_rerun": false,
+    "bootstrap": "2000 paired map-cluster resamples; seed 20261014; saved outputs fixed"
+  },
+  "no_waypoint_vs_astar": {
+    "operation": 34.31538343191994,
+    "storage": 56.23259601913805,
+    "length": 102.01647999370395
+  },
+  "prompts": {
+    "standard": {
+      "vs_astar": {
+        "operation": 40.29454859202424,
+        "storage": 61.19809876559573,
+        "length": 102.1677730488288
+      },
+      "vs_no_waypoint": {
+        "operation": 117.42415372384423,
+        "storage": 108.8302925669086,
+        "length": 100.1483025635997
+      },
+      "paired_counts": {
+        "operation": {
+          "worse": 269,
+          "equal": 601,
+          "better": 130
+        },
+        "storage": {
+          "equal": 617,
+          "worse": 273,
+          "better": 110
+        },
+        "length": {
+          "equal": 805,
+          "worse": 109,
+          "better": 86
+        }
+      },
+      "subgroups": {
+        "only_start_goal": {
+          "n": 508,
+          "vs_astar": {
+            "operation": 38.0313865087808,
+            "storage": 58.41480103583889,
+            "length": 101.85219723046863
+          },
+          "vs_no_waypoint": {
+            "operation": 100.0,
+            "storage": 100.0,
+            "length": 100.0
+          }
+        },
+        "has_intermediates": {
+          "n": 492,
+          "vs_astar": {
+            "operation": 42.772715752796216,
+            "storage": 64.21113666354898,
+            "length": 102.49463751375526
+          },
+          "vs_no_waypoint": {
+            "operation": 138.60644104120146,
+            "storage": 118.76670524530759,
+            "length": 100.30165875991783
+          }
+        },
+        "parse_failed": {
+          "n": 187,
+          "vs_astar": {
+            "operation": 37.59322676237847,
+            "storage": 58.646153944320986,
+            "length": 101.60007998736104
+          },
+          "vs_no_waypoint": {
+            "operation": 100.0,
+            "storage": 100.0,
+            "length": 100.0
+          }
+        }
+      },
+      "no_waypoint_reasons": {
+        "parse_failure": 187,
+        "all_intermediates_filtered": 80,
+        "only_endpoints_generated": 241
+      },
+      "initial_target_is_goal": 508,
+      "raw_intermediate_mean": 0.708,
+      "filtered_intermediate_mean": 0.576,
+      "operation_vs_no_waypoint_95ci": [
+        112.87989298067849,
+        122.437869343779
+      ],
+      "operation_vs_astar_95ci": [
+        37.53816485721195,
+        43.360424943196854
+      ],
+      "examples": {
+        "parse_failure": {
+          "case_id": "m000-p02",
+          "response": "No path found. The obstacles create a barrier that blocks direct access from the start point to the goal point.",
+          "targets": [
+            [
+              48,
+              4
+            ],
+            [
+              44,
+              27
+            ]
+          ],
+          "operation": 432,
+          "astar_operation": 463
+        },
+        "all_intermediates_filtered": {
+          "case_id": "m001-p02",
+          "response": "[[5, 25], [15, 15], [45, 5]]",
+          "targets": [
+            [
+              5,
+              25
+            ],
+            [
+              45,
+              5
+            ]
+          ],
+          "operation": 458,
+          "astar_operation": 1296
+        },
+        "only_endpoints_generated": {
+          "case_id": "m001-p05",
+          "response": "[[35, 24], [25, 25]]",
+          "targets": [
+            [
+              35,
+              24
+            ],
+            [
+              25,
+              25
+            ]
+          ],
+          "operation": 196,
+          "astar_operation": 251
+        }
+      },
+      "operation_sum_vs_astar_pct": 61.186843909192326
+    },
+    "cot": {
+      "vs_astar": {
+        "operation": 56.624028025395354,
+        "storage": 74.64140751703466,
+        "length": 102.77098208097486
+      },
+      "vs_no_waypoint": {
+        "operation": 165.01062311524126,
+        "storage": 132.73690492900488,
+        "length": 100.7395884344544
+      },
+      "paired_counts": {
+        "operation": {
+          "worse": 603,
+          "better": 218,
+          "equal": 179
+        },
+        "storage": {
+          "equal": 204,
+          "worse": 618,
+          "better": 178
+        },
+        "length": {
+          "equal": 575,
+          "worse": 267,
+          "better": 158
+        }
+      },
+      "subgroups": {
+        "only_start_goal": {
+          "n": 95,
+          "vs_astar": {
+            "operation": 40.18792402596391,
+            "storage": 58.96213539455215,
+            "length": 101.52078051907776
+          },
+          "vs_no_waypoint": {
+            "operation": 100.0,
+            "storage": 100.0,
+            "length": 100.0
+          }
+        },
+        "has_intermediates": {
+          "n": 905,
+          "vs_astar": {
+            "operation": 58.69913365984104,
+            "storage": 76.51202320721127,
+            "length": 102.9031083449486
+          },
+          "vs_no_waypoint": {
+            "operation": 173.91804528920284,
+            "storage": 136.74215388883917,
+            "length": 100.81754132368977
+          }
+        },
+        "parse_failed": {
+          "n": 1,
+          "vs_astar": {
+            "operation": 7.522935779816516,
+            "storage": 26.94300518134715,
+            "length": 100.0
+          },
+          "vs_no_waypoint": {
+            "operation": 100.0,
+            "storage": 100.0,
+            "length": 100.0
+          }
+        }
+      },
+      "no_waypoint_reasons": {
+        "all_intermediates_filtered": 92,
+        "only_endpoints_generated": 2,
+        "parse_failure": 1
+      },
+      "initial_target_is_goal": 95,
+      "raw_intermediate_mean": 2.597,
+      "filtered_intermediate_mean": 1.784,
+      "operation_vs_no_waypoint_95ci": [
+        154.36841527515054,
+        177.4242280160841
+      ],
+      "operation_vs_astar_95ci": [
+        52.45516048749119,
+        60.8806106377437
+      ],
+      "examples": {
+        "all_intermediates_filtered": {
+          "case_id": "m001-p04",
+          "response": "Thought: Find a path from [35, 24] to [25, 3] by moving left and downward to avoid the horizontal barrier at y=15 spanning x=10 to x=21, then proceed directly to [25, 3] while bypassing the vertical barriers at x=20 spanning y=0 to y=15 and x=40 spanning y=0 to y=16.\nGenerated Path: [[35, 24], [20, 15], [25, 3]]",
+          "targets": [
+            [
+              35,
+              24
+            ],
+            [
+              25,
+              3
+            ]
+          ],
+          "operation": 22,
+          "astar_operation": 133
+        },
+        "only_endpoints_generated": {
+          "case_id": "m021-p05",
+          "response": "Thought: Navigate from [2, 7] to [9, 4] by moving directly to the goal point while avoiding the various horizontal and vertical barriers along the way.\nGenerated Path: [[2, 7], [9, 4]]",
+          "targets": [
+            [
+              2,
+              7
+            ],
+            [
+              9,
+              4
+            ]
+          ],
+          "operation": 8,
+          "astar_operation": 15
+        },
+        "parse_failure": {
+          "case_id": "m087-p02",
+          "response": "Thought: Find a path from [2, 6] to [42, 21] by avoiding the horizontal barriers at y=20 spanning x=30 to x=39, y=27 spanning x=8 to x=49, and y=16 spanning x=21 to x=36. Also, bypass the vertical barriers at x=23 spanning y=19 to y=24 and x=39 at y=26. Move right, down, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up, right, up",
+          "targets": [
+            [
+              2,
+              6
+            ],
+            [
+              42,
+              21
+            ]
+          ],
+          "operation": 41,
+          "astar_operation": 545
+        }
+      },
+      "operation_sum_vs_astar_pct": 74.68030484280703
+    },
+    "repe": {
+      "vs_astar": {
+        "operation": 74.10233659568392,
+        "storage": 87.77663884739775,
+        "length": 102.53069335525731
+      },
+      "vs_no_waypoint": {
+        "operation": 215.94494708969046,
+        "storage": 156.0956545871083,
+        "length": 100.50404930809718
+      },
+      "paired_counts": {
+        "operation": {
+          "worse": 737,
+          "equal": 90,
+          "better": 173
+        },
+        "storage": {
+          "equal": 102,
+          "worse": 747,
+          "better": 151
+        },
+        "length": {
+          "equal": 540,
+          "worse": 269,
+          "better": 191
+        }
+      },
+      "subgroups": {
+        "only_start_goal": {
+          "n": 39,
+          "vs_astar": {
+            "operation": 43.70153825472295,
+            "storage": 60.359893304070575,
+            "length": 101.99416012781451
+          },
+          "vs_no_waypoint": {
+            "operation": 100.0,
+            "storage": 100.0,
+            "length": 100.0
+          }
+        },
+        "has_intermediates": {
+          "n": 961,
+          "vs_astar": {
+            "operation": 75.7075076580874,
+            "storage": 89.12077103444147,
+            "length": 102.55252683083715
+          },
+          "vs_no_waypoint": {
+            "operation": 222.79815944329982,
+            "storage": 158.94217061754068,
+            "length": 100.52455856253242
+          }
+        },
+        "parse_failed": {
+          "n": 6,
+          "vs_astar": {
+            "operation": 61.121126351844026,
+            "storage": 68.22558885346832,
+            "length": 102.9102504873237
+          },
+          "vs_no_waypoint": {
+            "operation": 100.0,
+            "storage": 100.0,
+            "length": 100.0
+          }
+        }
+      },
+      "no_waypoint_reasons": {
+        "all_intermediates_filtered": 25,
+        "parse_failure": 6,
+        "only_endpoints_generated": 8
+      },
+      "initial_target_is_goal": 39,
+      "raw_intermediate_mean": 2.84,
+      "filtered_intermediate_mean": 2.421,
+      "operation_vs_no_waypoint_95ci": [
+        197.28345618828666,
+        236.5216533872141
+      ],
+      "operation_vs_astar_95ci": [
+        68.11988994535616,
+        80.27817879204068
+      ],
+      "examples": {
+        "all_intermediates_filtered": {
+          "case_id": "m001-p00",
+          "response": "- First Iteration on [45, 25]\nThought: The vertical barrier at x=20 spanning y=0 to y=15 obstructs the direct path. To navigate around it, we should move to the left and then turn downward.\nSelected Point: [19, 15]\nEvaluation: The point [19, 15] successfully bypasses the vertical barrier, positioning us closer to the goal without encountering additional obstacles.\n- Second Iteration on [19, 15]\nThought: The horizontal barrier at y=15 spanning x=10 to x=21 blocks the direct path. To avoid it, we should move downward and then navigate around it.\nSelected Point: [20, 9]\nEvaluation: Moving to [20, 9] positions us below the horizontal barrier, allowing us to navigate around it effectively.\n- Third Iteration on [20, 9]\nThought: There are no obstacles directly obstructing the path to the goal from this position.\nSelected Point: [5, 5]\nEvaluation: The path to the goal is clear, enabling a direct move to [5, 5].\nGenerated Path: [[45, 25], [19, 15], [20, 9], [5, 5]]",
+          "targets": [
+            [
+              45,
+              25
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "operation": 183,
+          "astar_operation": 859
+        },
+        "parse_failure": {
+          "case_id": "m006-p05",
+          "response": "- First Iteration on [46, 24]\nThought: The horizontal barrier at y=12 spanning x=9 to x=25 obstructs the direct path. To bypass it, we should move around it.\nSelected Point: [8, 11]\nEvaluation: Moving to [8, 11] positions us to navigate around the horizontal barrier effectively.\n- Second Iteration on [8, 11]\nThought: The vertical barrier at x=3 spanning y=2 to y=15 blocks the direct path. We need to find a way around it.\nSelected Point: [4, 16]\nEvaluation: The point [4, 16] allows us to bypass the vertical barrier and continue towards the goal.\n- Third Iteration on [4, 16]\nThought: The horizontal barrier at y=21 spanning x=31 to x=34 obstructs the path. We should navigate around it.\nSelected Point: [30, 20]\nEvaluation: Moving to [30, 20] positions us to bypass the horizontal barrier effectively.\n- Fourth Iteration on [30, 20]\nThought: The vertical barrier at x=17 spanning y=1 to y=25 blocks the direct path. We need to find a way around it.\nSelected Point: [16, 26]\nEvaluation: The point [16, 26] allows us to bypass the vertical barrier and continue towards the goal.\n- Fifth Iteration on [16, 26]\nThought: The horizontal barrier at y=0 spanning x=26 to x=36 obstructs the path. We should navigate around it.\nSelected Point: [25, 0]\nEvaluation: Moving to [25, 0] positions us to bypass the horizontal barrier effectively.\n- Sixth Iteration on [25, 0]\nThought: The vertical barrier at x=50 spanning y=10 blocks the direct path. We need to find a way around it.\nSelected Point: [49, 11]\nEvaluation: The point [49, 11] allows us to bypass the vertical barrier and continue towards the goal.\n- Seventh Iteration on [49, 11]\nThought: The horizontal barrier at y=0 spanning x=0 to x=26 obstructs the path. We should navigate around it.\nSelected Point: [27, 1]\nEvaluation: Moving to [27, 1] positions us to bypass the horizontal barrier effectively.\n- Eighth Iteration on [27, 1]\nThought: The vertical barrier at x=32 spanning y=6 to y=16 blocks the direct path. We need to find a way around it.\nSelected Point: [31, 5]\nEvaluation: The point [31, 5] allows us to bypass the vertical barrier and continue towards the goal.\n- Ninth Iteration on [31, 5]\nThought: The horizontal barrier at y=21 spanning x=31 to x=34 obstructs the path. We should navigate around it.\nSelected Point: [30, 20]\nEvaluation: Moving to [30, 20] positions us to bypass the horizontal barrier effectively.\n- Tenth Iteration on [30, 20]\nThought: The vertical barrier at x=17 spanning y=1 to y=25 blocks the direct path. We need to find a way around it.\nSelected Point: [16, 26]\nEvaluation: The point [16, 26] allows us to bypass the vertical barrier and continue towards the goal.\n- Eleventh Iteration on [16, 26]\nThought: The horizontal barrier at y=12 spanning x=9 to x=25 obstructs the path. We should navigate around it.\nSelected Point: [8, 11]\nEvaluation: Moving to [8, 11] positions us to bypass the horizontal barrier effectively.\n- Twelfth Iteration on [8, 11]\nThought: The vertical barrier at x=3 spanning y=2 to y=15 blocks the direct path. We need to find a way around it.\nSelected Point: [4, 16]\nEvaluation: The point [4, 16] allows us to bypass the vertical barrier and continue towards the goal.\n- Thirteenth Iteration on [4, 16]\nThought: The horizontal barrier at y=21 spanning x=31 to x=34 obstructs the path. We should navigate around it.\nSelected Point: [30, 20]\nEvaluation: Moving to [30, 20] positions us to bypass the horizontal barrier effectively.\n- Fourteenth Iteration on [30, 20]\nThought: The vertical barrier at x=17 spanning y=1 to y=25 blocks the direct path. We need to find a way around it.\nSelected Point: [16, 26]\nEvaluation: The point [16, 26] allows us to bypass the vertical barrier and continue towards the goal.\n- Fifteenth Iteration",
+          "targets": [
+            [
+              46,
+              24
+            ],
+            [
+              14,
+              15
+            ]
+          ],
+          "operation": 510,
+          "astar_operation": 833
+        },
+        "only_endpoints_generated": {
+          "case_id": "m021-p05",
+          "response": "- First Iteration on [2, 7]\nThought: The horizontal barrier at y=5 spanning x=6 to x=8 blocks the direct path. To navigate around it, we should move to the right and then down.\nSelected Point: [9, 4]\nEvaluation: The selected point [9, 4] successfully bypasses the horizontal barrier, positioning us closer to the goal without encountering additional obstacles.\nGenerated Path: [[2, 7], [9, 4]]",
+          "targets": [
+            [
+              2,
+              7
+            ],
+            [
+              9,
+              4
+            ]
+          ],
+          "operation": 8,
+          "astar_operation": 15
+        }
+      },
+      "operation_sum_vs_astar_pct": 91.05176144840657
+    }
+  },
+  "source_hashes_match_original_verification": true,
+  "input_sha256": {
+    "results/main/rows.json": "e3da10afbfab8a3deadc2d385ad10751dc47b2bc805ae2a37d167195fa2c082f",
+    "results/report/no_waypoint_ablation.json": "040ab05a61196f02d6456949e1b1c561fe71ca3b0a521917069b7102bc282425"
+  }
+}

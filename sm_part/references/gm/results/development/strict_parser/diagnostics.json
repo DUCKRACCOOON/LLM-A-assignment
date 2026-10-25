@@ -1,0 +1,1382 @@
+{
+  "proposal": [
+    {
+      "variant": "astar_fallback",
+      "model": "gpt-3.5-turbo-0125",
+      "prompt": "cot",
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 92.44701406467672,
+      "operation_n": 1000,
+      "storage_percent": 96.50883465748244,
+      "storage_n": 1000,
+      "length_percent": 100.2525121752311,
+      "length_n": 1000,
+      "gate_counts": {
+        "collision": 722,
+        "None": 79,
+        "outside_boundary": 198,
+        "wrong_endpoints": 1
+      },
+      "accepted": 79,
+      "vs_llm_astar": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 165.19472375995733,
+          "ci95": [
+            154.21508977168824,
+            176.5930800940612
+          ],
+          "repetitions": 2000
+        },
+        "storage": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 129.82229245580095,
+          "ci95": [
+            125.00957342532352,
+            134.77621454775027
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 97.5262138315264,
+          "ci95": [
+            97.25116066208936,
+            97.80832091542916
+          ],
+          "repetitions": 2000
+        }
+      },
+      "vs_goal_only": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 269.4039955814194,
+          "ci95": [
+            252.6663317446077,
+            287.87012211694184
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 98.27089915415458,
+          "ci95": [
+            98.03273336920539,
+            98.49602533999112
+          ],
+          "repetitions": 2000
+        }
+      }
+    },
+    {
+      "variant": "astar_fallback",
+      "model": "gpt-3.5-turbo-0125",
+      "prompt": "repe",
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 92.20663991767171,
+      "operation_n": 1000,
+      "storage_percent": 96.76451780521718,
+      "storage_n": 1000,
+      "length_percent": 100.26093883603058,
+      "length_n": 1000,
+      "gate_counts": {
+        "None": 121,
+        "collision": 723,
+        "outside_boundary": 148,
+        "missing_list": 7,
+        "wrong_endpoints": 1
+      },
+      "accepted": 121,
+      "vs_llm_astar": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 127.19452391760768,
+          "ci95": [
+            118.0309597725655,
+            137.27964920634818
+          ],
+          "repetitions": 2000
+        },
+        "storage": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 111.80554555287536,
+          "ci95": [
+            106.75485499121788,
+            116.94725065765124
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 97.91668645924159,
+          "ci95": [
+            97.64939404931447,
+            98.18369482645114
+          ],
+          "repetitions": 2000
+        }
+      },
+      "vs_goal_only": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 268.70351048416876,
+          "ci95": [
+            250.11686391573167,
+            289.054297428265
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 98.27915925173882,
+          "ci95": [
+            98.04692437706548,
+            98.50942702794072
+          ],
+          "repetitions": 2000
+        }
+      }
+    },
+    {
+      "variant": "astar_fallback",
+      "model": "gpt-3.5-turbo-0125",
+      "prompt": "standard",
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 92.16837778846184,
+      "operation_n": 1000,
+      "storage_percent": 96.33554660849553,
+      "storage_n": 1000,
+      "length_percent": 100.0741000822236,
+      "length_n": 1000,
+      "gate_counts": {
+        "None": 64,
+        "collision": 731,
+        "missing_list": 186,
+        "outside_boundary": 17,
+        "wrong_endpoints": 2
+      },
+      "accepted": 64,
+      "vs_llm_astar": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 228.08768362777448,
+          "ci95": [
+            212.87602059556542,
+            244.58742728268277
+          ],
+          "repetitions": 2000
+        },
+        "storage": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 157.06247377313355,
+          "ci95": [
+            152.06735807301018,
+            162.27233791027714
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 97.8590810609155,
+          "ci95": [
+            97.60302523383913,
+            98.10059408808618
+          ],
+          "repetitions": 2000
+        }
+      },
+      "vs_goal_only": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 268.5920090950446,
+          "ci95": [
+            250.17300594191184,
+            288.7307239476108
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 98.09601359348977,
+          "ci95": [
+            97.86438169720567,
+            98.33330479023722
+          ],
+          "repetitions": 2000
+        }
+      }
+    },
+    {
+      "variant": "astar_fallback",
+      "model": "gpt-4o-mini-2024-07-18",
+      "prompt": "cot",
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 93.14389679061577,
+      "operation_n": 1000,
+      "storage_percent": 96.79101223466424,
+      "storage_n": 1000,
+      "length_percent": 100.13710922114893,
+      "length_n": 1000,
+      "gate_counts": {
+        "collision": 891,
+        "wrong_endpoints": 2,
+        "outside_boundary": 7,
+        "None": 65,
+        "missing_list": 35
+      },
+      "accepted": 65,
+      "vs_llm_astar": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 199.1091766402156,
+          "ci95": [
+            187.11040310521042,
+            212.05377364405896
+          ],
+          "repetitions": 2000
+        },
+        "storage": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 147.48034591334792,
+          "ci95": [
+            143.19906266584982,
+            152.10513294810139
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 97.61930990172127,
+          "ci95": [
+            97.35437272715359,
+            97.88055995349195
+          ],
+          "repetitions": 2000
+        }
+      },
+      "vs_goal_only": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 271.4348128308365,
+          "ci95": [
+            255.18618719812002,
+            289.5432416592347
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 98.1577772800326,
+          "ci95": [
+            97.9177849528718,
+            98.39737285113172
+          ],
+          "repetitions": 2000
+        }
+      }
+    },
+    {
+      "variant": "astar_fallback",
+      "model": "gpt-4o-mini-2024-07-18",
+      "prompt": "repe",
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 91.03579196792589,
+      "operation_n": 1000,
+      "storage_percent": 95.91316112646437,
+      "storage_n": 1000,
+      "length_percent": 100.18074257231766,
+      "length_n": 1000,
+      "gate_counts": {
+        "collision": 852,
+        "None": 73,
+        "missing_list": 67,
+        "outside_boundary": 4,
+        "malformed_coordinate": 3,
+        "wrong_endpoints": 1
+      },
+      "accepted": 73,
+      "vs_llm_astar": {
+        "operation": {
+          "n": 997,
+          "maps": 100,
+          "ratio_percent": 180.68015056553844,
+          "ci95": [
+            168.58051759259754,
+            193.33792668360098
+          ],
+          "repetitions": 2000
+        },
+        "storage": {
+          "n": 997,
+          "maps": 100,
+          "ratio_percent": 140.10304742863454,
+          "ci95": [
+            135.48506919505465,
+            144.9109841400398
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 997,
+          "maps": 100,
+          "ratio_percent": 97.8880786433273,
+          "ci95": [
+            97.66777094100539,
+            98.09954087569005
+          ],
+          "repetitions": 2000
+        }
+      },
+      "vs_goal_only": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 265.2914898897647,
+          "ci95": [
+            249.01837612526313,
+            282.1296047590414
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 98.20054816486554,
+          "ci95": [
+            97.96089382214723,
+            98.43674960753873
+          ],
+          "repetitions": 2000
+        }
+      }
+    },
+    {
+      "variant": "astar_fallback",
+      "model": "gpt-4o-mini-2024-07-18",
+      "prompt": "standard",
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 93.24692968751378,
+      "operation_n": 1000,
+      "storage_percent": 96.86592370585363,
+      "storage_n": 1000,
+      "length_percent": 100.18795357999919,
+      "length_n": 1000,
+      "gate_counts": {
+        "collision": 820,
+        "missing_list": 87,
+        "malformed_coordinate": 29,
+        "None": 56,
+        "wrong_endpoints": 2,
+        "outside_boundary": 6
+      },
+      "accepted": 56,
+      "vs_llm_astar": {
+        "operation": {
+          "n": 971,
+          "maps": 100,
+          "ratio_percent": 204.40596883731925,
+          "ci95": [
+            192.01560087007877,
+            217.76799151574556
+          ],
+          "repetitions": 2000
+        },
+        "storage": {
+          "n": 971,
+          "maps": 100,
+          "ratio_percent": 149.1581950235102,
+          "ci95": [
+            144.91870199866293,
+            153.56563482065556
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 971,
+          "maps": 100,
+          "ratio_percent": 97.62467358631545,
+          "ci95": [
+            97.3851241550715,
+            97.86343284698451
+          ],
+          "repetitions": 2000
+        }
+      },
+      "vs_goal_only": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 271.735065623006,
+          "ci95": [
+            255.121729883571,
+            289.8292689808957
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 98.20761663819648,
+          "ci95": [
+            97.95209661083366,
+            98.4458643944572
+          ],
+          "repetitions": 2000
+        }
+      }
+    },
+    {
+      "variant": "parse_only",
+      "model": "gpt-3.5-turbo-0125",
+      "prompt": "cot",
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 55.96244962339747,
+      "operation_n": 1000,
+      "storage_percent": 74.33918538323428,
+      "storage_n": 1000,
+      "length_percent": 102.79545184478738,
+      "length_n": 1000,
+      "gate_counts": {
+        "None": 1000
+      },
+      "accepted": 1000,
+      "vs_llm_astar": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ],
+          "repetitions": 2000
+        },
+        "storage": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ],
+          "repetitions": 2000
+        }
+      },
+      "vs_goal_only": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 163.0826877817765,
+          "ci95": [
+            152.69299408232177,
+            174.3296091081098
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.76357452357844,
+          "ci95": [
+            100.47504126773521,
+            101.05822229564421
+          ],
+          "repetitions": 2000
+        }
+      }
+    },
+    {
+      "variant": "parse_only",
+      "model": "gpt-3.5-turbo-0125",
+      "prompt": "repe",
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 72.49261766756567,
+      "operation_n": 1000,
+      "storage_percent": 86.54715410288397,
+      "storage_n": 1000,
+      "length_percent": 102.39412960299141,
+      "length_n": 1000,
+      "gate_counts": {
+        "None": 993,
+        "missing_list": 7
+      },
+      "accepted": 993,
+      "vs_llm_astar": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ],
+          "repetitions": 2000
+        },
+        "storage": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ],
+          "repetitions": 2000
+        }
+      },
+      "vs_goal_only": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 211.25399286704027,
+          "ci95": [
+            191.9725043312375,
+            233.1810952512015
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.37018490474358,
+          "ci95": [
+            100.09540545898719,
+            100.64322743687795
+          ],
+          "repetitions": 2000
+        }
+      }
+    },
+    {
+      "variant": "parse_only",
+      "model": "gpt-3.5-turbo-0125",
+      "prompt": "standard",
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 40.40918664370985,
+      "operation_n": 1000,
+      "storage_percent": 61.33581389253167,
+      "storage_n": 1000,
+      "length_percent": 102.26347825597226,
+      "length_n": 1000,
+      "gate_counts": {
+        "None": 814,
+        "missing_list": 186
+      },
+      "accepted": 814,
+      "vs_llm_astar": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ],
+          "repetitions": 2000
+        },
+        "storage": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ],
+          "repetitions": 2000
+        }
+      },
+      "vs_goal_only": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 117.75822561878036,
+          "ci95": [
+            113.23773984709669,
+            123.10453548550701
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.24211604074516,
+          "ci95": [
+            100.06443991613318,
+            100.43478117092894
+          ],
+          "repetitions": 2000
+        }
+      }
+    },
+    {
+      "variant": "parse_only",
+      "model": "gpt-4o-mini-2024-07-18",
+      "prompt": "cot",
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 46.78031337497017,
+      "operation_n": 1000,
+      "storage_percent": 65.62977028243058,
+      "storage_n": 1000,
+      "length_percent": 102.57920212913048,
+      "length_n": 1000,
+      "gate_counts": {
+        "None": 965,
+        "missing_list": 35
+      },
+      "accepted": 965,
+      "vs_llm_astar": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ],
+          "repetitions": 2000
+        },
+        "storage": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ],
+          "repetitions": 2000
+        }
+      },
+      "vs_goal_only": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 136.32461216054907,
+          "ci95": [
+            130.5423091892966,
+            143.27532766606507
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.55159924696603,
+          "ci95": [
+            100.28192445671785,
+            100.80286020744786
+          ],
+          "repetitions": 2000
+        }
+      }
+    },
+    {
+      "variant": "parse_only",
+      "model": "gpt-4o-mini-2024-07-18",
+      "prompt": "repe",
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 50.221834406124046,
+      "operation_n": 1000,
+      "storage_percent": 68.3221312119695,
+      "storage_n": 1000,
+      "length_percent": 102.34886909396322,
+      "length_n": 1000,
+      "gate_counts": {
+        "None": 930,
+        "missing_list": 67,
+        "malformed_coordinate": 3
+      },
+      "accepted": 930,
+      "vs_llm_astar": {
+        "operation": {
+          "n": 997,
+          "maps": 100,
+          "ratio_percent": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ],
+          "repetitions": 2000
+        },
+        "storage": {
+          "n": 997,
+          "maps": 100,
+          "ratio_percent": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 997,
+          "maps": 100,
+          "ratio_percent": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ],
+          "repetitions": 2000
+        }
+      },
+      "vs_goal_only": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 146.3537031598721,
+          "ci95": [
+            138.87250986599085,
+            154.11926022981385
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.32581902480833,
+          "ci95": [
+            100.06870314593148,
+            100.5683317969387
+          ],
+          "repetitions": 2000
+        }
+      }
+    },
+    {
+      "variant": "parse_only",
+      "model": "gpt-4o-mini-2024-07-18",
+      "prompt": "standard",
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 44.8807691467624,
+      "operation_n": 1000,
+      "storage_percent": 64.4508244582397,
+      "storage_n": 1000,
+      "length_percent": 102.64859698112538,
+      "length_n": 1000,
+      "gate_counts": {
+        "None": 884,
+        "missing_list": 87,
+        "malformed_coordinate": 29
+      },
+      "accepted": 884,
+      "vs_llm_astar": {
+        "operation": {
+          "n": 971,
+          "maps": 100,
+          "ratio_percent": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ],
+          "repetitions": 2000
+        },
+        "storage": {
+          "n": 971,
+          "maps": 100,
+          "ratio_percent": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 971,
+          "maps": 100,
+          "ratio_percent": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ],
+          "repetitions": 2000
+        }
+      },
+      "vs_goal_only": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 130.78906501453983,
+          "ci95": [
+            125.52265733114709,
+            136.45657683802094
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.61962242518116,
+          "ci95": [
+            100.38789426536117,
+            100.85134601905526
+          ],
+          "repetitions": 2000
+        }
+      }
+    },
+    {
+      "variant": "validated",
+      "model": "gpt-3.5-turbo-0125",
+      "prompt": "cot",
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 35.358546551919204,
+      "operation_n": 1000,
+      "storage_percent": 57.17526556893431,
+      "storage_n": 1000,
+      "length_percent": 102.08794093561637,
+      "length_n": 1000,
+      "gate_counts": {
+        "collision": 722,
+        "None": 79,
+        "outside_boundary": 198,
+        "wrong_endpoints": 1
+      },
+      "accepted": 79,
+      "vs_llm_astar": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 63.18262833358187,
+          "ci95": [
+            59.34671071126828,
+            67.24358951245966
+          ],
+          "repetitions": 2000
+        },
+        "storage": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 76.91134261719938,
+          "ci95": [
+            74.32113098063658,
+            79.52579698829436
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 99.31172936499244,
+          "ci95": [
+            99.05242319041567,
+            99.586172330183
+          ],
+          "repetitions": 2000
+        }
+      },
+      "vs_goal_only": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 103.0399284975756,
+          "ci95": [
+            101.60990700768326,
+            104.73103174003609
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.0700484293487,
+          "ci95": [
+            99.99443218252708,
+            100.14588039019013
+          ],
+          "repetitions": 2000
+        }
+      }
+    },
+    {
+      "variant": "validated",
+      "model": "gpt-3.5-turbo-0125",
+      "prompt": "repe",
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 37.69555745550919,
+      "operation_n": 1000,
+      "storage_percent": 59.09603514119767,
+      "storage_n": 1000,
+      "length_percent": 102.02180553489515,
+      "length_n": 1000,
+      "gate_counts": {
+        "None": 121,
+        "collision": 723,
+        "outside_boundary": 148,
+        "missing_list": 7,
+        "wrong_endpoints": 1
+      },
+      "accepted": 121,
+      "vs_llm_astar": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 51.99916718192227,
+          "ci95": [
+            47.80121267438531,
+            56.508854703909286
+          ],
+          "repetitions": 2000
+        },
+        "storage": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 68.28189297934226,
+          "ci95": [
+            65.12934227639016,
+            71.38077136922323
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 99.63638143168963,
+          "ci95": [
+            99.38749284097959,
+            99.89580309475888
+          ],
+          "repetitions": 2000
+        }
+      },
+      "vs_goal_only": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 109.8503169294184,
+          "ci95": [
+            105.67683736788473,
+            114.71698947746971
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.0052202753825,
+          "ci95": [
+            99.92262633370981,
+            100.08975672631182
+          ],
+          "repetitions": 2000
+        }
+      }
+    },
+    {
+      "variant": "validated",
+      "model": "gpt-3.5-turbo-0125",
+      "prompt": "standard",
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 34.63247001959708,
+      "operation_n": 1000,
+      "storage_percent": 56.445033427232424,
+      "storage_n": 1000,
+      "length_percent": 101.9613835170203,
+      "length_n": 1000,
+      "gate_counts": {
+        "None": 64,
+        "collision": 731,
+        "missing_list": 186,
+        "outside_boundary": 17,
+        "wrong_endpoints": 2
+      },
+      "accepted": 64,
+      "vs_llm_astar": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 85.70444717176215,
+          "ci95": [
+            82.25039766574346,
+            88.92434720989387
+          ],
+          "repetitions": 2000
+        },
+        "storage": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 92.02622390587574,
+          "ci95": [
+            90.19878748962046,
+            93.71368989386316
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 99.70459176227526,
+          "ci95": [
+            99.52794286751609,
+            99.87267836368756
+          ],
+          "repetitions": 2000
+        }
+      },
+      "vs_goal_only": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.9240362658521,
+          "ci95": [
+            99.36214168054711,
+            102.82501547658917
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 99.9459925722912,
+          "ci95": [
+            99.87271693818676,
+            100.0122180403088
+          ],
+          "repetitions": 2000
+        }
+      }
+    },
+    {
+      "variant": "validated",
+      "model": "gpt-4o-mini-2024-07-18",
+      "prompt": "cot",
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 35.05424833077294,
+      "operation_n": 1000,
+      "storage_percent": 56.68035210169526,
+      "storage_n": 1000,
+      "length_percent": 102.01230834450105,
+      "length_n": 1000,
+      "gate_counts": {
+        "collision": 891,
+        "wrong_endpoints": 2,
+        "outside_boundary": 7,
+        "None": 65,
+        "missing_list": 35
+      },
+      "accepted": 65,
+      "vs_llm_astar": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 74.9337612379671,
+          "ci95": [
+            71.58242408958088,
+            78.2511644443495
+          ],
+          "repetitions": 2000
+        },
+        "storage": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 86.36378256053241,
+          "ci95": [
+            84.52124293859434,
+            88.18324392776364
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 99.44735992007836,
+          "ci95": [
+            99.19946105519354,
+            99.70645519467195
+          ],
+          "repetitions": 2000
+        }
+      },
+      "vs_goal_only": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 102.1531593849705,
+          "ci95": [
+            101.15425673736264,
+            103.31617252648213
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 99.9959108085251,
+          "ci95": [
+            99.92719064094145,
+            100.05919460809605
+          ],
+          "repetitions": 2000
+        }
+      }
+    },
+    {
+      "variant": "validated",
+      "model": "gpt-4o-mini-2024-07-18",
+      "prompt": "repe",
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 34.66213022439709,
+      "operation_n": 1000,
+      "storage_percent": 56.426751241675746,
+      "storage_n": 1000,
+      "length_percent": 102.01825471492737,
+      "length_n": 1000,
+      "gate_counts": {
+        "collision": 852,
+        "None": 73,
+        "missing_list": 67,
+        "outside_boundary": 4,
+        "malformed_coordinate": 3,
+        "wrong_endpoints": 1
+      },
+      "accepted": 73,
+      "vs_llm_astar": {
+        "operation": {
+          "n": 997,
+          "maps": 100,
+          "ratio_percent": 68.94108469398749,
+          "ci95": [
+            65.403269223283,
+            72.74374247941762
+          ],
+          "repetitions": 2000
+        },
+        "storage": {
+          "n": 997,
+          "maps": 100,
+          "ratio_percent": 82.54174813451517,
+          "ci95": [
+            80.4662450417532,
+            84.78099495842386
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 997,
+          "maps": 100,
+          "ratio_percent": 99.67600267961609,
+          "ci95": [
+            99.44541819857544,
+            99.9179125623445
+          ],
+          "repetitions": 2000
+        }
+      },
+      "vs_goal_only": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 101.0104704007317,
+          "ci95": [
+            99.93524434261336,
+            102.0775343860987
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.00173964169663,
+          "ci95": [
+            99.90150676199723,
+            100.09699006942596
+          ],
+          "repetitions": 2000
+        }
+      }
+    },
+    {
+      "variant": "validated",
+      "model": "gpt-4o-mini-2024-07-18",
+      "prompt": "standard",
+      "n": 1000,
+      "valid_n": 1000,
+      "valid_percent": 100.0,
+      "failures": {},
+      "operation_percent": 34.6324855651859,
+      "operation_n": 1000,
+      "storage_percent": 56.31043647719214,
+      "storage_n": 1000,
+      "length_percent": 102.12638683137511,
+      "length_n": 1000,
+      "gate_counts": {
+        "collision": 820,
+        "missing_list": 87,
+        "malformed_coordinate": 29,
+        "None": 56,
+        "wrong_endpoints": 2,
+        "outside_boundary": 6
+      },
+      "accepted": 56,
+      "vs_llm_astar": {
+        "operation": {
+          "n": 971,
+          "maps": 100,
+          "ratio_percent": 76.57044022745988,
+          "ci95": [
+            73.37247868568427,
+            79.82925163377215
+          ],
+          "repetitions": 2000
+        },
+        "storage": {
+          "n": 971,
+          "maps": 100,
+          "ratio_percent": 87.01799647388614,
+          "ci95": [
+            85.13247308626167,
+            88.8652929571572
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 971,
+          "maps": 100,
+          "ratio_percent": 99.47611011668842,
+          "ci95": [
+            99.25304199259199,
+            99.70431861395622
+          ],
+          "repetitions": 2000
+        }
+      },
+      "vs_goal_only": {
+        "operation": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.92408156795062,
+          "ci95": [
+            100.25738075635692,
+            101.6595919650416
+          ],
+          "repetitions": 2000
+        },
+        "length": {
+          "n": 1000,
+          "maps": 100,
+          "ratio_percent": 100.10773439514668,
+          "ci95": [
+            100.02815169971436,
+            100.1908570378985
+          ],
+          "repetitions": 2000
+        }
+      }
+    }
+  ],
+  "bootstrap_unit": "map; same-case pairs; joint successes only",
+  "random_seed": 20261013,
+  "baseline_success": {
+    "astar": 1000,
+    "dwa": 1000,
+    "goal_only": 1000
+  }
+}

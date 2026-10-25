@@ -1,0 +1,64 @@
+{
+  "complete": true,
+  "checks": {
+    "pilot": {
+      "cases": 10,
+      "responses": 30,
+      "result_rows": 80,
+      "finishes": {
+        "stop": 30
+      },
+      "valid_counts": {
+        "astar/None": 10,
+        "dynamic_weighted/None": 10,
+        "llm_astar/standard": 10,
+        "llm_astar/cot": 10,
+        "llm_only/repe": 2,
+        "llm_astar/repe": 10,
+        "llm_only/standard": 3,
+        "llm_only/cot": 2
+      }
+    },
+    "main": {
+      "cases": 1000,
+      "responses": 3000,
+      "result_rows": 8000,
+      "finishes": {
+        "stop": 2993,
+        "length": 6,
+        "content_filter": 1
+      },
+      "valid_counts": {
+        "astar/None": 1000,
+        "dynamic_weighted/None": 1000,
+        "llm_only/standard": 69,
+        "llm_astar/standard": 1000,
+        "llm_only/cot": 110,
+        "llm_astar/cot": 1000,
+        "llm_only/repe": 114,
+        "llm_astar/repe": 1000
+      }
+    },
+    "scaling": {
+      "cases": 100,
+      "responses": 100,
+      "result_rows": 300,
+      "finishes": {
+        "stop": 100
+      },
+      "valid_counts": {
+        "astar/None": 100,
+        "llm_astar/standard": 100,
+        "llm_only/standard": 7
+      }
+    }
+  },
+  "source_sha256": {
+    "reproduction/api_client.py": "a3672895f2a1a9c6d5d0d877f7cc65b156605b8e433a02cfda49947eed966e54",
+    "reproduction/core.py": "f57cf6fb864372f5e972974902e96e04ea4f87387069d4ab140916f1ba772b65",
+    "reproduction/report.py": "8ded295c88571d35bd9b747ce3c32e3302936fe757f74dd3e42552f707064ee8",
+    "reproduction/run.py": "87ea17449d34d2689aa041c1a99718834468b40434f75df2fa116b9317ea5386",
+    "reproduction/test_reproduction.py": "7037596896b5a3a266027bc3afa753d4b7a52295c0162d9fa4946af7739b1aa4",
+    "reproduction/verify_artifacts.py": "80ae756c36c6c028c720ccd9e7eb0f2ea11616d918c789aebb929e8bef95a9db"
+  }
+}
