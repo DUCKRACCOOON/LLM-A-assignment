@@ -1,58 +1,57 @@
-# 승민 담당 실험 자료 모음
+# 승민 S1~S6 실험 자료
 
-승민 담당 S1~S6의 분담·검증 기준, 기존 GPT 재현 자료, 과거 계획서와 리뷰, gm 브랜치의 개선 방법 조사·V-Gate 비교 자료를 모았다. 원래 작업트리의 파일은 그대로 두고 이 폴더에 복사했다. 수집일은 2026-10-24다.
+원격 `main`의 [팀 실험 분담표](docs/팀_개선방법_실험_분담.md)에 따라 승민 담당 S1~S6의 기존 실험 자료를 모았다. 2026-10-25에 원격 `sm`을 `ea62233079a94ddd1a43d7a9ecb06d5b9077c7e6`까지 pull한 뒤 로컬의 2026-10-14 실험 자료를 추가했다. 분담 기준 `main` 커밋은 `bf4ae439094e0df003c02c0b4b4e607d5a330238`이다. GitHub의 실제 브랜치 이름은 소문자 `sm`이다.
 
-**S1~S6는 팀 분담표에서 기실험으로 전달된 항목이다. 현재 확인한 main·gm·sm의 최신 커밋에서는 이 여섯 방법의 개별 구현·실행 설정·결과 묶음을 찾지 못했다.** 아래 GPT 재현 및 V-Gate 보고서를 S1~S6의 완료 결과로 사용하지 않는다.
+기존 모음의 ‘S1~S6 자료 미확보’ 상태를 갱신했다. 코드, 고정 설정, 입력, 응답, 문제별 평가, 학습 가중치, 원래 계획서·결과 보고서, 중간·실패 기록 및 검증 증거를 포함한다. **자료 확보는 모든 방법의 성능 향상이나 팀 공통 비교 완료를 뜻하지 않는다.** 이번 정리에서 실험이나 API 요청을 새로 실행하지 않았다.
 
-## 먼저 볼 문서
+## 방법별 계획서와 결과 보고서
 
-1. [승민 담당 실험과 자료 현황](승민_실험_자료현황.md): 여섯 실험의 범위, 비교 항목, 확보 자료와 추가로 필요한 자료.
-2. [팀 개선 방법 실험 분담](docs/팀_개선방법_실험_분담.md): 최종 담당과 최초 실험자, 인계 대상.
-3. [공통 실험과 결과 공유 기준](docs/공통_실험_기준.md): 공정한 비교와 결과 기록 기준.
-4. [gm 개선 방법 조사](references/gm/최신/V-Gate_이후_개선_방법_조사.md): S4 관련 13번, S5 관련 6번을 포함한 연구·방법 설명. 이 문서의 후보는 미실험 제안이다.
+| ID | 방법 | 계획서 | 결과 보고서 | 원래 실행 이름 |
+| --- | --- | --- | --- | --- |
+| S1 | GPT 경유점 정제 | [계획](experiments/S1/plan.md) | [결과](experiments/S1/report.md) | E1 |
+| S2 | 구체적인 오류 피드백으로 경로 수정 | [계획](experiments/S2/plan.md) | [결과](experiments/S2/report.md) | E2F / E2C |
+| S3 | 탐색 정체 시에만 GPT 호출 | [계획](experiments/S3/plan.md) | [결과](experiments/S3/report.md) | E3 |
+| S4 | TransPath 계열 경로 영역 예측 | [계획](experiments/S4/plan.md) | [결과](experiments/S4/report.md) | TRANSPATH_11 / 22 / 33 |
+| S5 | 빈 공간을 압축하는 정확한 탐색 | [계획](experiments/S5/plan.md) | [결과](experiments/S5/report.md) | R1 |
+| S6 | 필요한 장애물만 단계적으로 반영 | [계획](experiments/S6/plan.md) | [결과](experiments/S6/report.md) | R2 |
 
-## 계획서와 결과 보고서
+방법별 문서는 기존 실행 기록을 근거로 이번에 정리한 안내다. 원래 자료는 아래에 보존했다. 공통 묶음의 전체 평가 행 수를 각 방법의 독립 실험 수로 중복 계산하지 않는다.
 
-| 자료 | 위치 | 읽을 때 구분할 내용 |
+| 자료 묶음 | 원래 계획·설정 | 원래 보고서와 검증 |
 | --- | --- | --- |
-| sm 과거 재현·개선 계획서 | [LLM-Astar_Project_Plan.md](LLM-Astar_Project_Plan.md) | main 정리 전에 있던 sm `fa6d8dc`에서 복원한 과거 계획. 현재 S1~S6 분담은 위 팀 분담표를 따른다. |
-| sm 과제·논문 통합 정리 | [LLM-Astar_Codex_Context.md](LLM-Astar_Codex_Context.md) | 과제 조건, 알고리즘 설명과 초기 개선 후보. |
-| sm GPT 재현 보고서 | [HTML 보고서](results/report/report.html), [Markdown 보고서](results/report/report.md) | GPT-3.5 Turbo 재현 8개 조건의 결과. |
-| sm 성능 원인 분석 | [performance_analysis.md](results/report/performance_analysis.md) | 경유점 유무, g+2h 대조군과 집계 방식 분석. |
-| sm 실행 절차 | [reproduction/README.md](reproduction/README.md) | 실제 GPT 재현 설정과 실행 명령. |
-| gm 전체 실험 계획서 | [LLM-Astar_Project_Plan.md](references/gm/LLM-Astar_Project_Plan.md) | gm의 계획과 진행 기록. sm의 완료 상태와 구분한다. |
-| gm 개선 방법 조사 | [V-Gate 이후 개선 방법 조사](references/gm/최신/V-Gate_이후_개선_방법_조사.md) | 13개 후속 후보의 원리·출처·비용·한계. |
-| gm 결과 요약 | [재현 실험 결과](references/gm/최신/재현_실험_결과.md) | 모델 2개 재현 및 V-Gate 비교 결과. |
-| gm 결과 보고서 | [PDF](references/gm/output/pdf/LLM_Astar_Reproduction_Report.pdf), [보고서 본문](references/gm/output/LLM_Astar_Report_KO.txt), [TeX 원본](references/gm/report/LLM_Astar_Reproduction_Report.tex) | gm의 보고서와 편집 가능한 원본. |
-| gm 실행·평가 규약 | [PROTOCOL.md](references/gm/reproduction/PROTOCOL.md), [AUDIT.md](references/gm/reproduction/AUDIT.md) | 모델·이동·파싱·비용 조건과 원본 대비 차이. |
+| S1~S3 | [고정 프로토콜](results/improvements/protocol.json) | [결과](results/improvements_final/report.md), [통합 보고서](results/improvements_final/final_report.md), [경로 정확도 분석](results/path_accuracy/report.md), [로컬 검증](results/improvements/local_import_verification.json) |
+| S4 | [고정 프로토콜](results/candidates_v1/protocol.json), [지도 분할](results/candidates_v1/data_manifest.json) | [최종 해석](results/candidates_final/report.html), [상세 보고서](results/candidates_v1/report/report.html), [가중치](results/candidates_v1/models/), [로컬 검증](results/candidates_v1/local_verification.json) |
+| S5~S6 | [사전 계획](results/next_experiments_plan/plan.md), [계획 JSON](results/next_experiments_plan/protocol.json), [실행 고정 프로토콜](results/next_search_v1/protocol_frozen.json) | [완료 보고서](results/next_search_final/report.md), [서버 검증](results/next_search_v1/verification.json), [로컬 검증](results/next_search_v1/local_verification.json) |
 
-## 폴더 구성
+## 모든 원자료 확인과 복원
 
-| 위치 | 포함 내용 |
-| --- | --- |
-| `docs/` | main에서 가져온 공통 실험 기준과 팀 분담표. |
-| `reproduction/` | sm GPT 재현·평가·분석·검증 코드와 실행 안내. |
-| `results/` | sm 보고서, 표, 그림, 원문 응답, 문제별 평가, 실행·검증 기록. |
-| `review/` | sm `fa6d8dc`의 논문·코드 리뷰, waypoint 문답과 검증 자료. |
-| `materials/` | 과제 안내서와 대상 논문. |
-| `source_code/` | 원본 연구 코드·데이터·라이선스. |
-| `references/gm/` | gm `2e8bcc1`의 계획·조사·보고서·코드·원시 결과·검증 및 참고 자료. 원래 디렉터리 구조를 유지했다. |
-| `README.original.md` | 수집 당시 현재 작업트리의 루트 README 원본. |
-| `collection_manifest.json` | 파일별 원본 경로, 출처 커밋, 크기와 SHA-256. |
+[압축자료 안내](archives/README.md)에 원자료 ZIP 5개를 정리했다. 압축파일은 이 폴더 안에 있으며 Git으로 함께 내려받는다. 공통 대조군과 K1·K2·J1·J2 결과도 원래 실행 묶음에 보존했다. 이 네 방법의 최종 담당은 팀 분담표에 따른다.
 
-gm의 배포용 중복 압축파일과 임시 이미지 `temp.png`는 포함하지 않았다. 보고서와 그 근거 파일은 압축을 풀지 않고 바로 확인할 수 있도록 모았다.
+보고서·계획·설정·검증 기록은 바로 열 수 있다. 많은 수의 응답·개별 평가와 대용량 시간 기록은 ZIP에 보관했다. 특히 `results/next_search_v1/per_case.jsonl`은 약 137 MB여서 압축 형태로 제공한다. 다음 명령을 **이 `sm_part` 폴더에서** 실행하면 선택 원자료를 원래 상대 경로로 복원한다. Python 3.12 이상과 표준 라이브러리만 있으면 된다.
 
-## 자료 상태와 실행 경로
+```powershell
+python tools/verify_collection.py
+python tools/restore_results.py --extract
+```
 
-원본 파일과 Git에서 복원한 파일의 내용은 유지했다. `results/report/report.md`, `performance_analysis.md` 및 분석 스크립트처럼 아직 커밋되지 않은 로컬 자료도 포함했고, 파일 목록에서 `working_tree_untracked`로 구분했다. 이 모음은 수집 시점의 사본이므로 이후 원본 변경이 자동 반영되지는 않는다.
+검증은 ZIP과 모든 원본 파일의 바이트 크기·SHA-256을 확인한다. 복원 시 동일 파일은 유지하고 내용이 다른 파일을 덮어쓰지 않는다. 복원 전에는 원래 보고서가 가리키는 개별 원자료 경로가 아직 없을 수 있다. 복원 생성 파일은 `.gitignore`에 기록해 중복 커밋을 방지했다.
 
-sm 코드를 실행할 때 이 폴더를, gm 코드를 실행할 때 `references/gm/`을 각 실행 안내서의 저장소 루트로 해석한다. sm 실행기는 별도의 고정 원본 체크아웃 `vendor/llm-astar/`를 요구하며, 현재 작업트리에 없으므로 이 모음에도 없다. 필요한 환경은 각 실행 안내서에 따른다. 이번 자료 정리에서는 실험이나 API 호출을 새로 실행하지 않았다.
+## 코드와 환경
 
-## 출처
+- [reproduction/](reproduction/): 실제 실행·분석·검증 코드와 실행 시점 소스 해시.
+- [vendor/llm-astar/](vendor/llm-astar/): 원본 커밋 `9414ed894d774f71c36e8c0afd0e20e6033b95b1`의 코드·입력·프롬프트·MIT 라이선스 사본. `.git` 내부 자료는 제외했다.
+- [requirements-lock.txt](requirements-lock.txt), [requirements-llama.txt](requirements-llama.txt): 기존 환경 명세. 실제 서버 환경은 결과 폴더의 `environment.json`과 패키지 목록을 확인한다. 학습 재실행에는 해당 PyTorch·GPU 환경이 필요하다.
+- [dist/](dist/): 당시 소스를 확인할 기존 배포 패키지 5개.
+- [README.local-experiments.md](README.local-experiments.md): 로컬 전체 실행 안내 원본.
 
-- 현재 sm 작업트리: `a7fc8a0583593178d1ce0f0a4dbf3c7f937c6e76`와 수집 시점의 미추적 자료.
-- sm 과거 계획·리뷰: `fa6d8dc7cf6c1ca9278ab6b1bfdc3b89a5db3248`.
-- 원격 main 확인 커밋: `bf4ae439094e0df003c02c0b4b4e607d5a330238`.
-- 원격 gm 확인 커밋: `2e8bcc1538ff5ca9735e4f6c7c8dc534aa9a2bd8`.
+기존 코드가 `sm_part`를 루트로 해석하도록 원래 구조를 유지했다. 원자료를 사용하는 검증·보고서 재생성 전에는 복원 명령을 먼저 실행한다. `improve_run.py all` 등 수집 명령은 새 API 요청을 발생시킬 수 있으므로 이번 자료 확인에는 필요하지 않다.
 
-gm 자료는 비교·참고 자료이며 승민의 구현 성과로 바꾸어 기록하지 않는다. 최초 구현·실험 기여와 최종 담당은 팀 분담표를 따른다.
+## 출처와 보존 범위
+
+[s1_s6_manifest.json](s1_s6_manifest.json)은 로컬 원본 각각의 크기·해시 및 보관 파일/ZIP 멤버를 대응시킨다. [collection_manifest.json](collection_manifest.json)은 현재 수집 파일의 해시 목록이다. 기존 수집 목록은 [2026-10-24 이력](collection_manifest.2026-10-24.json)으로 보존했다.
+
+원문의 `C:/인지개/` 링크는 배포용 Markdown·HTML 사본에서 상대 경로로 바꿨다. 해당 문서의 바이트 원본은 [original_documents/](original_documents/)에 따로 보존했다. 코드·원자료·원본 ZIP의 내용은 바꾸지 않았다. 로컬 후속 실험은 Git 저장소 밖에서 수행됐으므로 없는 실행 커밋을 만들어 적지 않고 SHA-256으로 소스를 식별한다.
+
+기존 [GPT 재현 보고서](results/report/report.md), [과거 계획서](LLM-Astar_Project_Plan.md), [리뷰](review/), [gm 참고 자료](references/gm/)도 유지했다. gm 자료는 승민의 성과로 합산하지 않는다. 가상환경·캐시·인증 정보와 S1~S6에 직접 해당하지 않는 별도 Llama Table 1 실행 자료는 이번 추가 범위에서 제외했다.
+
+로컬 최신본으로 갱신한 기존 `report.py`와 `requirements-lock.txt`의 이전 사본은 [previous_collection/](previous_collection/)에 보존했다. 과거 수집 목록의 해시는 당시 사본에 대한 기록이다.

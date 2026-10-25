@@ -1,0 +1,93 @@
+{
+  "connection_lost_after_utc": "2026-10-14T04:00:15Z",
+  "last_verified_status": {
+    "phase": "final",
+    "cases_done": 1261,
+    "cases_total": 2000,
+    "methods": 9,
+    "runner_pid": 418348
+  },
+  "storage_observation": {
+    "status_file_modified_kst": "2026-10-14 13:07:23",
+    "run_log_modified_kst": "2026-10-14 13:07:33",
+    "status_file_bytes": 128
+  },
+  "portal_session_state": "RUNNING",
+  "terminal_connection": "ERR_CONNECTION_TIMED_OUT on existing Jupyter service port 10240",
+  "storage_download_connection": "ERR_CONNECTION_TIMED_OUT on storage service port 6023",
+  "portal_https_443": "working",
+  "recovery_attempts": [
+    "reload existing Jupyter terminal",
+    "reopen existing Jupyter Notebook service through portal",
+    "open existing session Console through portal",
+    "read storage metadata and attempt status.json download"
+  ],
+  "new_runner_started": false,
+  "user_connectivity_question_pending": false,
+  "verified_validation_results": {
+    "R1": {
+      "selected": "sparse",
+      "time_ratio_vs_A_OCT": 1.925501107706088,
+      "expansion_ratio_vs_A_OCT": 0.2957371356872806,
+      "queries": 600,
+      "gate": false
+    },
+    "R2": {
+      "selected": "program",
+      "time_ratio_vs_A_OCT": 1.895650312208607,
+      "expansion_ratio_vs_A_OCT": 1.4285780048463235,
+      "queries": 600,
+      "gate": false
+    },
+    "R1_R2": {
+      "time_ratio_vs_R1": 1.4263255419218446,
+      "expansion_ratio_vs_R1": 0.794456912682036,
+      "queries": 600,
+      "gate": false
+    },
+    "R3": {
+      "candidate_count": 2,
+      "development_queries": 120,
+      "validation_queries": 120,
+      "development_time_ratio_vs_rule": 20.46005393572846,
+      "development_expansion_ratio_vs_rule": 1.0618453979479228,
+      "validation_time_ratio_vs_rule": 18.454964096661037,
+      "validation_expansion_ratio_vs_rule": 1.054100203496293,
+      "gate": false,
+      "final_llm_generation_skipped_per_gate": true
+    },
+    "final_maps": 200,
+    "r2_program_generations": 12,
+    "r2_program_valid": 8,
+    "r2_unique_programs": 2,
+    "r3_development_generations": 82,
+    "r3_validation_generations": 80,
+    "note": "Read from server terminal before connection loss; these are validation metrics, not final held-out results. Confirm exact values from downloaded files when connectivity resumes."
+  },
+  "recovery": {
+    "verified_utc": "2026-10-14T04:23:33Z",
+    "user_report": "VPN/교내망 연결 복구",
+    "terminal_connection": "restored",
+    "phase": "final",
+    "cases_done": 1461,
+    "cases_total": 2000,
+    "methods": 2,
+    "runner_pid": 418348,
+    "existing_runner_continued": true
+  },
+  "second_interruption": {
+    "last_displayed_utc": "2026-10-14T05:10:31Z",
+    "last_phase": "scaling",
+    "last_cases_done": 201,
+    "last_cases_total": 320,
+    "error_observed_utc": "2026-10-14T05:42:16Z",
+    "user_report": "VPN/교내망 연결 재복구",
+    "recovery_verified_utc": "2026-10-14T05:42:52Z",
+    "phase_after_recovery": "reuse_fixed",
+    "cases_after_recovery": 2,
+    "no_duplicate_main_runner": true,
+    "upload_file_sha256_verified": "f5fdeeca315358c54d7680343b1f5a225c2de5449f7ecb457607076aac45bcd7"
+  },
+  "resolved": true,
+  "outcome": "both result archives recovered; server SHA256 matched; server and local checks passed; completion report saved"
+}

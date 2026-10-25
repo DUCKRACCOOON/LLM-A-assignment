@@ -198,7 +198,7 @@ def main():
         if r['method']=='llm_only':
             response_diagnostics.append(f'{PROMPT[r["prompt"]]}: 경로 목록 추출 실패 {sum(r["parse_failures"].values())}/{r["n"]}건')
     sections=f'''<h1>LLM-A*: GPT API 재현 결과</h1>
-    <p class="lead">상태: {'본 실험 1,000문제·8조건 완료' if complete else '진행 중 — 부분 결과'}. 이 보고서는 완료된 GPT 기반 8개 조건을 다룹니다.</p>
+    <p class="lead">상태: {'본 실험 1,000문제·8조건 완료' if complete else '진행 중 — 부분 결과'}. Llama 실험은 후순위로 보류했습니다.</p>
     <div class="cards"><div><b>{costs['main']['requests']:,}</b>본 실험 API 응답</div><div><b>{len(rows):,}</b>평가 결과 행</div><div><b>${total:.4f}</b>전체 토큰 요금 추정</div></div>
     <h2>실험 조건</h2><p>요청 모델 gpt-3.5-turbo-0125, 반환 모델 {html.escape(raw_models)}. temperature=0, max_tokens=1000, 프롬프트당 1회 생성. Few-shot 5-shot, CoT/RePE 3-shot. 동일 응답을 GPT 단독 및 LLM-A*에 공유했습니다. 학습·파인튜닝은 수행하지 않았습니다.</p>
     <p>저자 데이터 100개 지도 × 10개 시작·목표 쌍 = 1,000문제. 범위 [0,51]×[0,31]은 저자 코드에 따라 경계 좌표 0~50, 0~30으로 해석했습니다. 8방향 이동과 유클리드 비용, 경계 접촉·장애물 선분 교차를 충돌로 처리했습니다.</p>

@@ -1,0 +1,393 @@
+{
+  "plan": {
+    "version": "next-search-20261014-v1",
+    "status": "planning_only_not_frozen",
+    "created_date": "2026-10-14",
+    "language": "ko",
+    "plan": "plan.md",
+    "execution_started": false,
+    "goal": "Preserve exact or bounded grid-path quality while reducing measured total computation cost.",
+    "candidates": [
+      {
+        "id": "R1",
+        "name": "exact rectangular graph compression",
+        "priority": 1,
+        "exact": true,
+        "maximum_development_variants": 3
+      },
+      {
+        "id": "R2",
+        "name": "counterexample-guided wall activation",
+        "priority": 2,
+        "exact": true,
+        "maximum_development_variants": 6,
+        "failed_relaxed_solves_before_full_fallback": 3
+      },
+      {
+        "id": "R3",
+        "name": "topology-informed ranking within FOCAL",
+        "priority": 3,
+        "weights": [
+          1.0,
+          1.01,
+          1.02
+        ],
+        "primary_weight": 1.02,
+        "candidate_counts_for_development": [
+          2,
+          3
+        ]
+      }
+    ],
+    "problem": {
+      "graph": "original integer 8-neighbor grid with segment-obstacle collision semantics",
+      "cardinal_cost": 1,
+      "diagonal_cost": "sqrt(2)",
+      "heuristic": "octile",
+      "common_tie_break": [
+        "f",
+        "h",
+        "coordinate_id"
+      ],
+      "path_reconstruction": "original unit grid moves",
+      "length_atol": 1e-08,
+      "length_rtol": 1e-10,
+      "independent_oracle": "Dijkstra with independently checked original collision semantics"
+    },
+    "core_baselines": [
+      "A_OCT",
+      "N_LEGACY",
+      "N_CLEAN",
+      "WA_101",
+      "WA_102",
+      "WA_200",
+      "FOCAL_101",
+      "FOCAL_102"
+    ],
+    "r3_controls": [
+      "TOPO_RULE",
+      "TOPO_RANDOM",
+      "TOPO_LLM"
+    ],
+    "random_ranking_seeds": [
+      26101431,
+      26101432,
+      26101433
+    ],
+    "data": {
+      "old_observed_data_role": "development_and_historical_bridge_only",
+      "families": [
+        "original_style_segments",
+        "dense_segments",
+        "corridors_dead_ends",
+        "multiple_detours"
+      ],
+      "development": {
+        "maps_per_family": 15,
+        "queries_per_map": 10,
+        "maps": 60,
+        "queries": 600
+      },
+      "validation": {
+        "maps_per_family": 15,
+        "queries_per_map": 10,
+        "maps": 60,
+        "queries": 600
+      },
+      "final": {
+        "maps_per_family": 50,
+        "queries_per_map": 10,
+        "maps": 200,
+        "queries": 2000,
+        "generate_after_freeze": true
+      },
+      "r3_final_subset": {
+        "maps_per_family": 20,
+        "queries_per_map": 5,
+        "maps": 80,
+        "queries": 400,
+        "selection": "map hash order then fixed query indexes, independent of results"
+      },
+      "scaling": {
+        "maps_per_family": 10,
+        "queries_per_map": 2,
+        "factors": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "total_conditions": 320,
+        "additional_conditions": 240
+      },
+      "reuse": {
+        "maps_per_family": 5,
+        "query_prefixes": [
+          1,
+          5,
+          10
+        ],
+        "workloads": [
+          "varying_goals",
+          "fixed_goal"
+        ],
+        "additional_fixed_goal_queries": 200
+      },
+      "unreachable": {
+        "maps": 20,
+        "queries_per_map": 5,
+        "queries": 100
+      },
+      "small_grid_differential_queries": 2000,
+      "split_unit": "base_map_including_all_rotations_reflections_scales_and_queries",
+      "generator_seed_namespaces": {
+        "development": 26101410,
+        "validation": 26101411,
+        "final": 26101412,
+        "auxiliary": 26101413
+      },
+      "generator_acceptance": "no manual Good/Bad screening; log resampling; no filtering by tested solver performance",
+      "final_sample_size_review": {
+        "before_test_access": true,
+        "power_target": 0.8,
+        "target_time_reduction": 0.1,
+        "maximum_maps": 400,
+        "requires_new_frozen_protocol": true
+      }
+    },
+    "timing": {
+      "host_policy": "same fixed host and CPU thread settings; sequential solver runs",
+      "repeats": 5,
+      "aggregate_per_case": "median",
+      "method_order": "randomized blocks",
+      "order_seed": 26101420,
+      "single_query_cache_policy": "clear map and goal caches for each measured run",
+      "model_state": "resident; first model load reported separately",
+      "inference_collection": "one new generation per planned query; stored generation time included in online cost",
+      "detailed_counters": "separate instrumented run, same code and identical output validation",
+      "total_cost_includes": [
+        "map_preparation",
+        "goal_preparation",
+        "query_preparation",
+        "guidance",
+        "inference_if_online",
+        "all_search_rounds",
+        "required_validation",
+        "fallback",
+        "path_reconstruction"
+      ],
+      "offline_costs_reported_separately": [
+        "ground_truth_generation",
+        "audit",
+        "program_generation_and_selection",
+        "model_loading"
+      ],
+      "default_query_timeout_seconds": 60,
+      "default_peak_rss_gib": 8,
+      "scale_resource_limits": "may change using development pilot only, before final freeze"
+    },
+    "metrics": [
+      "reachability",
+      "path_validity",
+      "length",
+      "optimal_length",
+      "length_ratio",
+      "exact_length_match",
+      "bound_violation",
+      "expansions",
+      "reopens",
+      "heap_pushes",
+      "heap_pops",
+      "stale_pops",
+      "neighbor_candidates",
+      "relax_attempts",
+      "relax_successes",
+      "collision_tests",
+      "primitive_wall_intersections",
+      "macro_edge_checks",
+      "fan_scans",
+      "cache_hits",
+      "cache_misses",
+      "peak_open",
+      "peak_rss",
+      "preparation_seconds",
+      "inference_seconds",
+      "search_seconds",
+      "required_validation_seconds",
+      "reconstruction_seconds",
+      "total_seconds",
+      "fallback",
+      "failure_reason"
+    ],
+    "statistics": {
+      "unit": "map_cluster",
+      "ratio_summary": "geometric mean of paired per-case ratios via within-map mean log ratio",
+      "bootstrap": "stratified paired map cluster bootstrap",
+      "bootstrap_replicates": 10000,
+      "bootstrap_seed": 26101421,
+      "descriptive_interval": 0.95,
+      "confirmatory_comparisons": [
+        "R1/A_OCT",
+        "R2/A_OCT",
+        "R1_R2/R1",
+        "TOPO_LLM/TOPO_RULE at w=1.02"
+      ],
+      "confirmatory_two_sided_interval_each": 0.9875,
+      "multiplicity": "Bonferroni over a maximum of four confirmatory time comparisons",
+      "random_seed_replicates_are_independent_maps": false,
+      "failed_cases": "report all; no superiority claim from successful-case-only timing"
+    },
+    "decision_targets_not_predictions": {
+      "invalid_or_bound_violation_count": 0,
+      "exact_track_exact_fraction": 1.0,
+      "exact_total_time_ratio_target": 0.9,
+      "exact_expansion_ratio_target": 0.8,
+      "confirmatory_time_interval_upper_must_be_below": 1.0,
+      "validation_p95_case_time_ratio_review_threshold": 1.5,
+      "r3_llm_vs_rule_expansion_ratio_development_target": 0.9,
+      "r3_online_adoption_requires_inference_inclusive_gain": true,
+      "n_clean_dominance": "separate challenge; exact-peer success is not automatically superiority to N"
+    },
+    "model_budget": {
+      "default_model": "meta-llama/Meta-Llama-3-8B-Instruct",
+      "dtype": "BF16",
+      "decoding": "greedy",
+      "batch_size": 1,
+      "revision_and_hashes": "record and freeze before execution",
+      "paid_api_calls": 0,
+      "r2_program_generations_max": 60,
+      "r3_development_generations_max": 120,
+      "r3_validation_generations_max": 120,
+      "r3_final_generations_max": 400,
+      "total_generations_max": 700,
+      "r2_max_new_tokens": 512,
+      "r3_max_new_tokens": 256,
+      "responses_shared_across_weights": true,
+      "regenerate_invalid_response": false,
+      "invalid_r3_response_action": "RULE fallback; record failure and original generation cost",
+      "unavailable_model_action": "mark AI branch not run; do not silently substitute"
+    },
+    "logical_row_budget": {
+      "main_exact_and_core_max": 22000,
+      "r3_max": 6000,
+      "timing_repeats_are_not_new_cases": true,
+      "auxiliary_rows_separate": true
+    },
+    "fixed_goal_auxiliary_baselines": [
+      "A_OCT",
+      "selected_exact_candidates",
+      "FOCAL_default",
+      "FMM_uniform_same_weight",
+      "reverse_Dijkstra_distance_field"
+    ],
+    "planned_output_directory": "results/next_search_v1",
+    "freeze_requirements": [
+      "geometry_and_bound_tests_pass",
+      "solver_sources_hashed",
+      "generator_hashed",
+      "all_settings_selected_on_development_and_validation",
+      "model_revision_and_hashes_recorded",
+      "statistics_code_hashed",
+      "sample_size_decision_recorded",
+      "resource_limits_recorded",
+      "final_maps_not_used_for_tuning"
+    ],
+    "source_reports": [
+      "results/improvements_final/report.md",
+      "results/path_accuracy/report.md",
+      "results/candidates_final/report.html",
+      "results/candidates_v1/protocol.json",
+      "results/candidates_v1/verification.json"
+    ],
+    "research_sources": [
+      "https://www.harabor.net/data/papers/harabor-botea-kilby-sara11.pdf",
+      "https://ojs.aaai.org/index.php/ICAPS/article/view/13568",
+      "https://ojs.aaai.org/index.php/ICAPS/article/view/13605",
+      "https://www.ri.cmu.edu/pub_files/2016/3/paper-lazysp.pdf",
+      "https://arxiv.org/abs/1904.02795",
+      "https://arxiv.org/abs/1710.02871",
+      "https://ojs.aaai.org/index.php/AAAI/article/view/26465"
+    ]
+  },
+  "selected": {
+    "r1": "sparse",
+    "r1_validation": {
+      "time": 1.9255011077706088,
+      "expansions": 0.2957371356872806,
+      "p95_time": 6.8260214623019,
+      "n": 600
+    },
+    "r1_gate": false,
+    "program": [
+      0.5,
+      0.3,
+      0.1,
+      0.1
+    ],
+    "combination_r2": "program",
+    "incremental_trigger_fraction": 0.345,
+    "r2": "program",
+    "r2_validation": {
+      "time": 1.895650312208607,
+      "expansions": 1.4285780048463235,
+      "p95_time": 3.8334576204529025,
+      "n": 600
+    },
+    "r2_gate": false,
+    "combination_validation": {
+      "time": 1.4263255419218446,
+      "expansions": 0.794456912682036,
+      "p95_time": 2.813577993148998,
+      "n": 600
+    },
+    "combination_gate": false,
+    "k": 2,
+    "r3_development": {
+      "time": 20.46005393572846,
+      "expansions": 1.0618453979479228,
+      "p95_time": 231.59304816038778,
+      "n": 120
+    },
+    "r3_validation": {
+      "time": 18.454964096661037,
+      "expansions": 1.054100203496293,
+      "p95_time": 229.36909447089013,
+      "n": 120
+    },
+    "r3_gate": false
+  },
+  "source_hashes": {
+    "next_data.py": "a268916c84ba51b3916c65d66d4d8361117471e74fa6d36e3183c12890c6d9f7",
+    "next_geometry.py": "31ec677c9cf568e91e8e6420fad3e408492739dde5862448071ce484b2a279d2",
+    "next_incremental.py": "73abb31c813eeda129a79813a62dba97572719a2e5bfddf52e8594dd357df2a8",
+    "next_model.py": "761ed900fe4320831a4745b2af83898f04dbf4f4553fc203cd2a259e4af66984",
+    "next_oracle.py": "aaf67a18f1ab74034c77a8fe87df0e6255f902d4ebde82cac2d99e38719058aa",
+    "next_refinement.py": "1f7dc5af8f180b1fba14a27b1d9056dd2eaf316203e10f84a81bfb1ff704639a",
+    "next_report.py": "f3e97dd9c966341015ede511acd481c679615d9ab2cc415965e96b6274aa311d",
+    "next_reuse.py": "593cad6fb9ad86dcdb87d01572f497b790187e3431d77b2ebbed7a49328b20f6",
+    "next_run.py": "d9501a21b260450750cd2e064380614451de62249293562e7c5ac5ee81d2b1bc",
+    "next_search_core.py": "a4242004e64f55424a9c8eca13506b579c10debb296dd671e37f11f56566addc",
+    "next_topology.py": "5914d5cdd9597df8f03cf56d128e1001a700a45f0514a58583388091333974f5",
+    "test_next_search.py": "2257786b1e1017ad264f45da85cc96d907dcef08105f4d1debef54ef61e57a1e",
+    "core.py": "f57cf6fb864372f5e972974902e96e04ea4f87387069d4ab140916f1ba772b65"
+  },
+  "model_revision": "8afb486c1db24fe5011ec46dfbe5b5dccdb575c2",
+  "final_maps": 200,
+  "power_review": {
+    "method": "validation-centered log ratio simulation; normal critical value 2.50",
+    "powers": {
+      "200": 0.9988,
+      "400": 1.0
+    }
+  },
+  "refinements": {
+    "generator": "integer positive-length axis-aligned segments; manual selection removed",
+    "memory": "5 ms sampled RSS, not an exact allocation peak",
+    "r2_programs": "12 bounded linear score proposals, within the maximum 60 generation budget",
+    "r2_incremental": "LPA evaluated if at least 10% of best restart-policy development queries require repeat solves; compressed combination uses best restart policy",
+    "r1_adaptive": "conditional extension not included; conservative full and sparse evaluated",
+    "inference": "Llama chat template for new ranking tasks; earlier reproduction prompts unchanged"
+  },
+  "frozen_utc": "2026-10-14T03:37:06.624948+00:00",
+  "signature": "ba852c3ed456e315c35255f6c948824cefe9283deda444953ce0754cf44d353a"
+}

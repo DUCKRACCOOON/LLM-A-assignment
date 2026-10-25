@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-25",
+  "purpose": "Collection validation only; no new experiment or API request.",
+  "source_manifest_verified": true,
+  "source_files_verified": 71589,
+  "original_archive_internal_files_verified": 70407,
+  "original_archives_verified": 5,
+  "relative_links_checked_in_new_guides": 237,
+  "offline_tests": {
+    "test_reproduction.py": 5,
+    "test_improvements.py": 5,
+    "test_candidates.py": 5
+  },
+  "next_search_test": {
+    "command": "python reproduction/test_next_search.py --cases 20",
+    "verified": true,
+    "edge_differential_checks": 5816,
+    "solver_checks": 1160,
+    "unreachable_queries": 100,
+    "medium_incremental_queries": 600,
+    "medium_queries_requiring_repair": 227
+  },
+  "restore_tool_fixture_checks": [
+    "verify-only",
+    "extraction",
+    "identical-file skip",
+    "different-file overwrite rejection",
+    "archive/source hash mismatch",
+    "duplicate source and ZIP path rejection",
+    "symlink rejection",
+    "path traversal rejection"
+  ],
+  "credentials": "No key/token/private-key matches in five original ZIPs, five deployment ZIPs, and reviewed additional texts; seven proof images visually checked.",
+  "scientific_results": "Existing results preserved; data collection does not complete missing comparisons."
+}

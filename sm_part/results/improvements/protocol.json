@@ -1,0 +1,65 @@
+{
+  "protocol": {
+    "version": "2026-10-14-v1",
+    "model": "gpt-3.5-turbo-0125",
+    "temperature": 0,
+    "max_tokens": 1000,
+    "primary_metrics": [
+      "operation",
+      "storage",
+      "length",
+      "valid"
+    ],
+    "data": "environment_50_30.json",
+    "main_cases": 1000,
+    "pilot_cases": 10,
+    "kinds": [
+      "standard",
+      "cot",
+      "repe"
+    ],
+    "scaling_kinds": [
+      "standard"
+    ],
+    "scaling_sample_seed": 240702511,
+    "scaling_factors": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "e1": "original targets -> chronological loop erasure -> farthest collision-free shortcut -> validate or no internal targets",
+    "e2": "if first raw path invalid: control and feedback each get exactly one revision; second answer adopted unconditionally",
+    "e2_feedback": "first original-validator error; first offending coordinate/segment/barrier in original order",
+    "e3": "check after each max(10,ceil(start-goal distance)) pops; progress of best popped distance <0.05 initial distance -> call once; preserve search state",
+    "e3_prompt": "original start/goal/map and original prompt; no current-state additions",
+    "sequence": "pilot verification; E1 main+scaling; E2 main+scaling; E3 main+scaling; verify and report",
+    "shared_responses": "new first responses shared across all arms; E3 acquisition trace prepared during first-response collection, final E3 replay evaluated last",
+    "environment_change": "user requested Linux GPU server instead of previous Windows PC; rerun all controls and verify legacy classical metrics",
+    "gpu_role": "GPT inference uses OpenAI API; unchanged Python search runs on CPU; selected idle GPU is visible but no GPU kernel is introduced",
+    "timing": "secondary only; full E3 acquisition trace recorded; other total times are observed shared API latency plus local processing, not independent online timing trials",
+    "failed_outputs": "never regenerate for quality; existing transport retry rules only; no best-of selection"
+  },
+  "source_sha256": {
+    "core.py": "f57cf6fb864372f5e972974902e96e04ea4f87387069d4ab140916f1ba772b65",
+    "run.py": "87ea17449d34d2689aa041c1a99718834468b40434f75df2fa116b9317ea5386",
+    "api_client.py": "a3672895f2a1a9c6d5d0d877f7cc65b156605b8e433a02cfda49947eed966e54",
+    "improve_core.py": "853757a8070fec57406822b5ca429ee594e5f4c99c33f1130bd8825277779c2f",
+    "improve_run.py": "a581bf4819ee366d9279abf1f6b24407075deab8d9f68936d13586e6b3c1c669",
+    "improve_report.py": "1ef8804a2dfffc42d90ede76eb8bf8756b5932da9548acf007915f2c22e8bbbe",
+    "test_improvements.py": "0a5ed260630337abced6b21d3f5b217c7779de688fc12bc648b5aa8ecc698b88"
+  },
+  "signature": "a9fe04a39cc82e046089b45b42cdcc6d16ca819293f864a0445f5f58fbc62f53",
+  "data_sha256": "e46c7e79182c2f9a64ae3ac1c35a46e6417ecb8b9869e35385fd6e29ddc84e5d",
+  "first_payloads_sha256": {
+    "pilot": "6e3a6a7ab1ea4b4db140e3019037b79750668545e561557dae56261f8ce91af0",
+    "main": "4ee79f9a2617654843a8e333aaaa2d2f8b86d6f1199a227d5d8173a315bee19c",
+    "scaling": "19f9766eec02360b7723f0074e3c5998d0a1863539e7a9ef559e5d62f94d8cc0"
+  }
+}

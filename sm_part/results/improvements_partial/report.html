@@ -1,0 +1,49 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GPT 개선 실험 부분 결과</title><style>body{font:16px/1.65 "Malgun Gothic",sans-serif;background:#f4f6f8;color:#172033;margin:0}main{max-width:1180px;margin:30px auto;background:white;padding:36px}h1{font-size:30px}h2{margin-top:32px;color:#164e63}.notice{background:#fff3db;border-left:5px solid #b45309;padding:16px}table{border-collapse:collapse;width:100%;font-size:12px;margin:20px 0}th,td{padding:8px;border-bottom:1px solid #ddd;text-align:right}th{background:#eef3f6}td:first-child,th:first-child{text-align:left}pre{white-space:pre-wrap;background:#f1f5f9;padding:16px;font-size:12px}</style><main><h1>GPT 개선 실험 — 부분 결과 보고서</h1><div class="notice"><strong>확장성 평가 일부가 미완료인 부분 보고서입니다.</strong> OpenAI API가 credit_balance_exhausted / insufficient_quota를 반환해 실험 2 확장성 평가 중 실행이 중단됐습니다. 실험 3은 이미 저장된 응답·실행 기록으로 추가 API 호출 없이 재생 평가했습니다. 아래 본 평가 표는 세 실험의 완료된 1,000문제 전체 결과이며, 실험 2의 미완료 확장성 사례를 성공한 것으로 처리하지 않았습니다.</div><h2>완료 범위와 평가 규모</h2><p>기존과 동일한 지도 100개 × 출발·도착점 쌍 10개 = 1,000문제에 Few-shot·CoT·RePE를 각각 적용했습니다. 따라서 개선안 하나의 본 평가는 3,000개입니다. 이는 학습 step 수가 아닙니다.</p><pre>{
+  &quot;pilot&quot;: {
+    &quot;expected_cases_per_phase&quot;: 10,
+    &quot;saved_cases_by_phase&quot;: {
+      &quot;e1&quot;: 10,
+      &quot;e2&quot;: 10,
+      &quot;e3&quot;: 10
+    },
+    &quot;verified_rows&quot;: 270,
+    &quot;verified_api_responses&quot;: 78,
+    &quot;prompt_tokens&quot;: 67130,
+    &quot;completion_tokens&quot;: 7432
+  },
+  &quot;main&quot;: {
+    &quot;expected_cases_per_phase&quot;: 1000,
+    &quot;saved_cases_by_phase&quot;: {
+      &quot;e1&quot;: 1000,
+      &quot;e2&quot;: 1000,
+      &quot;e3&quot;: 1000
+    },
+    &quot;verified_rows&quot;: 27000,
+    &quot;verified_api_responses&quot;: 8448,
+    &quot;prompt_tokens&quot;: 7894076,
+    &quot;completion_tokens&quot;: 1249623
+  },
+  &quot;scaling&quot;: {
+    &quot;expected_cases_per_phase&quot;: 100,
+    &quot;saved_cases_by_phase&quot;: {
+      &quot;e1&quot;: 100,
+      &quot;e2&quot;: 79,
+      &quot;e3&quot;: 100
+    },
+    &quot;verified_rows&quot;: 916,
+    &quot;verified_api_responses&quot;: 247,
+    &quot;prompt_tokens&quot;: 158394,
+    &quot;completion_tokens&quot;: 5253
+  }
+}</pre><h2>완료된 본 평가에서의 해석</h2><p><strong>실험 1:</strong> 경유점 정제는 기존 LLM-A*보다 연산량을 줄였지만, GPT 경유점 없는 g+2h 대조군보다 연산량이 낮지는 않았습니다. 개선의 일부를 잘못된 GPT 안내를 배제하는 효과로 해석할 수 있으며, GPT 안내의 추가 기여가 입증됐다고 주장하지 않습니다.</p><p><strong>실험 2:</strong> 오류 피드백으로 GPT 자체 출력의 유효율은 상승했지만, 같은 호출 횟수의 비구체적 재검토 대조군 대비 최종 탐색 성능은 일관되게 좋아지지 않았습니다. 출력 품질 개선과 최종 탐색 성능 개선을 구분해야 합니다.</p><p><strong>실험 3:</strong> 최초 응답 수집 때 저장한 조건부 호출 실행 기록과, 동일 응답을 사용하는 재생 결과가 연산량·저장량·길이·유효성·전체 경로·경유점·호출 시점·호출 횟수에서 일치함을 확인했습니다. 호출 수는 프롬프트별 Few-shot 498/1000, CoT 498/1000, RePE 498/1000입니다. API 사용량과 탐색 성능을 별도로 비교해야 합니다.</p><p>실행 순서의 예외: 크레딧 부족으로 실험 2 확장성이 중단된 후, 추가 요청이 필요 없는 실험 3 재생을 먼저 마쳤습니다. 고정된 조작변인·입력·평가 규칙은 변경하지 않았습니다. 원래 계획의 모든 단계가 순서대로 완료됐다고 주장하지 않습니다.</p><h2>본 평가 결과</h2><p>연산량·저장량·길이는 동일 문제 A* 대비 비율의 기하평균입니다. 유효한 양수 측정치를 집계하며 유효율의 분모는 전체 문제입니다. 세 개선안을 결합하지 않았습니다.</p><table><thead><tr><th>방법</th><th>프롬프트</th><th>연산량 / A* %</th><th>저장량 / A* %</th><th>길이 / A* %</th><th>유효율 %</th><th>문제 수</th></tr></thead><tbody><tr><td>A*</td><td>—</td><td>100.00</td><td>100.00</td><td>100.00</td><td>100.00</td><td>1000</td></tr><tr><td>Dynamic weighted A*</td><td>—</td><td>60.90</td><td>78.52</td><td>100.24</td><td>100.00</td><td>1000</td></tr><tr><td>No GPT (g+2h)</td><td>—</td><td>34.32</td><td>56.23</td><td>102.02</td><td>100.00</td><td>1000</td></tr><tr><td>GPT only</td><td>Few-shot</td><td>None</td><td>None</td><td>106.39</td><td>6.30</td><td>1000</td></tr><tr><td>GPT only</td><td>CoT</td><td>None</td><td>None</td><td>142.89</td><td>9.40</td><td>1000</td></tr><tr><td>GPT only</td><td>RePE</td><td>None</td><td>None</td><td>163.91</td><td>11.90</td><td>1000</td></tr><tr><td>Baseline LLM-A*</td><td>Few-shot</td><td>39.45</td><td>60.54</td><td>102.22</td><td>100.00</td><td>1000</td></tr><tr><td>Baseline LLM-A*</td><td>CoT</td><td>56.28</td><td>74.22</td><td>102.79</td><td>100.00</td><td>1000</td></tr><tr><td>Baseline LLM-A*</td><td>RePE</td><td>75.31</td><td>88.54</td><td>102.44</td><td>100.00</td><td>1000</td></tr><tr><td>E1: waypoint refinement</td><td>Few-shot</td><td>34.52</td><td>56.36</td><td>101.96</td><td>100.00</td><td>1000</td></tr><tr><td>E1: waypoint refinement</td><td>CoT</td><td>37.56</td><td>58.83</td><td>102.15</td><td>100.00</td><td>1000</td></tr><tr><td>E1: waypoint refinement</td><td>RePE</td><td>37.72</td><td>59.24</td><td>101.96</td><td>100.00</td><td>1000</td></tr><tr><td>E2: retry control</td><td>Few-shot</td><td>45.16</td><td>65.31</td><td>102.36</td><td>100.00</td><td>1000</td></tr><tr><td>E2: retry control</td><td>CoT</td><td>55.56</td><td>73.88</td><td>102.76</td><td>100.00</td><td>1000</td></tr><tr><td>E2: retry control</td><td>RePE</td><td>76.37</td><td>89.38</td><td>102.43</td><td>100.00</td><td>1000</td></tr><tr><td>E2: error feedback</td><td>Few-shot</td><td>45.00</td><td>65.33</td><td>102.35</td><td>100.00</td><td>1000</td></tr><tr><td>E2: error feedback</td><td>CoT</td><td>55.82</td><td>74.09</td><td>102.63</td><td>100.00</td><td>1000</td></tr><tr><td>E2: error feedback</td><td>RePE</td><td>76.97</td><td>89.72</td><td>102.39</td><td>100.00</td><td>1000</td></tr><tr><td>E3: conditional call</td><td>Few-shot</td><td>35.89</td><td>57.80</td><td>102.01</td><td>100.00</td><td>1000</td></tr><tr><td>E3: conditional call</td><td>CoT</td><td>39.38</td><td>62.16</td><td>102.21</td><td>100.00</td><td>1000</td></tr><tr><td>E3: conditional call</td><td>RePE</td><td>42.56</td><td>65.70</td><td>102.05</td><td>100.00</td><td>1000</td></tr><tr><td>GPT retry control</td><td>Few-shot</td><td>None</td><td>None</td><td>110.34</td><td>9.70</td><td>1000</td></tr><tr><td>GPT retry control</td><td>CoT</td><td>None</td><td>None</td><td>144.71</td><td>10.40</td><td>1000</td></tr><tr><td>GPT retry control</td><td>RePE</td><td>None</td><td>None</td><td>162.59</td><td>12.40</td><td>1000</td></tr><tr><td>GPT error feedback</td><td>Few-shot</td><td>None</td><td>None</td><td>111.35</td><td>9.90</td><td>1000</td></tr><tr><td>GPT error feedback</td><td>CoT</td><td>None</td><td>None</td><td>144.97</td><td>11.90</td><td>1000</td></tr><tr><td>GPT error feedback</td><td>RePE</td><td>None</td><td>None</td><td>167.94</td><td>13.70</td><td>1000</td></tr></tbody></table><h2>짝지은 직접 비교</h2><p>100% 미만은 해당 대조군보다 감소했다는 뜻입니다. E2F는 구체적 오류 피드백, E2C는 같은 횟수의 추가 호출 대조군입니다. N은 GPT 경유점 없는 g+2h입니다.</p><table><thead><tr><th>프롬프트</th><th>실험군</th><th>대조군</th><th>연산량 비율 %</th><th>저장량 비율 %</th><th>길이 비율 %</th></tr></thead><tbody><tr><td>standard</td><td>E1</td><td>B</td><td>87.50</td><td>93.10</td><td>99.75</td></tr><tr><td>standard</td><td>E1</td><td>N</td><td>100.59</td><td>100.23</td><td>99.95</td></tr><tr><td>standard</td><td>E2F</td><td>B</td><td>114.07</td><td>107.90</td><td>100.13</td></tr><tr><td>standard</td><td>E2F</td><td>E2C</td><td>99.64</td><td>100.03</td><td>99.99</td></tr><tr><td>standard</td><td>E3</td><td>B</td><td>90.99</td><td>95.47</td><td>99.79</td></tr><tr><td>standard</td><td>E3</td><td>N</td><td>104.60</td><td>102.79</td><td>99.99</td></tr><tr><td>cot</td><td>E1</td><td>B</td><td>66.73</td><td>79.27</td><td>99.38</td></tr><tr><td>cot</td><td>E1</td><td>N</td><td>109.44</td><td>104.62</td><td>100.13</td></tr><tr><td>cot</td><td>E2F</td><td>B</td><td>99.18</td><td>99.83</td><td>99.84</td></tr><tr><td>cot</td><td>E2F</td><td>E2C</td><td>100.48</td><td>100.29</td><td>99.88</td></tr><tr><td>cot</td><td>E3</td><td>B</td><td>69.97</td><td>83.76</td><td>99.44</td></tr><tr><td>cot</td><td>E3</td><td>N</td><td>114.77</td><td>110.55</td><td>100.19</td></tr><tr><td>repe</td><td>E1</td><td>B</td><td>50.09</td><td>66.91</td><td>99.54</td></tr><tr><td>repe</td><td>E1</td><td>N</td><td>109.93</td><td>105.35</td><td>99.95</td></tr><tr><td>repe</td><td>E2F</td><td>B</td><td>102.19</td><td>101.33</td><td>99.96</td></tr><tr><td>repe</td><td>E2F</td><td>E2C</td><td>100.78</td><td>100.38</td><td>99.96</td></tr><tr><td>repe</td><td>E3</td><td>B</td><td>56.50</td><td>74.21</td><td>99.62</td></tr><tr><td>repe</td><td>E3</td><td>N</td><td>124.01</td><td>116.84</td><td>100.03</td></tr></tbody></table><h2>통제 조건과 검증</h2><p>모델 gpt-3.5-turbo-0125, temperature=0, max_tokens=1000, 최초 프롬프트·지도·경계·충돌 판정·탐색 규칙을 유지했습니다. 새 최초 응답을 실험군과 대조군에서 공유했습니다. 사용자 요청에 따라 실행 호스트는 Windows에서 Linux 서버로 이동했고, 기존 재현의 A*·Dynamic Weighted A*·g+2h 지표 3,000건과 일치함을 확인했습니다. GPT 추론은 API에서, 탐색은 서버 CPU에서 실행했습니다.</p><p>저장된 응답의 요청·응답 해시, 반환 모델명, 경로 유효성 및 길이, 코드·프로토콜 해시를 검증했습니다. 평가 중간 결과를 보고 설정을 조정하지 않았습니다. 지연시간이나 독립된 새 데이터에 대한 일반화 우위는 주장하지 않습니다.</p><h2>중단 원인과 재개</h2><pre>{
+  &quot;started_at&quot;: &quot;2026-10-13T16:17:14.960183+00:00&quot;,
+  &quot;phase&quot;: &quot;failed&quot;,
+  &quot;complete&quot;: false,
+  &quot;new_requests&quot;: 8773,
+  &quot;cached_requests&quot;: 3141,
+  &quot;stage&quot;: &quot;scaling&quot;,
+  &quot;completed_cases&quot;: 78,
+  &quot;total_cases&quot;: 100,
+  &quot;updated_at&quot;: &quot;2026-10-13T17:08:03.221796+00:00&quot;,
+  &quot;error&quot;: &quot;OpenAI HTTP 429; code=credit_balance_exhausted; type=insufficient_quota&quot;
+}</pre><p>API 크레딧 문제가 해결되면 동일한 실행기를 다시 시작합니다. 저장된 응답과 평가를 재사용하고, 누락된 실험 2 확장성 평가를 이어서 실행한 다음 완전한 결과를 검증합니다.</p><p><a href="main_completed_conditions.csv">완료 조건 CSV</a> · <a href="paired_completed_conditions.csv">직접 비교 CSV</a> · <a href="audit.json">검증 기록</a></p></main></html>

@@ -1,0 +1,57 @@
+{
+  "complete": true,
+  "analysis_type": "post_hoc_secondary",
+  "new_api_requests": 0,
+  "created_at": "2026-10-14T01:12:49.503826+00:00",
+  "source_archive_sha256": "081b8c1faba8f87aa458d23db63935f13406c523d8a02e25caf382914750b836",
+  "original_protocol_signature": "a9fe04a39cc82e046089b45b42cdcc6d16ca819293f864a0445f5f58fbc62f53",
+  "input_sha256": {
+    "results\\improvements\\main\\rows.json": "41de14f58a56ce96e80161d4c52025fe0e808ee6270d3d254c412dd23d73a5d6",
+    "results\\improvements\\scaling\\rows.json": "9ba33e1292434d4d47b0e804bd781eeaee1bb95215ad2b8bdc165351cd51dd3e"
+  },
+  "analysis_code_sha256": "ff4c19b03cd580b3c8e50d94c0fdcac5540a770030e4ae5f8c4727e58c4fda2a",
+  "optimal_reference": "independent Dijkstra on original 8-neighbor collision graph",
+  "equality_tolerance": {
+    "absolute": 1e-08,
+    "relative": 1e-10
+  },
+  "excess_aggregation": "arithmetic mean of per-case absolute excess and percentage excess",
+  "bootstrap": {
+    "unit": "map_id",
+    "paired": true,
+    "replicates": 10000,
+    "seed": 240702512,
+    "interval": "percentile 95%",
+    "multiple_comparison_adjustment": false,
+    "scope": "exploratory variation across maps, not repeated API sampling"
+  },
+  "excluded_methods": [
+    "GPT",
+    "GPT_E2C",
+    "GPT_E2F"
+  ],
+  "excluded_reason": "Raw GPT polylines do not share the eight-neighbor movement space",
+  "reference_cases": 1100,
+  "verified_grid_paths": 18700,
+  "audit": [
+    {
+      "stage": "main",
+      "reference_cases": 1000,
+      "astar_mismatches": 0,
+      "graph_count": 100,
+      "collision_rule_edge_checks": 1090400,
+      "grid_paths_verified": 18000,
+      "rows": 18000
+    },
+    {
+      "stage": "scaling",
+      "reference_cases": 100,
+      "astar_mismatches": 0,
+      "graph_count": 90,
+      "collision_rule_edge_checks": 486936,
+      "grid_paths_verified": 700,
+      "rows": 700
+    }
+  ],
+  "elapsed_seconds": 38.55269420007244
+}
