@@ -1,5 +1,7 @@
 # LLM-A* assignment
 
+2026-10-28의 **18개 방법군 동일 조건 비교**는 [실험 안내](experiments/COMMON18/README.md)와 [결과 보고서](experiments/COMMON18/results/run_20261028/REPORT.md)를 참조한다. 동일 200문제, CPU 1스레드, 같은 GPT-4o mini 응답으로 45조건을 비교한다. API를 포함한 시간은 저장 지연과 로컬 측정의 합인 재구성 지연이다. 이 추가 실험의 의존성은 [별도 목록](experiments/COMMON18/requirements-common.txt)에 있다.
+
 `jy` 브랜치의 J3~J6 구현·비교는 [실험 안내](experiments/JY/README.md)와 [결과 보고서](experiments/JY/REPORT.md)를 참조한다. 아래 `gm` 재현·선정 기록은 기반 브랜치의 자료로 보존했다. 동적 경유점 생성은 이번 실험에서 보류했다.
 
 SWE3011, Fall 2026. 팀원 3명이 각각 전체 재현 후 제출 기반을 선택한다. `gm`은 사용자의 독립 재현이다.
