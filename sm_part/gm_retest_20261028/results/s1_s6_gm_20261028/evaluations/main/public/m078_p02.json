@@ -1,0 +1,6443 @@
+{
+  "signature": "cf19b04f3c4f64e808f4a52fa4b068eec4264b085bd4c9ff671f43c013486b35",
+  "case": {
+    "range_x": [
+      0,
+      51
+    ],
+    "range_y": [
+      0,
+      31
+    ],
+    "horizontal_barriers": [
+      [
+        6,
+        10,
+        29
+      ],
+      [
+        23,
+        18,
+        36
+      ],
+      [
+        13,
+        51,
+        51
+      ],
+      [
+        2,
+        45,
+        49
+      ]
+    ],
+    "vertical_barriers": [
+      [
+        26,
+        13,
+        24
+      ],
+      [
+        6,
+        5,
+        11
+      ]
+    ],
+    "start": [
+      25,
+      16
+    ],
+    "goal": [
+      28,
+      16
+    ],
+    "id": "m078_p02",
+    "map_id": "public:78",
+    "map_index": 78,
+    "pair_id": 2,
+    "stage": "public",
+    "split": "calibration"
+  },
+  "optimal": 9.242640687119284,
+  "initial_proposal": {
+    "valid": false,
+    "error": "collision",
+    "first_bad_segment": {
+      "index": 3,
+      "segment": [
+        [
+          25,
+          13
+        ],
+        [
+          26,
+          13
+        ]
+      ]
+    },
+    "first_bad_wall": {
+      "kind": "vertical_barriers",
+      "index": 0,
+      "wall": [
+        26,
+        13,
+        24
+      ]
+    }
+  },
+  "raw_hashes": {
+    "first": "d1d1a2b793d6e63adabc820dfa285e09971299079701ce8595d75b989ec89694",
+    "control": "05d8bf46be5c02afccf8a7263baca28ba28f8f1df123ccf330d1c5b6e65c8628",
+    "feedback": "9bde296acf7166ef8eecac60c15abb56ea7f34df5790f8f497112d53806730a4"
+  },
+  "paths": {
+    "c53d243d4611e0a8f5698c642816dec808f738c99086e606ec937314a50dafb6": [
+      [
+        25,
+        16
+      ],
+      [
+        25,
+        15
+      ],
+      [
+        25,
+        14
+      ],
+      [
+        25,
+        13
+      ],
+      [
+        26,
+        12
+      ],
+      [
+        27,
+        13
+      ],
+      [
+        27,
+        14
+      ],
+      [
+        27,
+        15
+      ],
+      [
+        28,
+        16
+      ]
+    ],
+    "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310": [
+      [
+        25,
+        16
+      ],
+      [
+        25,
+        15
+      ],
+      [
+        25,
+        14
+      ],
+      [
+        25,
+        13
+      ],
+      [
+        26,
+        12
+      ],
+      [
+        27,
+        13
+      ],
+      [
+        28,
+        14
+      ],
+      [
+        28,
+        15
+      ],
+      [
+        28,
+        16
+      ]
+    ]
+  },
+  "rows": [
+    {
+      "method": "S4_seed33",
+      "repeat": 0,
+      "path_sha256": "c53d243d4611e0a8f5698c642816dec808f738c99086e606ec937314a50dafb6",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119286,
+      "expansions": 24,
+      "anchor_heap_pops": 19,
+      "discovered": 48,
+      "peak_open": 25,
+      "search_seconds": 0.0005566999316215515,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 19,
+      "successor_expansions": 23,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.2469293000176549,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 47,
+        "heap_pops": 19
+      },
+      "extra": {
+        "inference_seconds": 0.0041356999427080154,
+        "graph_seconds": 0.24188710004091263,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "V_GATE_GM",
+      "repeat": 0,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 20,
+      "storage": 56,
+      "length": 9.242640687119284,
+      "unique_pops": 20,
+      "duplicate_pops": 0,
+      "infinite_g": 8,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0006792000494897366,
+      "search_seconds": 0.0004803999327123165,
+      "guidance_accepted": false,
+      "gate_reason": "collision",
+      "proposal_variant": "validated",
+      "executed_method": "goal_only",
+      "successor_expansions": 19,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.00073009985499084,
+      "api_calls": 1,
+      "heap_counts": {
+        "heap_pushes": 48,
+        "heap_pops": 20
+      },
+      "extra": {
+        "collision_calls": 164,
+        "unique_successor_expansions": 19
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "FOCAL_105",
+      "repeat": 0,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119284,
+      "expansions": 24,
+      "anchor_heap_pops": 19,
+      "discovered": 52,
+      "peak_open": 29,
+      "search_seconds": 0.0005845997948199511,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 19,
+      "successor_expansions": 23,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.23562319995835423,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 51,
+        "heap_pops": 19
+      },
+      "extra": {
+        "inference_seconds": 1.00000761449337e-06,
+        "graph_seconds": 0.23462389991618693,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "A_GM",
+      "repeat": 0,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 28,
+      "storage": 67,
+      "length": 9.242640687119284,
+      "unique_pops": 28,
+      "duplicate_pops": 0,
+      "infinite_g": 9,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0005154998507350683,
+      "successor_expansions": 27,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0005605998449027538,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 60,
+        "heap_pops": 28
+      },
+      "extra": {
+        "collision_calls": 224,
+        "unique_successor_expansions": 27
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S2_feedback",
+      "repeat": 0,
+      "path_sha256": "c53d243d4611e0a8f5698c642816dec808f738c99086e606ec937314a50dafb6",
+      "valid": true,
+      "error": null,
+      "operation": 68,
+      "storage": 101,
+      "length": 9.242640687119286,
+      "unique_pops": 58,
+      "duplicate_pops": 10,
+      "infinite_g": 9,
+      "queue_rebuilds": 15,
+      "rekeyed_entries": 286,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          24,
+          13
+        ],
+        [
+          23,
+          13
+        ],
+        [
+          22,
+          13
+        ],
+        [
+          21,
+          13
+        ],
+        [
+          20,
+          13
+        ],
+        [
+          19,
+          13
+        ],
+        [
+          18,
+          13
+        ],
+        [
+          18,
+          14
+        ],
+        [
+          18,
+          15
+        ],
+        [
+          18,
+          16
+        ],
+        [
+          19,
+          16
+        ],
+        [
+          20,
+          16
+        ],
+        [
+          21,
+          16
+        ],
+        [
+          22,
+          16
+        ],
+        [
+          23,
+          16
+        ],
+        [
+          24,
+          16
+        ],
+        [
+          25,
+          16
+        ],
+        [
+          27,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 24,
+      "retained_waypoints": 23,
+      "target_index": 16,
+      "final_target": [
+        21,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0014002998359501362,
+      "initial_proposal_valid": false,
+      "final_proposal_valid": false,
+      "successor_expansions": 67,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0018359001260250807,
+      "api_calls": 2,
+      "heap_counts": {
+        "heap_pushes": 390,
+        "heap_pops": 68
+      },
+      "extra": {
+        "collision_calls": 464,
+        "unique_successor_expansions": 57
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S6_random",
+      "repeat": 0,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.00020890007726848125,
+      "reconstruction_seconds": 9.800074622035027e-06,
+      "counters": {
+        "heap_pops": 29,
+        "expansions": 29,
+        "relax_attempts": 193,
+        "relax_successes": 68,
+        "heap_pushes": 68,
+        "preprocess_cell_writes": 52,
+        "preprocess_cells_allocated": 3162,
+        "neighbor_candidates": 216,
+        "collision_tests": 216,
+        "validation_wall_intersections": 66,
+        "validation_edges": 11
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "preparation_seconds": 0.0001350997481495142,
+      "required_validation_seconds": 0.00018959981389343739,
+      "rounds": [
+        {
+          "active_walls": 1,
+          "new_hits": [
+            4
+          ],
+          "expansions": 4,
+          "length": 3.0
+        },
+        {
+          "active_walls": 2,
+          "new_hits": [],
+          "expansions": 25,
+          "length": 9.242640687119284
+        }
+      ],
+      "fallback": false,
+      "active_walls": 2,
+      "total_seconds": 0.0006218999624252319,
+      "valid": true,
+      "error": null,
+      "operation": 29,
+      "successor_expansions": 31,
+      "storage": 55,
+      "storage_definition": "max_per_round_finite_g_dictionary",
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 29,
+        "heap_pushes": 68
+      },
+      "extra": {
+        "heap_pops": 29,
+        "expansions": 29,
+        "relax_attempts": 193,
+        "relax_successes": 68,
+        "heap_pushes": 68,
+        "preprocess_cell_writes": 52,
+        "preprocess_cells_allocated": 3162,
+        "neighbor_candidates": 216,
+        "collision_tests": 216,
+        "validation_wall_intersections": 66,
+        "validation_edges": 11,
+        "round_discovered": [
+          15,
+          55
+        ],
+        "round_peak_open": [
+          12,
+          31
+        ]
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S6_historical",
+      "repeat": 0,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.0001892999280244112,
+      "reconstruction_seconds": 5.300156772136688e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "preparation_seconds": 5.539995618164539e-05,
+      "required_validation_seconds": 0.0001354999840259552,
+      "rounds": [
+        {
+          "active_walls": 1,
+          "new_hits": [],
+          "expansions": 25,
+          "length": 9.242640687119284
+        }
+      ],
+      "fallback": false,
+      "active_walls": 1,
+      "total_seconds": 0.0004354999400675297,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "max_per_round_finite_g_dictionary",
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8,
+        "round_discovered": [
+          55
+        ],
+        "round_peak_open": [
+          31
+        ]
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S2_control",
+      "repeat": 0,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 17,
+      "storage": 47,
+      "length": 9.242640687119284,
+      "unique_pops": 17,
+      "duplicate_pops": 0,
+      "infinite_g": 7,
+      "queue_rebuilds": 7,
+      "rekeyed_entries": 93,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          27,
+          13
+        ],
+        [
+          28,
+          13
+        ],
+        [
+          28,
+          14
+        ],
+        [
+          28,
+          15
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 10,
+      "retained_waypoints": 9,
+      "target_index": 8,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0006102998740971088,
+      "initial_proposal_valid": false,
+      "final_proposal_valid": false,
+      "successor_expansions": 16,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0008971001952886581,
+      "api_calls": 2,
+      "heap_counts": {
+        "heap_pushes": 136,
+        "heap_pops": 17
+      },
+      "extra": {
+        "collision_calls": 136,
+        "unique_successor_expansions": 16
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S4_seed11",
+      "repeat": 0,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119284,
+      "expansions": 28,
+      "anchor_heap_pops": 25,
+      "discovered": 56,
+      "peak_open": 31,
+      "search_seconds": 0.00046449992805719376,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 27,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.25026299990713596,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 57,
+        "heap_pops": 25
+      },
+      "extra": {
+        "inference_seconds": 0.003203700063750148,
+        "graph_seconds": 0.2463477998971939,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S4_seed22",
+      "repeat": 0,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119284,
+      "expansions": 28,
+      "anchor_heap_pops": 25,
+      "discovered": 56,
+      "peak_open": 31,
+      "search_seconds": 0.0006830999627709389,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 27,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.22422700002789497,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 58,
+        "heap_pops": 25
+      },
+      "extra": {
+        "inference_seconds": 0.004128800006583333,
+        "graph_seconds": 0.21909929998219013,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S6_program",
+      "repeat": 0,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.0001604000572115183,
+      "reconstruction_seconds": 5.9998128563165665e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "preparation_seconds": 5.9999991208314896e-05,
+      "required_validation_seconds": 9.130011312663555e-05,
+      "rounds": [
+        {
+          "active_walls": 1,
+          "new_hits": [],
+          "expansions": 25,
+          "length": 9.242640687119284
+        }
+      ],
+      "fallback": false,
+      "active_walls": 1,
+      "total_seconds": 0.0003838001284748316,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "max_per_round_finite_g_dictionary",
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8,
+        "round_discovered": [
+          55
+        ],
+        "round_peak_open": [
+          31
+        ]
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S1",
+      "repeat": 0,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 20,
+      "storage": 56,
+      "length": 9.242640687119284,
+      "unique_pops": 20,
+      "duplicate_pops": 0,
+      "infinite_g": 8,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0004178001545369625,
+      "guidance_accepted": false,
+      "input_targets": 9,
+      "processed_targets": 4,
+      "successor_expansions": 19,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0006442000158131123,
+      "api_calls": 1,
+      "heap_counts": {
+        "heap_pushes": 48,
+        "heap_pops": 20
+      },
+      "extra": {
+        "collision_calls": 179,
+        "unique_successor_expansions": 19
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "A_OCT",
+      "repeat": 0,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.002038199920207262,
+      "reconstruction_seconds": 8.699949830770493e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 63,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "primitive_wall_intersections": 169
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "finite_g_dictionary",
+      "total_seconds": 0.002148200059309602,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 63,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "primitive_wall_intersections": 169,
+        "graph_seconds": 4.409998655319214e-05
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "V_GATE_NORMALIZED",
+      "repeat": 0,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 20,
+      "storage": 56,
+      "length": 9.242640687119284,
+      "unique_pops": 20,
+      "duplicate_pops": 0,
+      "infinite_g": 8,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0003880998119711876,
+      "guidance_accepted": false,
+      "input_targets": 9,
+      "processed_targets": 9,
+      "successor_expansions": 19,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0005450001917779446,
+      "api_calls": 1,
+      "heap_counts": {
+        "heap_pushes": 48,
+        "heap_pops": 20
+      },
+      "extra": {
+        "collision_calls": 164,
+        "unique_successor_expansions": 19
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "B_llm",
+      "repeat": 0,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 17,
+      "storage": 47,
+      "length": 9.242640687119284,
+      "unique_pops": 17,
+      "duplicate_pops": 0,
+      "infinite_g": 7,
+      "queue_rebuilds": 7,
+      "rekeyed_entries": 93,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          27,
+          13
+        ],
+        [
+          28,
+          13
+        ],
+        [
+          28,
+          14
+        ],
+        [
+          28,
+          15
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 10,
+      "retained_waypoints": 9,
+      "target_index": 8,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.00033849989995360374,
+      "successor_expansions": 16,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0003674000035971403,
+      "api_calls": 1,
+      "heap_counts": {
+        "heap_pushes": 136,
+        "heap_pops": 17
+      },
+      "extra": {
+        "collision_calls": 136,
+        "unique_successor_expansions": 16
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S3",
+      "repeat": 0,
+      "path_sha256": "c53d243d4611e0a8f5698c642816dec808f738c99086e606ec937314a50dafb6",
+      "valid": true,
+      "error": null,
+      "length": 9.242640687119286,
+      "storage": 65,
+      "api_calls": 1,
+      "trigger": {
+        "pop": 10,
+        "window": 10,
+        "progress": 0.0,
+        "threshold": 0.15000000000000002
+      },
+      "queue_rebuilds": 1,
+      "rekeyed_entries": 11,
+      "infinite_g": 8,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          27,
+          13
+        ],
+        [
+          28,
+          13
+        ],
+        [
+          28,
+          14
+        ],
+        [
+          28,
+          15
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "operation": 28,
+      "successor_expansions": 27,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.00044329999946057796,
+      "heap_counts": {
+        "heap_pushes": 70,
+        "heap_pops": 28
+      },
+      "extra": {
+        "collision_calls": 224,
+        "unique_successor_expansions": 27
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S4_untrained",
+      "repeat": 0,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119284,
+      "expansions": 28,
+      "anchor_heap_pops": 25,
+      "discovered": 58,
+      "peak_open": 31,
+      "search_seconds": 0.00048639997839927673,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 27,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.2330769000109285,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 58,
+        "heap_pops": 25
+      },
+      "extra": {
+        "inference_seconds": 0.0032295999117195606,
+        "graph_seconds": 0.22908499999903142,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "N_g2h",
+      "repeat": 0,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 20,
+      "storage": 56,
+      "length": 9.242640687119284,
+      "unique_pops": 20,
+      "duplicate_pops": 0,
+      "infinite_g": 8,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.00027760001830756664,
+      "successor_expansions": 19,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.00031109992414712906,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 48,
+        "heap_pops": 20
+      },
+      "extra": {
+        "collision_calls": 160,
+        "unique_successor_expansions": 19
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "K3_wall_octile",
+      "repeat": 0,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 9,
+      "storage": 35,
+      "length": 9.242640687119284,
+      "unique_pops": 9,
+      "duplicate_pops": 0,
+      "infinite_g": 5,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.00015920004807412624,
+      "successor_expansions": 8,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0001938000787049532,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 30,
+        "heap_pops": 9
+      },
+      "extra": {
+        "collision_calls": 72,
+        "unique_successor_expansions": 8,
+        "heuristic_calls": 30,
+        "wall_checks": 150,
+        "blocking_wall_checks": 12,
+        "wall_count": 5,
+        "precomputed_endpoint_distances": 10
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S5",
+      "repeat": 0,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.00140630011446774,
+      "reconstruction_seconds": 7.6000578701496124e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 63,
+        "preprocess_cells_allocated": 1581,
+        "rectangles": 16,
+        "retained_vertices": 728,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "primitive_wall_intersections": 169
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "finite_g_dictionary",
+      "total_seconds": 0.0018647999968379736,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 63,
+        "preprocess_cells_allocated": 1581,
+        "rectangles": 16,
+        "retained_vertices": 728,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "primitive_wall_intersections": 169,
+        "graph_seconds": 0.00041019986383616924
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S6_rule",
+      "repeat": 0,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.00016600009985268116,
+      "reconstruction_seconds": 4.699919372797012e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "preparation_seconds": 4.010018892586231e-05,
+      "required_validation_seconds": 8.890009485185146e-05,
+      "rounds": [
+        {
+          "active_walls": 1,
+          "new_hits": [],
+          "expansions": 25,
+          "length": 9.242640687119284
+        }
+      ],
+      "fallback": false,
+      "active_walls": 1,
+      "total_seconds": 0.00034939986653625965,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "max_per_round_finite_g_dictionary",
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8,
+        "round_discovered": [
+          55
+        ],
+        "round_peak_open": [
+          31
+        ]
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "K3_wall_euclidean",
+      "repeat": 0,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 9,
+      "storage": 35,
+      "length": 9.242640687119284,
+      "unique_pops": 9,
+      "duplicate_pops": 0,
+      "infinite_g": 5,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.00016719987615942955,
+      "successor_expansions": 8,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0002006001304835081,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 30,
+        "heap_pops": 9
+      },
+      "extra": {
+        "collision_calls": 72,
+        "unique_successor_expansions": 8,
+        "heuristic_calls": 30,
+        "wall_checks": 150,
+        "blocking_wall_checks": 12,
+        "wall_count": 5,
+        "precomputed_endpoint_distances": 10
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S6_random",
+      "repeat": 1,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.0001737999264150858,
+      "reconstruction_seconds": 6.800051778554916e-06,
+      "counters": {
+        "heap_pops": 29,
+        "expansions": 29,
+        "relax_attempts": 193,
+        "relax_successes": 68,
+        "heap_pushes": 68,
+        "preprocess_cell_writes": 52,
+        "preprocess_cells_allocated": 3162,
+        "neighbor_candidates": 216,
+        "collision_tests": 216,
+        "validation_wall_intersections": 66,
+        "validation_edges": 11
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "preparation_seconds": 5.58996107429266e-05,
+      "required_validation_seconds": 0.00011999998241662979,
+      "rounds": [
+        {
+          "active_walls": 1,
+          "new_hits": [
+            4
+          ],
+          "expansions": 4,
+          "length": 3.0
+        },
+        {
+          "active_walls": 2,
+          "new_hits": [],
+          "expansions": 25,
+          "length": 9.242640687119284
+        }
+      ],
+      "fallback": false,
+      "active_walls": 2,
+      "total_seconds": 0.00040460005402565,
+      "valid": true,
+      "error": null,
+      "operation": 29,
+      "successor_expansions": 31,
+      "storage": 55,
+      "storage_definition": "max_per_round_finite_g_dictionary",
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 29,
+        "heap_pushes": 68
+      },
+      "extra": {
+        "heap_pops": 29,
+        "expansions": 29,
+        "relax_attempts": 193,
+        "relax_successes": 68,
+        "heap_pushes": 68,
+        "preprocess_cell_writes": 52,
+        "preprocess_cells_allocated": 3162,
+        "neighbor_candidates": 216,
+        "collision_tests": 216,
+        "validation_wall_intersections": 66,
+        "validation_edges": 11,
+        "round_discovered": [
+          15,
+          55
+        ],
+        "round_peak_open": [
+          12,
+          31
+        ]
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S1",
+      "repeat": 1,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 20,
+      "storage": 56,
+      "length": 9.242640687119284,
+      "unique_pops": 20,
+      "duplicate_pops": 0,
+      "infinite_g": 8,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0002677000593394041,
+      "guidance_accepted": false,
+      "input_targets": 9,
+      "processed_targets": 4,
+      "successor_expansions": 19,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0004048999398946762,
+      "api_calls": 1,
+      "heap_counts": {
+        "heap_pushes": 48,
+        "heap_pops": 20
+      },
+      "extra": {
+        "collision_calls": 179,
+        "unique_successor_expansions": 19
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "K3_wall_octile",
+      "repeat": 1,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 9,
+      "storage": 35,
+      "length": 9.242640687119284,
+      "unique_pops": 9,
+      "duplicate_pops": 0,
+      "infinite_g": 5,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.00015469989739358425,
+      "successor_expansions": 8,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0001846000086516142,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 30,
+        "heap_pops": 9
+      },
+      "extra": {
+        "collision_calls": 72,
+        "unique_successor_expansions": 8,
+        "heuristic_calls": 30,
+        "wall_checks": 150,
+        "blocking_wall_checks": 12,
+        "wall_count": 5,
+        "precomputed_endpoint_distances": 10
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "B_llm",
+      "repeat": 1,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 17,
+      "storage": 47,
+      "length": 9.242640687119284,
+      "unique_pops": 17,
+      "duplicate_pops": 0,
+      "infinite_g": 7,
+      "queue_rebuilds": 7,
+      "rekeyed_entries": 93,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          27,
+          13
+        ],
+        [
+          28,
+          13
+        ],
+        [
+          28,
+          14
+        ],
+        [
+          28,
+          15
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 10,
+      "retained_waypoints": 9,
+      "target_index": 8,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.00031889998354017735,
+      "successor_expansions": 16,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.00034469994716346264,
+      "api_calls": 1,
+      "heap_counts": {
+        "heap_pushes": 136,
+        "heap_pops": 17
+      },
+      "extra": {
+        "collision_calls": 136,
+        "unique_successor_expansions": 16
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S4_seed11",
+      "repeat": 1,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119284,
+      "expansions": 28,
+      "anchor_heap_pops": 25,
+      "discovered": 56,
+      "peak_open": 31,
+      "search_seconds": 0.0006162999197840691,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 27,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.2384734998922795,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 57,
+        "heap_pops": 25
+      },
+      "extra": {
+        "inference_seconds": 0.0035592999774962664,
+        "graph_seconds": 0.23400619998574257,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S2_feedback",
+      "repeat": 1,
+      "path_sha256": "c53d243d4611e0a8f5698c642816dec808f738c99086e606ec937314a50dafb6",
+      "valid": true,
+      "error": null,
+      "operation": 68,
+      "storage": 101,
+      "length": 9.242640687119286,
+      "unique_pops": 58,
+      "duplicate_pops": 10,
+      "infinite_g": 9,
+      "queue_rebuilds": 15,
+      "rekeyed_entries": 286,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          24,
+          13
+        ],
+        [
+          23,
+          13
+        ],
+        [
+          22,
+          13
+        ],
+        [
+          21,
+          13
+        ],
+        [
+          20,
+          13
+        ],
+        [
+          19,
+          13
+        ],
+        [
+          18,
+          13
+        ],
+        [
+          18,
+          14
+        ],
+        [
+          18,
+          15
+        ],
+        [
+          18,
+          16
+        ],
+        [
+          19,
+          16
+        ],
+        [
+          20,
+          16
+        ],
+        [
+          21,
+          16
+        ],
+        [
+          22,
+          16
+        ],
+        [
+          23,
+          16
+        ],
+        [
+          24,
+          16
+        ],
+        [
+          25,
+          16
+        ],
+        [
+          27,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 24,
+      "retained_waypoints": 23,
+      "target_index": 16,
+      "final_target": [
+        21,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0019492998253554106,
+      "initial_proposal_valid": false,
+      "final_proposal_valid": false,
+      "successor_expansions": 67,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0022733998484909534,
+      "api_calls": 2,
+      "heap_counts": {
+        "heap_pushes": 390,
+        "heap_pops": 68
+      },
+      "extra": {
+        "collision_calls": 464,
+        "unique_successor_expansions": 57
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S2_control",
+      "repeat": 1,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 17,
+      "storage": 47,
+      "length": 9.242640687119284,
+      "unique_pops": 17,
+      "duplicate_pops": 0,
+      "infinite_g": 7,
+      "queue_rebuilds": 7,
+      "rekeyed_entries": 93,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          27,
+          13
+        ],
+        [
+          28,
+          13
+        ],
+        [
+          28,
+          14
+        ],
+        [
+          28,
+          15
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 10,
+      "retained_waypoints": 9,
+      "target_index": 8,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0003773001953959465,
+      "initial_proposal_valid": false,
+      "final_proposal_valid": false,
+      "successor_expansions": 16,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0005753000732511282,
+      "api_calls": 2,
+      "heap_counts": {
+        "heap_pushes": 136,
+        "heap_pops": 17
+      },
+      "extra": {
+        "collision_calls": 136,
+        "unique_successor_expansions": 16
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S6_historical",
+      "repeat": 1,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.0002570000942796469,
+      "reconstruction_seconds": 9.500188753008842e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "preparation_seconds": 0.00010569998994469643,
+      "required_validation_seconds": 0.0001183999702334404,
+      "rounds": [
+        {
+          "active_walls": 1,
+          "new_hits": [],
+          "expansions": 25,
+          "length": 9.242640687119284
+        }
+      ],
+      "fallback": false,
+      "active_walls": 1,
+      "total_seconds": 0.0005585998296737671,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "max_per_round_finite_g_dictionary",
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8,
+        "round_discovered": [
+          55
+        ],
+        "round_peak_open": [
+          31
+        ]
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S4_seed22",
+      "repeat": 1,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119284,
+      "expansions": 28,
+      "anchor_heap_pops": 25,
+      "discovered": 56,
+      "peak_open": 31,
+      "search_seconds": 0.0006332001648843288,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 27,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.23501039994880557,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 58,
+        "heap_pops": 25
+      },
+      "extra": {
+        "inference_seconds": 0.003736599814146757,
+        "graph_seconds": 0.23037849995307624,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S5",
+      "repeat": 1,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.0017682998441159725,
+      "reconstruction_seconds": 1.0299962013959885e-05,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 63,
+        "preprocess_cells_allocated": 1581,
+        "rectangles": 16,
+        "retained_vertices": 728,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "primitive_wall_intersections": 169
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "finite_g_dictionary",
+      "total_seconds": 0.00254100002348423,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 63,
+        "preprocess_cells_allocated": 1581,
+        "rectangles": 16,
+        "retained_vertices": 728,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "primitive_wall_intersections": 169,
+        "graph_seconds": 0.0007048000115901232
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "A_GM",
+      "repeat": 1,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 28,
+      "storage": 67,
+      "length": 9.242640687119284,
+      "unique_pops": 28,
+      "duplicate_pops": 0,
+      "infinite_g": 9,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0004086000844836235,
+      "successor_expansions": 27,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0004450001288205385,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 60,
+        "heap_pops": 28
+      },
+      "extra": {
+        "collision_calls": 224,
+        "unique_successor_expansions": 27
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S4_untrained",
+      "repeat": 1,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119284,
+      "expansions": 28,
+      "anchor_heap_pops": 25,
+      "discovered": 58,
+      "peak_open": 31,
+      "search_seconds": 0.0004173999186605215,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 27,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.23496400006115437,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 58,
+        "heap_pops": 25
+      },
+      "extra": {
+        "inference_seconds": 0.0034368999768048525,
+        "graph_seconds": 0.2308640000410378,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S6_program",
+      "repeat": 1,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.00027650012634694576,
+      "reconstruction_seconds": 8.500181138515472e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "preparation_seconds": 0.00011079991236329079,
+      "required_validation_seconds": 0.0001425999216735363,
+      "rounds": [
+        {
+          "active_walls": 1,
+          "new_hits": [],
+          "expansions": 25,
+          "length": 9.242640687119284
+        }
+      ],
+      "fallback": false,
+      "active_walls": 1,
+      "total_seconds": 0.0006251998711377382,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "max_per_round_finite_g_dictionary",
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8,
+        "round_discovered": [
+          55
+        ],
+        "round_peak_open": [
+          31
+        ]
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "A_OCT",
+      "repeat": 1,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.0021123001351952553,
+      "reconstruction_seconds": 7.4999406933784485e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 63,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "primitive_wall_intersections": 169
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "finite_g_dictionary",
+      "total_seconds": 0.002196500077843666,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 63,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "primitive_wall_intersections": 169,
+        "graph_seconds": 2.4900073185563087e-05
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "V_GATE_GM",
+      "repeat": 1,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 20,
+      "storage": 56,
+      "length": 9.242640687119284,
+      "unique_pops": 20,
+      "duplicate_pops": 0,
+      "infinite_g": 8,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0007209000177681446,
+      "search_seconds": 0.0005389999132603407,
+      "guidance_accepted": false,
+      "gate_reason": "collision",
+      "proposal_variant": "validated",
+      "executed_method": "goal_only",
+      "successor_expansions": 19,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0007706000469624996,
+      "api_calls": 1,
+      "heap_counts": {
+        "heap_pushes": 48,
+        "heap_pops": 20
+      },
+      "extra": {
+        "collision_calls": 164,
+        "unique_successor_expansions": 19
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "K3_wall_euclidean",
+      "repeat": 1,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 9,
+      "storage": 35,
+      "length": 9.242640687119284,
+      "unique_pops": 9,
+      "duplicate_pops": 0,
+      "infinite_g": 5,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0002373000606894493,
+      "successor_expansions": 8,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.00029319990426301956,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 30,
+        "heap_pops": 9
+      },
+      "extra": {
+        "collision_calls": 72,
+        "unique_successor_expansions": 8,
+        "heuristic_calls": 30,
+        "wall_checks": 150,
+        "blocking_wall_checks": 12,
+        "wall_count": 5,
+        "precomputed_endpoint_distances": 10
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "N_g2h",
+      "repeat": 1,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 20,
+      "storage": 56,
+      "length": 9.242640687119284,
+      "unique_pops": 20,
+      "duplicate_pops": 0,
+      "infinite_g": 8,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0004042000509798527,
+      "successor_expansions": 19,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0004548998549580574,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 48,
+        "heap_pops": 20
+      },
+      "extra": {
+        "collision_calls": 160,
+        "unique_successor_expansions": 19
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S4_seed33",
+      "repeat": 1,
+      "path_sha256": "c53d243d4611e0a8f5698c642816dec808f738c99086e606ec937314a50dafb6",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119286,
+      "expansions": 24,
+      "anchor_heap_pops": 19,
+      "discovered": 48,
+      "peak_open": 25,
+      "search_seconds": 0.00037720007821917534,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 19,
+      "successor_expansions": 23,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.2302995000500232,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 47,
+        "heap_pops": 19
+      },
+      "extra": {
+        "inference_seconds": 0.0034754001535475254,
+        "graph_seconds": 0.2262025000527501,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "FOCAL_105",
+      "repeat": 1,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119284,
+      "expansions": 24,
+      "anchor_heap_pops": 19,
+      "discovered": 52,
+      "peak_open": 29,
+      "search_seconds": 0.00033890013583004475,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 19,
+      "successor_expansions": 23,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.22480960004031658,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 51,
+        "heap_pops": 19
+      },
+      "extra": {
+        "inference_seconds": 1.00000761449337e-06,
+        "graph_seconds": 0.22423469997011125,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S3",
+      "repeat": 1,
+      "path_sha256": "c53d243d4611e0a8f5698c642816dec808f738c99086e606ec937314a50dafb6",
+      "valid": true,
+      "error": null,
+      "length": 9.242640687119286,
+      "storage": 65,
+      "api_calls": 1,
+      "trigger": {
+        "pop": 10,
+        "window": 10,
+        "progress": 0.0,
+        "threshold": 0.15000000000000002
+      },
+      "queue_rebuilds": 1,
+      "rekeyed_entries": 11,
+      "infinite_g": 8,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          27,
+          13
+        ],
+        [
+          28,
+          13
+        ],
+        [
+          28,
+          14
+        ],
+        [
+          28,
+          15
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "operation": 28,
+      "successor_expansions": 27,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0008781999349594116,
+      "heap_counts": {
+        "heap_pushes": 70,
+        "heap_pops": 28
+      },
+      "extra": {
+        "collision_calls": 224,
+        "unique_successor_expansions": 27
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S6_rule",
+      "repeat": 1,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.0002631000243127346,
+      "reconstruction_seconds": 7.6000578701496124e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "preparation_seconds": 0.00011499994434416294,
+      "required_validation_seconds": 0.0001455000601708889,
+      "rounds": [
+        {
+          "active_walls": 1,
+          "new_hits": [],
+          "expansions": 25,
+          "length": 9.242640687119284
+        }
+      ],
+      "fallback": false,
+      "active_walls": 1,
+      "total_seconds": 0.0006256001070141792,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "max_per_round_finite_g_dictionary",
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8,
+        "round_discovered": [
+          55
+        ],
+        "round_peak_open": [
+          31
+        ]
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "V_GATE_NORMALIZED",
+      "repeat": 1,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 20,
+      "storage": 56,
+      "length": 9.242640687119284,
+      "unique_pops": 20,
+      "duplicate_pops": 0,
+      "infinite_g": 8,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.00032279989682137966,
+      "guidance_accepted": false,
+      "input_targets": 9,
+      "processed_targets": 9,
+      "successor_expansions": 19,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0004950000438839197,
+      "api_calls": 1,
+      "heap_counts": {
+        "heap_pushes": 48,
+        "heap_pops": 20
+      },
+      "extra": {
+        "collision_calls": 164,
+        "unique_successor_expansions": 19
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S6_random",
+      "repeat": 2,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.00018619978800415993,
+      "reconstruction_seconds": 9.700190275907516e-06,
+      "counters": {
+        "heap_pops": 29,
+        "expansions": 29,
+        "relax_attempts": 193,
+        "relax_successes": 68,
+        "heap_pushes": 68,
+        "preprocess_cell_writes": 52,
+        "preprocess_cells_allocated": 3162,
+        "neighbor_candidates": 216,
+        "collision_tests": 216,
+        "validation_wall_intersections": 66,
+        "validation_edges": 11
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "preparation_seconds": 0.00011440017260611057,
+      "required_validation_seconds": 0.00015030009672045708,
+      "rounds": [
+        {
+          "active_walls": 1,
+          "new_hits": [
+            4
+          ],
+          "expansions": 4,
+          "length": 3.0
+        },
+        {
+          "active_walls": 2,
+          "new_hits": [],
+          "expansions": 25,
+          "length": 9.242640687119284
+        }
+      ],
+      "fallback": false,
+      "active_walls": 2,
+      "total_seconds": 0.0005296999588608742,
+      "valid": true,
+      "error": null,
+      "operation": 29,
+      "successor_expansions": 31,
+      "storage": 55,
+      "storage_definition": "max_per_round_finite_g_dictionary",
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 29,
+        "heap_pushes": 68
+      },
+      "extra": {
+        "heap_pops": 29,
+        "expansions": 29,
+        "relax_attempts": 193,
+        "relax_successes": 68,
+        "heap_pushes": 68,
+        "preprocess_cell_writes": 52,
+        "preprocess_cells_allocated": 3162,
+        "neighbor_candidates": 216,
+        "collision_tests": 216,
+        "validation_wall_intersections": 66,
+        "validation_edges": 11,
+        "round_discovered": [
+          15,
+          55
+        ],
+        "round_peak_open": [
+          12,
+          31
+        ]
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "A_GM",
+      "repeat": 2,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 28,
+      "storage": 67,
+      "length": 9.242640687119284,
+      "unique_pops": 28,
+      "duplicate_pops": 0,
+      "infinite_g": 9,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0003652998711913824,
+      "successor_expansions": 27,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.00039670011028647423,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 60,
+        "heap_pops": 28
+      },
+      "extra": {
+        "collision_calls": 224,
+        "unique_successor_expansions": 27
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "B_llm",
+      "repeat": 2,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 17,
+      "storage": 47,
+      "length": 9.242640687119284,
+      "unique_pops": 17,
+      "duplicate_pops": 0,
+      "infinite_g": 7,
+      "queue_rebuilds": 7,
+      "rekeyed_entries": 93,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          27,
+          13
+        ],
+        [
+          28,
+          13
+        ],
+        [
+          28,
+          14
+        ],
+        [
+          28,
+          15
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 10,
+      "retained_waypoints": 9,
+      "target_index": 8,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.00041440012864768505,
+      "successor_expansions": 16,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0004634999204427004,
+      "api_calls": 1,
+      "heap_counts": {
+        "heap_pushes": 136,
+        "heap_pops": 17
+      },
+      "extra": {
+        "collision_calls": 136,
+        "unique_successor_expansions": 16
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S2_feedback",
+      "repeat": 2,
+      "path_sha256": "c53d243d4611e0a8f5698c642816dec808f738c99086e606ec937314a50dafb6",
+      "valid": true,
+      "error": null,
+      "operation": 68,
+      "storage": 101,
+      "length": 9.242640687119286,
+      "unique_pops": 58,
+      "duplicate_pops": 10,
+      "infinite_g": 9,
+      "queue_rebuilds": 15,
+      "rekeyed_entries": 286,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          24,
+          13
+        ],
+        [
+          23,
+          13
+        ],
+        [
+          22,
+          13
+        ],
+        [
+          21,
+          13
+        ],
+        [
+          20,
+          13
+        ],
+        [
+          19,
+          13
+        ],
+        [
+          18,
+          13
+        ],
+        [
+          18,
+          14
+        ],
+        [
+          18,
+          15
+        ],
+        [
+          18,
+          16
+        ],
+        [
+          19,
+          16
+        ],
+        [
+          20,
+          16
+        ],
+        [
+          21,
+          16
+        ],
+        [
+          22,
+          16
+        ],
+        [
+          23,
+          16
+        ],
+        [
+          24,
+          16
+        ],
+        [
+          25,
+          16
+        ],
+        [
+          27,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 24,
+      "retained_waypoints": 23,
+      "target_index": 16,
+      "final_target": [
+        21,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0014984000008553267,
+      "initial_proposal_valid": false,
+      "final_proposal_valid": false,
+      "successor_expansions": 67,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0018136999569833279,
+      "api_calls": 2,
+      "heap_counts": {
+        "heap_pushes": 390,
+        "heap_pops": 68
+      },
+      "extra": {
+        "collision_calls": 464,
+        "unique_successor_expansions": 57
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "K3_wall_euclidean",
+      "repeat": 2,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 9,
+      "storage": 35,
+      "length": 9.242640687119284,
+      "unique_pops": 9,
+      "duplicate_pops": 0,
+      "infinite_g": 5,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.00015810015611350536,
+      "successor_expansions": 8,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.00019289995543658733,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 30,
+        "heap_pops": 9
+      },
+      "extra": {
+        "collision_calls": 72,
+        "unique_successor_expansions": 8,
+        "heuristic_calls": 30,
+        "wall_checks": 150,
+        "blocking_wall_checks": 12,
+        "wall_count": 5,
+        "precomputed_endpoint_distances": 10
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S3",
+      "repeat": 2,
+      "path_sha256": "c53d243d4611e0a8f5698c642816dec808f738c99086e606ec937314a50dafb6",
+      "valid": true,
+      "error": null,
+      "length": 9.242640687119286,
+      "storage": 65,
+      "api_calls": 1,
+      "trigger": {
+        "pop": 10,
+        "window": 10,
+        "progress": 0.0,
+        "threshold": 0.15000000000000002
+      },
+      "queue_rebuilds": 1,
+      "rekeyed_entries": 11,
+      "infinite_g": 8,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          27,
+          13
+        ],
+        [
+          28,
+          13
+        ],
+        [
+          28,
+          14
+        ],
+        [
+          28,
+          15
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "operation": 28,
+      "successor_expansions": 27,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.00041750003583729267,
+      "heap_counts": {
+        "heap_pushes": 70,
+        "heap_pops": 28
+      },
+      "extra": {
+        "collision_calls": 224,
+        "unique_successor_expansions": 27
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S4_seed22",
+      "repeat": 2,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119284,
+      "expansions": 28,
+      "anchor_heap_pops": 25,
+      "discovered": 56,
+      "peak_open": 31,
+      "search_seconds": 0.0005119000561535358,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 27,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.22361079999245703,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 58,
+        "heap_pops": 25
+      },
+      "extra": {
+        "inference_seconds": 0.00336650013923645,
+        "graph_seconds": 0.2194112001452595,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "A_OCT",
+      "repeat": 2,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.0013989000581204891,
+      "reconstruction_seconds": 7.699942216277122e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 63,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "primitive_wall_intersections": 169
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "finite_g_dictionary",
+      "total_seconds": 0.0014782000798732042,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 63,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "primitive_wall_intersections": 169,
+        "graph_seconds": 2.9299873858690262e-05
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S4_seed33",
+      "repeat": 2,
+      "path_sha256": "c53d243d4611e0a8f5698c642816dec808f738c99086e606ec937314a50dafb6",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119286,
+      "expansions": 24,
+      "anchor_heap_pops": 19,
+      "discovered": 48,
+      "peak_open": 25,
+      "search_seconds": 0.0005613998509943485,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 19,
+      "successor_expansions": 23,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.23973580007441342,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 47,
+        "heap_pops": 19
+      },
+      "extra": {
+        "inference_seconds": 0.003211099887266755,
+        "graph_seconds": 0.23569250013679266,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S2_control",
+      "repeat": 2,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 17,
+      "storage": 47,
+      "length": 9.242640687119284,
+      "unique_pops": 17,
+      "duplicate_pops": 0,
+      "infinite_g": 7,
+      "queue_rebuilds": 7,
+      "rekeyed_entries": 93,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          27,
+          13
+        ],
+        [
+          28,
+          13
+        ],
+        [
+          28,
+          14
+        ],
+        [
+          28,
+          15
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 10,
+      "retained_waypoints": 9,
+      "target_index": 8,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0005729000549763441,
+      "initial_proposal_valid": false,
+      "final_proposal_valid": false,
+      "successor_expansions": 16,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0008314999286085367,
+      "api_calls": 2,
+      "heap_counts": {
+        "heap_pushes": 136,
+        "heap_pops": 17
+      },
+      "extra": {
+        "collision_calls": 136,
+        "unique_successor_expansions": 16
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "K3_wall_octile",
+      "repeat": 2,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 9,
+      "storage": 35,
+      "length": 9.242640687119284,
+      "unique_pops": 9,
+      "duplicate_pops": 0,
+      "infinite_g": 5,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.00017559994012117386,
+      "successor_expansions": 8,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0002125001046806574,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 30,
+        "heap_pops": 9
+      },
+      "extra": {
+        "collision_calls": 72,
+        "unique_successor_expansions": 8,
+        "heuristic_calls": 30,
+        "wall_checks": 150,
+        "blocking_wall_checks": 12,
+        "wall_count": 5,
+        "precomputed_endpoint_distances": 10
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S6_program",
+      "repeat": 2,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.0001610000617802143,
+      "reconstruction_seconds": 5.500158295035362e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "preparation_seconds": 7.740012370049953e-05,
+      "required_validation_seconds": 9.34000127017498e-05,
+      "rounds": [
+        {
+          "active_walls": 1,
+          "new_hits": [],
+          "expansions": 25,
+          "length": 9.242640687119284
+        }
+      ],
+      "fallback": false,
+      "active_walls": 1,
+      "total_seconds": 0.00039110006764531136,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "max_per_round_finite_g_dictionary",
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8,
+        "round_discovered": [
+          55
+        ],
+        "round_peak_open": [
+          31
+        ]
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "FOCAL_105",
+      "repeat": 2,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119284,
+      "expansions": 24,
+      "anchor_heap_pops": 19,
+      "discovered": 52,
+      "peak_open": 29,
+      "search_seconds": 0.0005397000350058079,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 19,
+      "successor_expansions": 23,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.21950570004992187,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 51,
+        "heap_pops": 19
+      },
+      "extra": {
+        "inference_seconds": 1.200009137392044e-06,
+        "graph_seconds": 0.21861320012249053,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "V_GATE_NORMALIZED",
+      "repeat": 2,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 20,
+      "storage": 56,
+      "length": 9.242640687119284,
+      "unique_pops": 20,
+      "duplicate_pops": 0,
+      "infinite_g": 8,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0004922000225633383,
+      "guidance_accepted": false,
+      "input_targets": 9,
+      "processed_targets": 9,
+      "successor_expansions": 19,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0006895000115036964,
+      "api_calls": 1,
+      "heap_counts": {
+        "heap_pushes": 48,
+        "heap_pops": 20
+      },
+      "extra": {
+        "collision_calls": 164,
+        "unique_successor_expansions": 19
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S6_historical",
+      "repeat": 2,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.00025889999233186245,
+      "reconstruction_seconds": 7.5998250395059586e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "preparation_seconds": 7.810001261532307e-05,
+      "required_validation_seconds": 0.0001354999840259552,
+      "rounds": [
+        {
+          "active_walls": 1,
+          "new_hits": [],
+          "expansions": 25,
+          "length": 9.242640687119284
+        }
+      ],
+      "fallback": false,
+      "active_walls": 1,
+      "total_seconds": 0.0005577998235821724,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "max_per_round_finite_g_dictionary",
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8,
+        "round_discovered": [
+          55
+        ],
+        "round_peak_open": [
+          31
+        ]
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S4_untrained",
+      "repeat": 2,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119284,
+      "expansions": 28,
+      "anchor_heap_pops": 25,
+      "discovered": 58,
+      "peak_open": 31,
+      "search_seconds": 0.0006198000628501177,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 27,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.23682869994081557,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 58,
+        "heap_pops": 25
+      },
+      "extra": {
+        "inference_seconds": 0.0039502999279648066,
+        "graph_seconds": 0.231924100080505,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S5",
+      "repeat": 2,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.0015217999462038279,
+      "reconstruction_seconds": 9.100185707211494e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 63,
+        "preprocess_cells_allocated": 1581,
+        "rectangles": 16,
+        "retained_vertices": 728,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "primitive_wall_intersections": 169
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "finite_g_dictionary",
+      "total_seconds": 0.001998799853026867,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 63,
+        "preprocess_cells_allocated": 1581,
+        "rectangles": 16,
+        "retained_vertices": 728,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "primitive_wall_intersections": 169,
+        "graph_seconds": 0.00042249984107911587
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "V_GATE_GM",
+      "repeat": 2,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 20,
+      "storage": 56,
+      "length": 9.242640687119284,
+      "unique_pops": 20,
+      "duplicate_pops": 0,
+      "infinite_g": 8,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0004102000966668129,
+      "search_seconds": 0.00028559984639286995,
+      "guidance_accepted": false,
+      "gate_reason": "collision",
+      "proposal_variant": "validated",
+      "executed_method": "goal_only",
+      "successor_expansions": 19,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.00044180010445415974,
+      "api_calls": 1,
+      "heap_counts": {
+        "heap_pushes": 48,
+        "heap_pops": 20
+      },
+      "extra": {
+        "collision_calls": 164,
+        "unique_successor_expansions": 19
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "N_g2h",
+      "repeat": 2,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 20,
+      "storage": 56,
+      "length": 9.242640687119284,
+      "unique_pops": 20,
+      "duplicate_pops": 0,
+      "infinite_g": 8,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0004716000985354185,
+      "successor_expansions": 19,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0005234999116510153,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 48,
+        "heap_pops": 20
+      },
+      "extra": {
+        "collision_calls": 160,
+        "unique_successor_expansions": 19
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S6_rule",
+      "repeat": 2,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.0002343999221920967,
+      "reconstruction_seconds": 8.299946784973145e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "preparation_seconds": 8.5099833086133e-05,
+      "required_validation_seconds": 0.00013830000534653664,
+      "rounds": [
+        {
+          "active_walls": 1,
+          "new_hits": [],
+          "expansions": 25,
+          "length": 9.242640687119284
+        }
+      ],
+      "fallback": false,
+      "active_walls": 1,
+      "total_seconds": 0.0005300999619066715,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "max_per_round_finite_g_dictionary",
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8,
+        "round_discovered": [
+          55
+        ],
+        "round_peak_open": [
+          31
+        ]
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S1",
+      "repeat": 2,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 20,
+      "storage": 56,
+      "length": 9.242640687119284,
+      "unique_pops": 20,
+      "duplicate_pops": 0,
+      "infinite_g": 8,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.00027849990874528885,
+      "guidance_accepted": false,
+      "input_targets": 9,
+      "processed_targets": 4,
+      "successor_expansions": 19,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0004146001301705837,
+      "api_calls": 1,
+      "heap_counts": {
+        "heap_pushes": 48,
+        "heap_pops": 20
+      },
+      "extra": {
+        "collision_calls": 179,
+        "unique_successor_expansions": 19
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S4_seed11",
+      "repeat": 2,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119284,
+      "expansions": 28,
+      "anchor_heap_pops": 25,
+      "discovered": 56,
+      "peak_open": 31,
+      "search_seconds": 0.000632499810308218,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 27,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.27149009983986616,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 57,
+        "heap_pops": 25
+      },
+      "extra": {
+        "inference_seconds": 0.004731900058686733,
+        "graph_seconds": 0.26576960016973317,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "K3_wall_octile",
+      "repeat": 3,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 9,
+      "storage": 35,
+      "length": 9.242640687119284,
+      "unique_pops": 9,
+      "duplicate_pops": 0,
+      "infinite_g": 5,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0011593999806791544,
+      "successor_expansions": 8,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0014114000368863344,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 30,
+        "heap_pops": 9
+      },
+      "extra": {
+        "collision_calls": 72,
+        "unique_successor_expansions": 8,
+        "heuristic_calls": 30,
+        "wall_checks": 150,
+        "blocking_wall_checks": 12,
+        "wall_count": 5,
+        "precomputed_endpoint_distances": 10
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S2_control",
+      "repeat": 3,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 17,
+      "storage": 47,
+      "length": 9.242640687119284,
+      "unique_pops": 17,
+      "duplicate_pops": 0,
+      "infinite_g": 7,
+      "queue_rebuilds": 7,
+      "rekeyed_entries": 93,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          27,
+          13
+        ],
+        [
+          28,
+          13
+        ],
+        [
+          28,
+          14
+        ],
+        [
+          28,
+          15
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 10,
+      "retained_waypoints": 9,
+      "target_index": 8,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.001595900161191821,
+      "initial_proposal_valid": false,
+      "final_proposal_valid": false,
+      "successor_expansions": 16,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.002008700044825673,
+      "api_calls": 2,
+      "heap_counts": {
+        "heap_pushes": 136,
+        "heap_pops": 17
+      },
+      "extra": {
+        "collision_calls": 136,
+        "unique_successor_expansions": 16
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S4_seed22",
+      "repeat": 3,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119284,
+      "expansions": 28,
+      "anchor_heap_pops": 25,
+      "discovered": 56,
+      "peak_open": 31,
+      "search_seconds": 0.0004422999918460846,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 27,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.26410490018315613,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 58,
+        "heap_pops": 25
+      },
+      "extra": {
+        "inference_seconds": 0.003719500033184886,
+        "graph_seconds": 0.25964040006510913,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S6_random",
+      "repeat": 3,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.00021219998598098755,
+      "reconstruction_seconds": 1.009996049106121e-05,
+      "counters": {
+        "heap_pops": 29,
+        "expansions": 29,
+        "relax_attempts": 193,
+        "relax_successes": 68,
+        "heap_pushes": 68,
+        "preprocess_cell_writes": 52,
+        "preprocess_cells_allocated": 3162,
+        "neighbor_candidates": 216,
+        "collision_tests": 216,
+        "validation_wall_intersections": 66,
+        "validation_edges": 11
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "preparation_seconds": 0.00010220031253993511,
+      "required_validation_seconds": 0.00014619994908571243,
+      "rounds": [
+        {
+          "active_walls": 1,
+          "new_hits": [
+            4
+          ],
+          "expansions": 4,
+          "length": 3.0
+        },
+        {
+          "active_walls": 2,
+          "new_hits": [],
+          "expansions": 25,
+          "length": 9.242640687119284
+        }
+      ],
+      "fallback": false,
+      "active_walls": 2,
+      "total_seconds": 0.0005465999711304903,
+      "valid": true,
+      "error": null,
+      "operation": 29,
+      "successor_expansions": 31,
+      "storage": 55,
+      "storage_definition": "max_per_round_finite_g_dictionary",
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 29,
+        "heap_pushes": 68
+      },
+      "extra": {
+        "heap_pops": 29,
+        "expansions": 29,
+        "relax_attempts": 193,
+        "relax_successes": 68,
+        "heap_pushes": 68,
+        "preprocess_cell_writes": 52,
+        "preprocess_cells_allocated": 3162,
+        "neighbor_candidates": 216,
+        "collision_tests": 216,
+        "validation_wall_intersections": 66,
+        "validation_edges": 11,
+        "round_discovered": [
+          15,
+          55
+        ],
+        "round_peak_open": [
+          12,
+          31
+        ]
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S6_program",
+      "repeat": 3,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.00014909985475242138,
+      "reconstruction_seconds": 4.299916326999664e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "preparation_seconds": 3.929995000362396e-05,
+      "required_validation_seconds": 0.00010580010712146759,
+      "rounds": [
+        {
+          "active_walls": 1,
+          "new_hits": [],
+          "expansions": 25,
+          "length": 9.242640687119284
+        }
+      ],
+      "fallback": false,
+      "active_walls": 1,
+      "total_seconds": 0.00034099980257451534,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "max_per_round_finite_g_dictionary",
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8,
+        "round_discovered": [
+          55
+        ],
+        "round_peak_open": [
+          31
+        ]
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "A_OCT",
+      "repeat": 3,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.0019169000443071127,
+      "reconstruction_seconds": 9.699957445263863e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 63,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "primitive_wall_intersections": 169
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "finite_g_dictionary",
+      "total_seconds": 0.002008100040256977,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 63,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "primitive_wall_intersections": 169,
+        "graph_seconds": 1.810002140700817e-05
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "V_GATE_GM",
+      "repeat": 3,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 20,
+      "storage": 56,
+      "length": 9.242640687119284,
+      "unique_pops": 20,
+      "duplicate_pops": 0,
+      "infinite_g": 8,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0006738000083714724,
+      "search_seconds": 0.0004795000422745943,
+      "guidance_accepted": false,
+      "gate_reason": "collision",
+      "proposal_variant": "validated",
+      "executed_method": "goal_only",
+      "successor_expansions": 19,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0007230001501739025,
+      "api_calls": 1,
+      "heap_counts": {
+        "heap_pushes": 48,
+        "heap_pops": 20
+      },
+      "extra": {
+        "collision_calls": 164,
+        "unique_successor_expansions": 19
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S4_seed11",
+      "repeat": 3,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119284,
+      "expansions": 28,
+      "anchor_heap_pops": 25,
+      "discovered": 56,
+      "peak_open": 31,
+      "search_seconds": 0.0004417998716235161,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 27,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.23916310002095997,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 57,
+        "heap_pops": 25
+      },
+      "extra": {
+        "inference_seconds": 0.0031416998244822025,
+        "graph_seconds": 0.2353271001484245,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "N_g2h",
+      "repeat": 3,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 20,
+      "storage": 56,
+      "length": 9.242640687119284,
+      "unique_pops": 20,
+      "duplicate_pops": 0,
+      "infinite_g": 8,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0002865998540073633,
+      "successor_expansions": 19,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0003200999926775694,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 48,
+        "heap_pops": 20
+      },
+      "extra": {
+        "collision_calls": 160,
+        "unique_successor_expansions": 19
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "B_llm",
+      "repeat": 3,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 17,
+      "storage": 47,
+      "length": 9.242640687119284,
+      "unique_pops": 17,
+      "duplicate_pops": 0,
+      "infinite_g": 7,
+      "queue_rebuilds": 7,
+      "rekeyed_entries": 93,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          27,
+          13
+        ],
+        [
+          28,
+          13
+        ],
+        [
+          28,
+          14
+        ],
+        [
+          28,
+          15
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 10,
+      "retained_waypoints": 9,
+      "target_index": 8,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0005014999769628048,
+      "successor_expansions": 16,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0005411999300122261,
+      "api_calls": 1,
+      "heap_counts": {
+        "heap_pushes": 136,
+        "heap_pops": 17
+      },
+      "extra": {
+        "collision_calls": 136,
+        "unique_successor_expansions": 16
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S2_feedback",
+      "repeat": 3,
+      "path_sha256": "c53d243d4611e0a8f5698c642816dec808f738c99086e606ec937314a50dafb6",
+      "valid": true,
+      "error": null,
+      "operation": 68,
+      "storage": 101,
+      "length": 9.242640687119286,
+      "unique_pops": 58,
+      "duplicate_pops": 10,
+      "infinite_g": 9,
+      "queue_rebuilds": 15,
+      "rekeyed_entries": 286,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          24,
+          13
+        ],
+        [
+          23,
+          13
+        ],
+        [
+          22,
+          13
+        ],
+        [
+          21,
+          13
+        ],
+        [
+          20,
+          13
+        ],
+        [
+          19,
+          13
+        ],
+        [
+          18,
+          13
+        ],
+        [
+          18,
+          14
+        ],
+        [
+          18,
+          15
+        ],
+        [
+          18,
+          16
+        ],
+        [
+          19,
+          16
+        ],
+        [
+          20,
+          16
+        ],
+        [
+          21,
+          16
+        ],
+        [
+          22,
+          16
+        ],
+        [
+          23,
+          16
+        ],
+        [
+          24,
+          16
+        ],
+        [
+          25,
+          16
+        ],
+        [
+          27,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 24,
+      "retained_waypoints": 23,
+      "target_index": 16,
+      "final_target": [
+        21,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0015527000650763512,
+      "initial_proposal_valid": false,
+      "final_proposal_valid": false,
+      "successor_expansions": 67,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.002049800008535385,
+      "api_calls": 2,
+      "heap_counts": {
+        "heap_pushes": 390,
+        "heap_pops": 68
+      },
+      "extra": {
+        "collision_calls": 464,
+        "unique_successor_expansions": 57
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S1",
+      "repeat": 3,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 20,
+      "storage": 56,
+      "length": 9.242640687119284,
+      "unique_pops": 20,
+      "duplicate_pops": 0,
+      "infinite_g": 8,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.00040740007534623146,
+      "guidance_accepted": false,
+      "input_targets": 9,
+      "processed_targets": 4,
+      "successor_expansions": 19,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0005501999985426664,
+      "api_calls": 1,
+      "heap_counts": {
+        "heap_pushes": 48,
+        "heap_pops": 20
+      },
+      "extra": {
+        "collision_calls": 179,
+        "unique_successor_expansions": 19
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S4_untrained",
+      "repeat": 3,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119284,
+      "expansions": 28,
+      "anchor_heap_pops": 25,
+      "discovered": 58,
+      "peak_open": 31,
+      "search_seconds": 0.0008150001522153616,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 27,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.24055360001511872,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 58,
+        "heap_pops": 25
+      },
+      "extra": {
+        "inference_seconds": 0.0037221999373286963,
+        "graph_seconds": 0.23561450000852346,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "K3_wall_euclidean",
+      "repeat": 3,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 9,
+      "storage": 35,
+      "length": 9.242640687119284,
+      "unique_pops": 9,
+      "duplicate_pops": 0,
+      "infinite_g": 5,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0002544999588280916,
+      "successor_expansions": 8,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.00031530018895864487,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 30,
+        "heap_pops": 9
+      },
+      "extra": {
+        "collision_calls": 72,
+        "unique_successor_expansions": 8,
+        "heuristic_calls": 30,
+        "wall_checks": 150,
+        "blocking_wall_checks": 12,
+        "wall_count": 5,
+        "precomputed_endpoint_distances": 10
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "A_GM",
+      "repeat": 3,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 28,
+      "storage": 67,
+      "length": 9.242640687119284,
+      "unique_pops": 28,
+      "duplicate_pops": 0,
+      "infinite_g": 9,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0005443000700324774,
+      "successor_expansions": 27,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0005805999971926212,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 60,
+        "heap_pops": 28
+      },
+      "extra": {
+        "collision_calls": 224,
+        "unique_successor_expansions": 27
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "FOCAL_105",
+      "repeat": 3,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119284,
+      "expansions": 24,
+      "anchor_heap_pops": 19,
+      "discovered": 52,
+      "peak_open": 29,
+      "search_seconds": 0.0004732001107186079,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 19,
+      "successor_expansions": 23,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.24154770001769066,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 51,
+        "heap_pops": 19
+      },
+      "extra": {
+        "inference_seconds": 1.2998934835195541e-06,
+        "graph_seconds": 0.24076159996911883,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S6_rule",
+      "repeat": 3,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.00023579993285238743,
+      "reconstruction_seconds": 8.499948307871819e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "preparation_seconds": 6.110011599957943e-05,
+      "required_validation_seconds": 0.0001289001666009426,
+      "rounds": [
+        {
+          "active_walls": 1,
+          "new_hits": [],
+          "expansions": 25,
+          "length": 9.242640687119284
+        }
+      ],
+      "fallback": false,
+      "active_walls": 1,
+      "total_seconds": 0.0005119000561535358,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "max_per_round_finite_g_dictionary",
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8,
+        "round_discovered": [
+          55
+        ],
+        "round_peak_open": [
+          31
+        ]
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S4_seed33",
+      "repeat": 3,
+      "path_sha256": "c53d243d4611e0a8f5698c642816dec808f738c99086e606ec937314a50dafb6",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119286,
+      "expansions": 24,
+      "anchor_heap_pops": 19,
+      "discovered": 48,
+      "peak_open": 25,
+      "search_seconds": 0.00047450000420212746,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 19,
+      "successor_expansions": 23,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.3020945000462234,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 47,
+        "heap_pops": 19
+      },
+      "extra": {
+        "inference_seconds": 0.0032888001296669245,
+        "graph_seconds": 0.29807649995200336,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S5",
+      "repeat": 3,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.0015072000678628683,
+      "reconstruction_seconds": 9.699957445263863e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 63,
+        "preprocess_cells_allocated": 1581,
+        "rectangles": 16,
+        "retained_vertices": 728,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "primitive_wall_intersections": 169
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "finite_g_dictionary",
+      "total_seconds": 0.0020018001087009907,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 63,
+        "preprocess_cells_allocated": 1581,
+        "rectangles": 16,
+        "retained_vertices": 728,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "primitive_wall_intersections": 169,
+        "graph_seconds": 0.0004374000709503889
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S6_historical",
+      "repeat": 3,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.00015540001913905144,
+      "reconstruction_seconds": 5.09992241859436e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "preparation_seconds": 5.330005660653114e-05,
+      "required_validation_seconds": 8.929986506700516e-05,
+      "rounds": [
+        {
+          "active_walls": 1,
+          "new_hits": [],
+          "expansions": 25,
+          "length": 9.242640687119284
+        }
+      ],
+      "fallback": false,
+      "active_walls": 1,
+      "total_seconds": 0.00036509986966848373,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "max_per_round_finite_g_dictionary",
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8,
+        "round_discovered": [
+          55
+        ],
+        "round_peak_open": [
+          31
+        ]
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "V_GATE_NORMALIZED",
+      "repeat": 3,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 20,
+      "storage": 56,
+      "length": 9.242640687119284,
+      "unique_pops": 20,
+      "duplicate_pops": 0,
+      "infinite_g": 8,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0005129999481141567,
+      "guidance_accepted": false,
+      "input_targets": 9,
+      "processed_targets": 9,
+      "successor_expansions": 19,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0008312000427395105,
+      "api_calls": 1,
+      "heap_counts": {
+        "heap_pushes": 48,
+        "heap_pops": 20
+      },
+      "extra": {
+        "collision_calls": 164,
+        "unique_successor_expansions": 19
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S3",
+      "repeat": 3,
+      "path_sha256": "c53d243d4611e0a8f5698c642816dec808f738c99086e606ec937314a50dafb6",
+      "valid": true,
+      "error": null,
+      "length": 9.242640687119286,
+      "storage": 65,
+      "api_calls": 1,
+      "trigger": {
+        "pop": 10,
+        "window": 10,
+        "progress": 0.0,
+        "threshold": 0.15000000000000002
+      },
+      "queue_rebuilds": 1,
+      "rekeyed_entries": 11,
+      "infinite_g": 8,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          27,
+          13
+        ],
+        [
+          28,
+          13
+        ],
+        [
+          28,
+          14
+        ],
+        [
+          28,
+          15
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "operation": 28,
+      "successor_expansions": 27,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0011261000763624907,
+      "heap_counts": {
+        "heap_pushes": 70,
+        "heap_pops": 28
+      },
+      "extra": {
+        "collision_calls": 224,
+        "unique_successor_expansions": 27
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "N_g2h",
+      "repeat": 4,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 20,
+      "storage": 56,
+      "length": 9.242640687119284,
+      "unique_pops": 20,
+      "duplicate_pops": 0,
+      "infinite_g": 8,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0007241999264806509,
+      "successor_expansions": 19,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0007893000729382038,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 48,
+        "heap_pops": 20
+      },
+      "extra": {
+        "collision_calls": 160,
+        "unique_successor_expansions": 19
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "A_OCT",
+      "repeat": 4,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.0021132000256329775,
+      "reconstruction_seconds": 7.899943739175797e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 63,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "primitive_wall_intersections": 169
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "finite_g_dictionary",
+      "total_seconds": 0.002221599919721484,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 63,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "primitive_wall_intersections": 169,
+        "graph_seconds": 5.5900076404213905e-05
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S1",
+      "repeat": 4,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 20,
+      "storage": 56,
+      "length": 9.242640687119284,
+      "unique_pops": 20,
+      "duplicate_pops": 0,
+      "infinite_g": 8,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.00031729997135698795,
+      "guidance_accepted": false,
+      "input_targets": 9,
+      "processed_targets": 4,
+      "successor_expansions": 19,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0005051000043749809,
+      "api_calls": 1,
+      "heap_counts": {
+        "heap_pushes": 48,
+        "heap_pops": 20
+      },
+      "extra": {
+        "collision_calls": 179,
+        "unique_successor_expansions": 19
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "V_GATE_GM",
+      "repeat": 4,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 20,
+      "storage": 56,
+      "length": 9.242640687119284,
+      "unique_pops": 20,
+      "duplicate_pops": 0,
+      "infinite_g": 8,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0005471000913530588,
+      "search_seconds": 0.00040019978769123554,
+      "guidance_accepted": false,
+      "gate_reason": "collision",
+      "proposal_variant": "validated",
+      "executed_method": "goal_only",
+      "successor_expansions": 19,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0005908999592065811,
+      "api_calls": 1,
+      "heap_counts": {
+        "heap_pushes": 48,
+        "heap_pops": 20
+      },
+      "extra": {
+        "collision_calls": 164,
+        "unique_successor_expansions": 19
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "FOCAL_105",
+      "repeat": 4,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119284,
+      "expansions": 24,
+      "anchor_heap_pops": 19,
+      "discovered": 52,
+      "peak_open": 29,
+      "search_seconds": 0.0005123999435454607,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 19,
+      "successor_expansions": 23,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.2741926999296993,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 51,
+        "heap_pops": 19
+      },
+      "extra": {
+        "inference_seconds": 1.200009137392044e-06,
+        "graph_seconds": 0.27333350013941526,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "K3_wall_octile",
+      "repeat": 4,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 9,
+      "storage": 35,
+      "length": 9.242640687119284,
+      "unique_pops": 9,
+      "duplicate_pops": 0,
+      "infinite_g": 5,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.00028629996813833714,
+      "successor_expansions": 8,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.000345699954777956,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 30,
+        "heap_pops": 9
+      },
+      "extra": {
+        "collision_calls": 72,
+        "unique_successor_expansions": 8,
+        "heuristic_calls": 30,
+        "wall_checks": 150,
+        "blocking_wall_checks": 12,
+        "wall_count": 5,
+        "precomputed_endpoint_distances": 10
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S4_seed11",
+      "repeat": 4,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119284,
+      "expansions": 28,
+      "anchor_heap_pops": 25,
+      "discovered": 56,
+      "peak_open": 31,
+      "search_seconds": 0.0006260001100599766,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 27,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.2890594000928104,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 57,
+        "heap_pops": 25
+      },
+      "extra": {
+        "inference_seconds": 0.0037751998752355576,
+        "graph_seconds": 0.28431329992599785,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S5",
+      "repeat": 4,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.0014242001343518496,
+      "reconstruction_seconds": 8.999835699796677e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 63,
+        "preprocess_cells_allocated": 1581,
+        "rectangles": 16,
+        "retained_vertices": 728,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "primitive_wall_intersections": 169
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "finite_g_dictionary",
+      "total_seconds": 0.00196749996393919,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 63,
+        "preprocess_cells_allocated": 1581,
+        "rectangles": 16,
+        "retained_vertices": 728,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "primitive_wall_intersections": 169,
+        "graph_seconds": 0.00048779998905956745
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S6_program",
+      "repeat": 4,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.00023160013370215893,
+      "reconstruction_seconds": 7.0999376475811005e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "preparation_seconds": 0.00010130018927156925,
+      "required_validation_seconds": 0.00014360016211867332,
+      "rounds": [
+        {
+          "active_walls": 1,
+          "new_hits": [],
+          "expansions": 25,
+          "length": 9.242640687119284
+        }
+      ],
+      "fallback": false,
+      "active_walls": 1,
+      "total_seconds": 0.0005588000640273094,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "max_per_round_finite_g_dictionary",
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8,
+        "round_discovered": [
+          55
+        ],
+        "round_peak_open": [
+          31
+        ]
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S3",
+      "repeat": 4,
+      "path_sha256": "c53d243d4611e0a8f5698c642816dec808f738c99086e606ec937314a50dafb6",
+      "valid": true,
+      "error": null,
+      "length": 9.242640687119286,
+      "storage": 65,
+      "api_calls": 1,
+      "trigger": {
+        "pop": 10,
+        "window": 10,
+        "progress": 0.0,
+        "threshold": 0.15000000000000002
+      },
+      "queue_rebuilds": 1,
+      "rekeyed_entries": 11,
+      "infinite_g": 8,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          27,
+          13
+        ],
+        [
+          28,
+          13
+        ],
+        [
+          28,
+          14
+        ],
+        [
+          28,
+          15
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "operation": 28,
+      "successor_expansions": 27,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0007172999903559685,
+      "heap_counts": {
+        "heap_pushes": 70,
+        "heap_pops": 28
+      },
+      "extra": {
+        "collision_calls": 224,
+        "unique_successor_expansions": 27
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S4_untrained",
+      "repeat": 4,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119284,
+      "expansions": 28,
+      "anchor_heap_pops": 25,
+      "discovered": 58,
+      "peak_open": 31,
+      "search_seconds": 0.0004556998610496521,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 27,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.25298720016144216,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 58,
+        "heap_pops": 25
+      },
+      "extra": {
+        "inference_seconds": 0.0044079001527279615,
+        "graph_seconds": 0.24786849995143712,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "V_GATE_NORMALIZED",
+      "repeat": 4,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 20,
+      "storage": 56,
+      "length": 9.242640687119284,
+      "unique_pops": 20,
+      "duplicate_pops": 0,
+      "infinite_g": 8,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.00047559989616274834,
+      "guidance_accepted": false,
+      "input_targets": 9,
+      "processed_targets": 9,
+      "successor_expansions": 19,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0006292001344263554,
+      "api_calls": 1,
+      "heap_counts": {
+        "heap_pushes": 48,
+        "heap_pops": 20
+      },
+      "extra": {
+        "collision_calls": 164,
+        "unique_successor_expansions": 19
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "B_llm",
+      "repeat": 4,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 17,
+      "storage": 47,
+      "length": 9.242640687119284,
+      "unique_pops": 17,
+      "duplicate_pops": 0,
+      "infinite_g": 7,
+      "queue_rebuilds": 7,
+      "rekeyed_entries": 93,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          27,
+          13
+        ],
+        [
+          28,
+          13
+        ],
+        [
+          28,
+          14
+        ],
+        [
+          28,
+          15
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 10,
+      "retained_waypoints": 9,
+      "target_index": 8,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0005402998067438602,
+      "successor_expansions": 16,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0006043999455869198,
+      "api_calls": 1,
+      "heap_counts": {
+        "heap_pushes": 136,
+        "heap_pops": 17
+      },
+      "extra": {
+        "collision_calls": 136,
+        "unique_successor_expansions": 16
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S6_random",
+      "repeat": 4,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.00021100020967423916,
+      "reconstruction_seconds": 1.2800097465515137e-05,
+      "counters": {
+        "heap_pops": 29,
+        "expansions": 29,
+        "relax_attempts": 193,
+        "relax_successes": 68,
+        "heap_pushes": 68,
+        "preprocess_cell_writes": 52,
+        "preprocess_cells_allocated": 3162,
+        "neighbor_candidates": 216,
+        "collision_tests": 216,
+        "validation_wall_intersections": 66,
+        "validation_edges": 11
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "preparation_seconds": 0.00038650003261864185,
+      "required_validation_seconds": 0.00018910015933215618,
+      "rounds": [
+        {
+          "active_walls": 1,
+          "new_hits": [
+            4
+          ],
+          "expansions": 4,
+          "length": 3.0
+        },
+        {
+          "active_walls": 2,
+          "new_hits": [],
+          "expansions": 25,
+          "length": 9.242640687119284
+        }
+      ],
+      "fallback": false,
+      "active_walls": 2,
+      "total_seconds": 0.0008874998893588781,
+      "valid": true,
+      "error": null,
+      "operation": 29,
+      "successor_expansions": 31,
+      "storage": 55,
+      "storage_definition": "max_per_round_finite_g_dictionary",
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 29,
+        "heap_pushes": 68
+      },
+      "extra": {
+        "heap_pops": 29,
+        "expansions": 29,
+        "relax_attempts": 193,
+        "relax_successes": 68,
+        "heap_pushes": 68,
+        "preprocess_cell_writes": 52,
+        "preprocess_cells_allocated": 3162,
+        "neighbor_candidates": 216,
+        "collision_tests": 216,
+        "validation_wall_intersections": 66,
+        "validation_edges": 11,
+        "round_discovered": [
+          15,
+          55
+        ],
+        "round_peak_open": [
+          12,
+          31
+        ]
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S4_seed22",
+      "repeat": 4,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119284,
+      "expansions": 28,
+      "anchor_heap_pops": 25,
+      "discovered": 56,
+      "peak_open": 31,
+      "search_seconds": 0.00042799999937415123,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 27,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.2685871000867337,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 58,
+        "heap_pops": 25
+      },
+      "extra": {
+        "inference_seconds": 0.00323119992390275,
+        "graph_seconds": 0.2646808000281453,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S6_historical",
+      "repeat": 4,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.00016140006482601166,
+      "reconstruction_seconds": 6.100162863731384e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "preparation_seconds": 5.270005203783512e-05,
+      "required_validation_seconds": 9.159999899566174e-05,
+      "rounds": [
+        {
+          "active_walls": 1,
+          "new_hits": [],
+          "expansions": 25,
+          "length": 9.242640687119284
+        }
+      ],
+      "fallback": false,
+      "active_walls": 1,
+      "total_seconds": 0.00036619999445974827,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "max_per_round_finite_g_dictionary",
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8,
+        "round_discovered": [
+          55
+        ],
+        "round_peak_open": [
+          31
+        ]
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "A_GM",
+      "repeat": 4,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 28,
+      "storage": 67,
+      "length": 9.242640687119284,
+      "unique_pops": 28,
+      "duplicate_pops": 0,
+      "infinite_g": 9,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0005303998477756977,
+      "successor_expansions": 27,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0005736998282372952,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 60,
+        "heap_pops": 28
+      },
+      "extra": {
+        "collision_calls": 224,
+        "unique_successor_expansions": 27
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S2_feedback",
+      "repeat": 4,
+      "path_sha256": "c53d243d4611e0a8f5698c642816dec808f738c99086e606ec937314a50dafb6",
+      "valid": true,
+      "error": null,
+      "operation": 68,
+      "storage": 101,
+      "length": 9.242640687119286,
+      "unique_pops": 58,
+      "duplicate_pops": 10,
+      "infinite_g": 9,
+      "queue_rebuilds": 15,
+      "rekeyed_entries": 286,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          24,
+          13
+        ],
+        [
+          23,
+          13
+        ],
+        [
+          22,
+          13
+        ],
+        [
+          21,
+          13
+        ],
+        [
+          20,
+          13
+        ],
+        [
+          19,
+          13
+        ],
+        [
+          18,
+          13
+        ],
+        [
+          18,
+          14
+        ],
+        [
+          18,
+          15
+        ],
+        [
+          18,
+          16
+        ],
+        [
+          19,
+          16
+        ],
+        [
+          20,
+          16
+        ],
+        [
+          21,
+          16
+        ],
+        [
+          22,
+          16
+        ],
+        [
+          23,
+          16
+        ],
+        [
+          24,
+          16
+        ],
+        [
+          25,
+          16
+        ],
+        [
+          27,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 24,
+      "retained_waypoints": 23,
+      "target_index": 16,
+      "final_target": [
+        21,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0013131999876350164,
+      "initial_proposal_valid": false,
+      "final_proposal_valid": false,
+      "successor_expansions": 67,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0017460999079048634,
+      "api_calls": 2,
+      "heap_counts": {
+        "heap_pushes": 390,
+        "heap_pops": 68
+      },
+      "extra": {
+        "collision_calls": 464,
+        "unique_successor_expansions": 57
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S2_control",
+      "repeat": 4,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 17,
+      "storage": 47,
+      "length": 9.242640687119284,
+      "unique_pops": 17,
+      "duplicate_pops": 0,
+      "infinite_g": 7,
+      "queue_rebuilds": 7,
+      "rekeyed_entries": 93,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          14
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          27,
+          13
+        ],
+        [
+          28,
+          13
+        ],
+        [
+          28,
+          14
+        ],
+        [
+          28,
+          15
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 10,
+      "retained_waypoints": 9,
+      "target_index": 8,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.0004257999826222658,
+      "initial_proposal_valid": false,
+      "final_proposal_valid": false,
+      "successor_expansions": 16,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.0006695999763906002,
+      "api_calls": 2,
+      "heap_counts": {
+        "heap_pushes": 136,
+        "heap_pops": 17
+      },
+      "extra": {
+        "collision_calls": 136,
+        "unique_successor_expansions": 16
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S4_seed33",
+      "repeat": 4,
+      "path_sha256": "c53d243d4611e0a8f5698c642816dec808f738c99086e606ec937314a50dafb6",
+      "valid": true,
+      "failure": null,
+      "length": 9.242640687119286,
+      "expansions": 24,
+      "anchor_heap_pops": 19,
+      "discovered": 48,
+      "peak_open": 25,
+      "search_seconds": 0.00047200010158121586,
+      "incumbent_returned": false,
+      "error": null,
+      "operation": 19,
+      "successor_expansions": 23,
+      "storage": 1581,
+      "storage_definition": "allocated_dense_g_array_entries",
+      "total_seconds": 0.35545570007525384,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 47,
+        "heap_pops": 19
+      },
+      "extra": {
+        "inference_seconds": 0.0039512999355793,
+        "graph_seconds": 0.35076289996504784,
+        "allocated_g_entries": 1581
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "S6_rule",
+      "repeat": 4,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "length": 9.242640687119284,
+      "reachable": true,
+      "search_seconds": 0.00015910016372799873,
+      "reconstruction_seconds": 6.00004568696022e-06,
+      "counters": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8
+      },
+      "peak_open": 31,
+      "discovered": 55,
+      "preparation_seconds": 4.930002614855766e-05,
+      "required_validation_seconds": 9.039998985826969e-05,
+      "rounds": [
+        {
+          "active_walls": 1,
+          "new_hits": [],
+          "expansions": 25,
+          "length": 9.242640687119284
+        }
+      ],
+      "fallback": false,
+      "active_walls": 1,
+      "total_seconds": 0.00036029983311891556,
+      "valid": true,
+      "error": null,
+      "operation": 25,
+      "successor_expansions": 24,
+      "storage": 55,
+      "storage_definition": "max_per_round_finite_g_dictionary",
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pops": 25,
+        "heap_pushes": 54
+      },
+      "extra": {
+        "heap_pops": 25,
+        "expansions": 25,
+        "relax_attempts": 169,
+        "relax_successes": 54,
+        "heap_pushes": 54,
+        "preprocess_cell_writes": 12,
+        "preprocess_cells_allocated": 1581,
+        "neighbor_candidates": 192,
+        "collision_tests": 192,
+        "validation_wall_intersections": 48,
+        "validation_edges": 8,
+        "round_discovered": [
+          55
+        ],
+        "round_peak_open": [
+          31
+        ]
+      },
+      "bound_violation": false
+    },
+    {
+      "method": "K3_wall_euclidean",
+      "repeat": 4,
+      "path_sha256": "4708ccbc0d44c03ce894480b79cf8c7158a09ee433e03afb999c12c1f8323310",
+      "valid": true,
+      "error": null,
+      "operation": 9,
+      "storage": 35,
+      "length": 9.242640687119284,
+      "unique_pops": 9,
+      "duplicate_pops": 0,
+      "infinite_g": 5,
+      "queue_rebuilds": 0,
+      "rekeyed_entries": 0,
+      "targets": [
+        [
+          25,
+          16
+        ],
+        [
+          28,
+          16
+        ]
+      ],
+      "raw_waypoints": 0,
+      "retained_waypoints": 0,
+      "target_index": 1,
+      "final_target": [
+        28,
+        16
+      ],
+      "parse_error": null,
+      "response_schema_error": null,
+      "seconds": 0.00016900012269616127,
+      "successor_expansions": 8,
+      "storage_definition": "g_dictionary_including_infinite",
+      "total_seconds": 0.00020989985205233097,
+      "api_calls": 0,
+      "heap_counts": {
+        "heap_pushes": 30,
+        "heap_pops": 9
+      },
+      "extra": {
+        "collision_calls": 72,
+        "unique_successor_expansions": 8,
+        "heuristic_calls": 30,
+        "wall_checks": 150,
+        "blocking_wall_checks": 12,
+        "wall_count": 5,
+        "precomputed_endpoint_distances": 10
+      },
+      "bound_violation": false
+    }
+  ]
+}

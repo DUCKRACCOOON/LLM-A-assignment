@@ -1,0 +1,66 @@
+{
+  "case_id": "m029_p00",
+  "stage": "public",
+  "variant": "first",
+  "created_at": "2026-10-28T10:14:04.344882+00:00",
+  "request": {
+    "model": "gpt-4o-mini-2024-07-18",
+    "messages": [
+      {
+        "role": "user",
+        "content": "\nIdentify a path between the start and goal points to navigate around obstacles and find the shortest path to the goal. \nHorizontal barriers are represented as [y, x_start, x_end], and vertical barriers are represented as [x, y_start, y_end].\nConclude your response with the generated path in the format \"Generated Path: [[x1, y1], [x2, y2], ...]\".\n\nStart Point: [5, 5]\nGoal Point: [20, 20]\nHorizontal Barriers: [[10, 0, 25], [15, 30, 50]]\nVertical Barriers: [[25, 10, 22]]\nGenerated Path: [[5, 5], [26, 9], [25, 23], [20, 20]]\n\nStart Point: [2, 3]\nGoal Point: [18, 8]\nHorizontal Barriers: [[7, 0, 10], [5, 30, 40]]\nVertical Barriers: [[14, 12, 30], [40, 0, 11]] \nGenerated Path: [[2, 3], [11, 6], [18, 8]]\n\nStart Point: [40, 20]\nGoal Point: [10, 10]\nHorizontal Barriers: [[15, 20, 30], [15, 35, 50]]\nVertical Barriers: [[20, 4, 30]]\nGenerated Path: [[40, 20], [31, 15], [20, 3], [10, 10]]\n\nStart Point: [4, 4]\nGoal Point: [16, 16]\nHorizontal Barriers: [[20, 0, 20], [5, 30, 40]]\nVertical Barriers: [[40, 0, 15], [20, 10, 21]]\nGenerated Path: [[4, 4], [16, 16]]\n\nStart Point: [25, 25]\nGoal Point: [4, 4]\nHorizontal Barriers: [[7, 0, 20], [15, 10, 15]]\nVertical Barriers: [[10, 15, 30], [30, 0, 18], [10, 0, 5]]\nGenerated Path: [[25, 25], [21, 7], [10, 6], [4, 4]]\n\nStart Point: [4, 20]\nGoal Point: [39, 20]\nHorizontal Barriers: [[27, 30, 43], [0, 14, 45]]\nVertical Barriers: [[23, 12, 25], [16, 28, 30]]\nGenerated Path: \n"
+      }
+    ],
+    "temperature": 0,
+    "max_tokens": 1000,
+    "store": false
+  },
+  "request_sha256": "eae6be1d216b981650a498784a85852bfbe3508a4b26e6be36507effd12dbcec",
+  "response": {
+    "id": "chatcmpl-EduxQ1loLg5yjjUTbwBHxkcyvnSfK",
+    "object": "chat.completion",
+    "created": 1793182444,
+    "model": "gpt-4o-mini-2024-07-18",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "To find a path from the start point [4, 20] to the goal point [39, 20] while navigating around the specified obstacles, we need to analyze the barriers:\n\n1. **Horizontal Barriers**:\n   - [27, 30, 43]: This barrier spans horizontally from (30, 27) to (43, 27).\n   - [0, 14, 45]: This barrier spans horizontally from (14, 0) to (45, 0).\n\n2. **Vertical Barriers**:\n   - [23, 12, 25]: This barrier spans vertically from (12, 23) to (25, 23).\n   - [16, 28, 30]: This barrier spans vertically from (28, 16) to (30, 16).\n\nGiven these barriers, we can outline a potential path:\n\n- Start at [4, 20].\n- Move right to [20, 20] (this is clear of barriers).\n- Continue moving right to [39, 20] (this is also clear of barriers).\n\nThus, the generated path is:\n\nGenerated Path: [[4, 20], [20, 20], [39, 20]]",
+          "refusal": null,
+          "annotations": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 577,
+      "completion_tokens": 254,
+      "total_tokens": 831,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "service_tier": "default",
+    "system_fingerprint": "fp_4c55ec580f"
+  },
+  "latency_seconds": 3.0836169000249356,
+  "request_seconds": 3.0836169000249356,
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": 200,
+      "seconds": 3.0836169000249356
+    }
+  ],
+  "request_id": "req_2777f865c1754bb0b73ccf918d5acdc7",
+  "response_sha256": "113911ef4618b1398d6c88edebceae6e57cf1e42eefa5d9a276714afc12c4b05"
+}

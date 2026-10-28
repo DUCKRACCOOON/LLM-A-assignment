@@ -1,0 +1,66 @@
+{
+  "case_id": "m030_p06",
+  "stage": "public",
+  "variant": "first",
+  "created_at": "2026-10-28T10:14:15.964345+00:00",
+  "request": {
+    "model": "gpt-4o-mini-2024-07-18",
+    "messages": [
+      {
+        "role": "user",
+        "content": "\nIdentify a path between the start and goal points to navigate around obstacles and find the shortest path to the goal. \nHorizontal barriers are represented as [y, x_start, x_end], and vertical barriers are represented as [x, y_start, y_end].\nConclude your response with the generated path in the format \"Generated Path: [[x1, y1], [x2, y2], ...]\".\n\nStart Point: [5, 5]\nGoal Point: [20, 20]\nHorizontal Barriers: [[10, 0, 25], [15, 30, 50]]\nVertical Barriers: [[25, 10, 22]]\nGenerated Path: [[5, 5], [26, 9], [25, 23], [20, 20]]\n\nStart Point: [2, 3]\nGoal Point: [18, 8]\nHorizontal Barriers: [[7, 0, 10], [5, 30, 40]]\nVertical Barriers: [[14, 12, 30], [40, 0, 11]] \nGenerated Path: [[2, 3], [11, 6], [18, 8]]\n\nStart Point: [40, 20]\nGoal Point: [10, 10]\nHorizontal Barriers: [[15, 20, 30], [15, 35, 50]]\nVertical Barriers: [[20, 4, 30]]\nGenerated Path: [[40, 20], [31, 15], [20, 3], [10, 10]]\n\nStart Point: [4, 4]\nGoal Point: [16, 16]\nHorizontal Barriers: [[20, 0, 20], [5, 30, 40]]\nVertical Barriers: [[40, 0, 15], [20, 10, 21]]\nGenerated Path: [[4, 4], [16, 16]]\n\nStart Point: [25, 25]\nGoal Point: [4, 4]\nHorizontal Barriers: [[7, 0, 20], [15, 10, 15]]\nVertical Barriers: [[10, 15, 30], [30, 0, 18], [10, 0, 5]]\nGenerated Path: [[25, 25], [21, 7], [10, 6], [4, 4]]\n\nStart Point: [34, 6]\nGoal Point: [17, 24]\nHorizontal Barriers: [[31, 43, 43], [16, 19, 26]]\nVertical Barriers: [[42, 13, 29], [38, 6, 28], [32, 9, 30], [50, 18, 28]]\nGenerated Path: \n"
+      }
+    ],
+    "temperature": 0,
+    "max_tokens": 1000,
+    "store": false
+  },
+  "request_sha256": "6ba1473a61ddd6bc29f7cd540f1d598253c7ec5aeefc8c69c4909a0a6c622d87",
+  "response": {
+    "id": "chatcmpl-EduxcEf6wp8peSnhy4OoXwxwZfoCc",
+    "object": "chat.completion",
+    "created": 1793182456,
+    "model": "gpt-4o-mini-2024-07-18",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "To find a path from the start point [34, 6] to the goal point [17, 24] while navigating around the specified horizontal and vertical barriers, we need to analyze the barriers and determine a route that avoids them.\n\n### Given Information:\n- **Start Point:** [34, 6]\n- **Goal Point:** [17, 24]\n- **Horizontal Barriers:** \n  - [31, 43, 43] (y = 31 from x = 43 to x = 43)\n  - [16, 19, 26] (y = 16 from x = 19 to x = 26)\n- **Vertical Barriers:** \n  - [42, 13, 29] (x = 42 from y = 13 to y = 29)\n  - [38, 6, 28] (x = 38 from y = 6 to y = 28)\n  - [32, 9, 30] (x = 32 from y = 9 to y = 30)\n  - [50, 18, 28] (x = 50 from y = 18 to y = 28)\n\n### Pathfinding Analysis:\n1. **Starting at [34, 6]:** \n   - The first move can be to the left (decreasing x) since moving down (increasing y) is blocked by the vertical barrier at x = 38.\n   \n2. **Moving to [33, 6]:** \n   - Continue moving left to avoid the vertical barriers.\n\n3. **Continue left to [30, 6]:** \n   - This keeps us clear of the vertical barriers.\n\n4. **Move down to [30, 10]:** \n   - This is below the vertical barrier at x = 32.\n\n5. **Move left to [29, 10]:** \n   - Continue moving left to avoid the barriers.\n\n6. **Move down to [29, 15]:** \n   - This is below the horizontal barrier at y = 16.\n\n7. **Move left to [28, 15]:** \n   - Continue moving left.\n\n8. **Move down to [28, 20]:** \n   - This is below the horizontal barrier at y = 16.\n\n9. **Move left to [27, 20]:** \n   - Continue moving left.\n\n10. **Move down to [27, 24]:** \n    - This is below the horizontal barrier at y = 16.\n\n11. **Move left to [26, 24]:** \n    - Continue moving left.\n\n12. **Move down to [26, 20]:** \n    - This is below the horizontal barrier at y = 16.\n\n13. **Move left to [25, 20]:** \n    - Continue moving left.\n\n14. **Move down to [25, 24]:** \n    - This is below the horizontal barrier at y = 16.\n\n15. **Move left to [24, 24]:** \n    - Continue moving left.\n\n16. **Move down to [24, 20]:** \n    - This is below the horizontal barrier at y = 16.\n\n17. **Move left to [23, 20]:** \n    - Continue moving left.\n\n18. **Move down to [23, 24]:** \n    - This is below the horizontal barrier at y = 16.\n\n19. **Move left to [22, 24]:** \n    - Continue moving left.\n\n20. **Move down to [22, 20]:** \n    - This is below the horizontal barrier at y = 16.\n\n21. **Move left to [21, 20]:** \n    - Continue moving left.\n\n22. **Move down to [21, 24]:** \n    - This is below the horizontal barrier at y = 16.\n\n23. **Move left to [20, 24]:** \n    - Continue moving left.\n\n24. **Move down to [20, 20]:** \n    - This is below the horizontal barrier at y = 16.\n\n25. **Move left to [19, 20]:** \n    - Continue moving left.\n\n26. **Move down to [19, 24]:** \n    - This is below the horizontal barrier at y = 16.\n\n27. **Move left to [18, 24]:** \n    - Continue moving left.\n\n28. **Move down to [18, 20]:** \n    - This is below the horizontal barrier at y = 16.\n\n29. **Move left to [17, 20]:** \n    - Continue moving left.\n\n30. **Finally, move down to [17, 24]:** \n    - This",
+          "refusal": null,
+          "annotations": []
+        },
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 595,
+      "completion_tokens": 1000,
+      "total_tokens": 1595,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "service_tier": "default",
+    "system_fingerprint": "fp_d932b185f7"
+  },
+  "latency_seconds": 12.270784799940884,
+  "request_seconds": 12.270784799940884,
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": 200,
+      "seconds": 12.270784799940884
+    }
+  ],
+  "request_id": "req_136c862087234080aebb927e52d24f38",
+  "response_sha256": "92c3719c00b66f6a1e7bb955ee81f294f0b44d0de7014a2518e38ac84049b92d"
+}

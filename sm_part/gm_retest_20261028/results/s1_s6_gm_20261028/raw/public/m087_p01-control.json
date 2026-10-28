@@ -1,0 +1,66 @@
+{
+  "case_id": "m087_p01",
+  "stage": "public",
+  "variant": "control",
+  "created_at": "2026-10-28T10:22:23.686559+00:00",
+  "request": {
+    "model": "gpt-4o-mini-2024-07-18",
+    "messages": [
+      {
+        "role": "user",
+        "content": "\nIdentify a path between the start and goal points to navigate around obstacles and find the shortest path to the goal. \nHorizontal barriers are represented as [y, x_start, x_end], and vertical barriers are represented as [x, y_start, y_end].\nConclude your response with the generated path in the format \"Generated Path: [[x1, y1], [x2, y2], ...]\".\n\nStart Point: [5, 5]\nGoal Point: [20, 20]\nHorizontal Barriers: [[10, 0, 25], [15, 30, 50]]\nVertical Barriers: [[25, 10, 22]]\nGenerated Path: [[5, 5], [26, 9], [25, 23], [20, 20]]\n\nStart Point: [2, 3]\nGoal Point: [18, 8]\nHorizontal Barriers: [[7, 0, 10], [5, 30, 40]]\nVertical Barriers: [[14, 12, 30], [40, 0, 11]] \nGenerated Path: [[2, 3], [11, 6], [18, 8]]\n\nStart Point: [40, 20]\nGoal Point: [10, 10]\nHorizontal Barriers: [[15, 20, 30], [15, 35, 50]]\nVertical Barriers: [[20, 4, 30]]\nGenerated Path: [[40, 20], [31, 15], [20, 3], [10, 10]]\n\nStart Point: [4, 4]\nGoal Point: [16, 16]\nHorizontal Barriers: [[20, 0, 20], [5, 30, 40]]\nVertical Barriers: [[40, 0, 15], [20, 10, 21]]\nGenerated Path: [[4, 4], [16, 16]]\n\nStart Point: [25, 25]\nGoal Point: [4, 4]\nHorizontal Barriers: [[7, 0, 20], [15, 10, 15]]\nVertical Barriers: [[10, 15, 30], [30, 0, 18], [10, 0, 5]]\nGenerated Path: [[25, 25], [21, 7], [10, 6], [4, 4]]\n\nStart Point: [29, 22]\nGoal Point: [24, 11]\nHorizontal Barriers: [[20, 30, 39], [27, 8, 49], [16, 21, 36]]\nVertical Barriers: [[23, 19, 24], [39, 26, 26]]\nGenerated Path: \n\n\nPrevious response:\nTo find a path from the start point [29, 22] to the goal point [24, 11] while navigating around the specified horizontal and vertical barriers, we can analyze the barriers and determine a route that avoids them.\n\n### Given Information:\n- **Start Point:** [29, 22]\n- **Goal Point:** [24, 11]\n- **Horizontal Barriers:** \n  - [20, 30, 39]\n  - [27, 8, 49]\n  - [16, 21, 36]\n- **Vertical Barriers:** \n  - [23, 19, 24]\n  - [39, 26, 26]\n\n### Analysis of Barriers:\n1. **Horizontal Barriers:**\n   - The first barrier at y=20 spans from x=30 to x=39.\n   - The second barrier at y=27 spans from x=8 to x=49.\n   - The third barrier at y=16 spans from x=21 to x=36.\n\n2. **Vertical Barriers:**\n   - The first barrier at x=23 spans from y=19 to y=24.\n   - The second barrier at x=39 spans from y=26 to y=26.\n\n### Pathfinding:\nStarting from [29, 22], we need to navigate downwards and leftwards towards [24, 11]. The barriers will restrict our movement, so we will need to find a route that avoids them.\n\n1. Move left to [28, 22] (no barriers).\n2. Move left to [27, 22] (no barriers).\n3. Move down to [27, 21] (no barriers).\n4. Move down to [27, 20] (no barriers).\n5. Move left to [26, 20] (no barriers).\n6. Move left to [25, 20] (no barriers).\n7. Move down to [25, 19] (no barriers).\n8. Move left to [24, 19] (no barriers).\n9. Move down to [24, 18] (no barriers).\n10. Move down to [24, 17] (no barriers).\n11. Move down to [24, 16] (no barriers).\n12. Move down to [24, 15] (no barriers).\n13. Move down to [24, 14] (no barriers).\n14. Move down to [24, 13] (no barriers).\n15. Move down to [24, 12] (no barriers).\n16. Move down to [24, 11] (goal point).\n\n### Generated Path:\nThe path taken is:\n- Start: [29, 22]\n- [28, 22]\n- [27, 22]\n- [27, 21]\n- [27, 20]\n- [26, 20]\n- [25, 20]\n- [25, 19]\n- [24, 19]\n- [24, 18]\n- [24, 17]\n- [24, 16]\n- [24, 15]\n- [24, 14]\n- [24, 13]\n- [24, 12]\n- Goal: [24, 11]\n\nThus, the generated path is:\n\n**Generated Path:** [[29, 22], [28, 22], [27, 22], [27, 21], [27, 20], [26, 20], [25, 20], [25, 19], [24, 19], [24, 18], [24, 17], [24, 16], [24, 15], [24, 14], [24, 13], [24, 12], [24, 11]]\n\nExternal validation report:\nNot provided.\n\nReview the previous response and provide one revised answer for the same original problem. Follow the original output instructions and include the final coordinate list. Do not change the start, goal, map boundaries, or barriers."
+      }
+    ],
+    "temperature": 0,
+    "max_tokens": 1000,
+    "store": false
+  },
+  "request_sha256": "91cd59565ac9f84fbcd678fdb637013c53c8b1aa7f602b3cedd6284c769cffe3",
+  "response": {
+    "id": "chatcmpl-Edv5TU4U2NWGudXXcSiRhSM7TpIQY",
+    "object": "chat.completion",
+    "created": 1793182943,
+    "model": "gpt-4o-mini-2024-07-18",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "To find a path from the start point [29, 22] to the goal point [24, 11] while navigating around the specified horizontal and vertical barriers, we will analyze the barriers and determine a route that avoids them.\n\n### Given Information:\n- **Start Point:** [29, 22]\n- **Goal Point:** [24, 11]\n- **Horizontal Barriers:** \n  - [20, 30, 39]\n  - [27, 8, 49]\n  - [16, 21, 36]\n- **Vertical Barriers:** \n  - [23, 19, 24]\n  - [39, 26, 26]\n\n### Analysis of Barriers:\n1. **Horizontal Barriers:**\n   - The first barrier at y=20 spans from x=30 to x=39.\n   - The second barrier at y=27 spans from x=8 to x=49.\n   - The third barrier at y=16 spans from x=21 to x=36.\n\n2. **Vertical Barriers:**\n   - The first barrier at x=23 spans from y=19 to y=24.\n   - The second barrier at x=39 spans from y=26 to y=26.\n\n### Pathfinding:\nStarting from [29, 22], we need to navigate downwards and leftwards towards [24, 11]. The barriers will restrict our movement, so we will need to find a route that avoids them.\n\n1. Move left to [28, 22] (no barriers).\n2. Move left to [27, 22] (no barriers).\n3. Move down to [27, 21] (no barriers).\n4. Move down to [27, 20] (no barriers).\n5. Move left to [26, 20] (no barriers).\n6. Move left to [25, 20] (no barriers).\n7. Move down to [25, 19] (no barriers).\n8. Move left to [24, 19] (no barriers).\n9. Move down to [24, 18] (no barriers).\n10. Move down to [24, 17] (no barriers).\n11. Move down to [24, 16] (no barriers).\n12. Move down to [24, 15] (no barriers).\n13. Move down to [24, 14] (no barriers).\n14. Move down to [24, 13] (no barriers).\n15. Move down to [24, 12] (no barriers).\n16. Move down to [24, 11] (goal point).\n\n### Generated Path:\nThe path taken is:\n- Start: [29, 22]\n- [28, 22]\n- [27, 22]\n- [27, 21]\n- [27, 20]\n- [26, 20]\n- [25, 20]\n- [25, 19]\n- [24, 19]\n- [24, 18]\n- [24, 17]\n- [24, 16]\n- [24, 15]\n- [24, 14]\n- [24, 13]\n- [24, 12]\n- Goal: [24, 11]\n\nThus, the generated path is:\n\n**Generated Path:** [[29, 22], [28, 22], [27, 22], [27, 21], [27, 20], [26, 20], [25, 20], [25, 19], [24, 19], [24, 18], [24, 17], [24, 16], [24, 15], [24, 14], [24, 13], [24, 12], [24, 11]]",
+          "refusal": null,
+          "annotations": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1428,
+      "completion_tokens": 791,
+      "total_tokens": 2219,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "service_tier": "default",
+    "system_fingerprint": "fp_a7771298d9"
+  },
+  "latency_seconds": 8.626250599976629,
+  "request_seconds": 8.626250599976629,
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": 200,
+      "seconds": 8.626250599976629
+    }
+  ],
+  "request_id": "req_65affccd9a784f2f956ca7fb42f9376a",
+  "response_sha256": "5fa58cb5593ac41e183f15de5cd1c3291d712f95bdd60631d2a43f8a59de6840"
+}

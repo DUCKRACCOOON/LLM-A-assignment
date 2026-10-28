@@ -1,0 +1,66 @@
+{
+  "case_id": "m021_p00",
+  "stage": "public",
+  "variant": "first",
+  "created_at": "2026-10-28T10:12:53.003042+00:00",
+  "request": {
+    "model": "gpt-4o-mini-2024-07-18",
+    "messages": [
+      {
+        "role": "user",
+        "content": "\nIdentify a path between the start and goal points to navigate around obstacles and find the shortest path to the goal. \nHorizontal barriers are represented as [y, x_start, x_end], and vertical barriers are represented as [x, y_start, y_end].\nConclude your response with the generated path in the format \"Generated Path: [[x1, y1], [x2, y2], ...]\".\n\nStart Point: [5, 5]\nGoal Point: [20, 20]\nHorizontal Barriers: [[10, 0, 25], [15, 30, 50]]\nVertical Barriers: [[25, 10, 22]]\nGenerated Path: [[5, 5], [26, 9], [25, 23], [20, 20]]\n\nStart Point: [2, 3]\nGoal Point: [18, 8]\nHorizontal Barriers: [[7, 0, 10], [5, 30, 40]]\nVertical Barriers: [[14, 12, 30], [40, 0, 11]] \nGenerated Path: [[2, 3], [11, 6], [18, 8]]\n\nStart Point: [40, 20]\nGoal Point: [10, 10]\nHorizontal Barriers: [[15, 20, 30], [15, 35, 50]]\nVertical Barriers: [[20, 4, 30]]\nGenerated Path: [[40, 20], [31, 15], [20, 3], [10, 10]]\n\nStart Point: [4, 4]\nGoal Point: [16, 16]\nHorizontal Barriers: [[20, 0, 20], [5, 30, 40]]\nVertical Barriers: [[40, 0, 15], [20, 10, 21]]\nGenerated Path: [[4, 4], [16, 16]]\n\nStart Point: [25, 25]\nGoal Point: [4, 4]\nHorizontal Barriers: [[7, 0, 20], [15, 10, 15]]\nVertical Barriers: [[10, 15, 30], [30, 0, 18], [10, 0, 5]]\nGenerated Path: [[25, 25], [21, 7], [10, 6], [4, 4]]\n\nStart Point: [33, 9]\nGoal Point: [21, 22]\nHorizontal Barriers: [[2, 13, 49], [12, 31, 37], [5, 6, 8], [3, 37, 39]]\nVertical Barriers: [[22, 17, 28], [39, 23, 30]]\nGenerated Path: \n"
+      }
+    ],
+    "temperature": 0,
+    "max_tokens": 1000,
+    "store": false
+  },
+  "request_sha256": "d4d0b334b7b53fbe9836e78d627842c8479332d40ea8f2c78a4aaeecf6ca1cf1",
+  "response": {
+    "id": "chatcmpl-EduwHmouSKFGdNv4rQ7Rs1Qt7GaXe",
+    "object": "chat.completion",
+    "created": 1793182373,
+    "model": "gpt-4o-mini-2024-07-18",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "To find a path from the start point [33, 9] to the goal point [21, 22] while navigating around the specified horizontal and vertical barriers, we need to analyze the barriers and determine a valid route.\n\n### Given:\n- **Start Point:** [33, 9]\n- **Goal Point:** [21, 22]\n- **Horizontal Barriers:** \n  - [2, 13, 49]\n  - [12, 31, 37]\n  - [5, 6, 8]\n  - [3, 37, 39]\n- **Vertical Barriers:** \n  - [22, 17, 28]\n  - [39, 23, 30]\n\n### Analysis:\n1. **Horizontal Barriers:**\n   - The first barrier spans from y=13 to y=49, which does not affect the path since the start and goal points are below y=13.\n   - The second barrier spans from y=31 to y=37, which is also above the start and goal points.\n   - The third barrier spans from y=6 to y=8, which is below the start point.\n   - The fourth barrier spans from y=37 to y=39, which is above the start and goal points.\n\n2. **Vertical Barriers:**\n   - The first vertical barrier spans from x=22 to x=28, affecting the path since the goal point is at x=21.\n   - The second vertical barrier spans from x=39 to x=30, which is to the right of the start point.\n\n### Pathfinding:\nStarting from [33, 9], we can move left towards the goal while avoiding the barriers. The path can be constructed as follows:\n\n1. Move left to [32, 9]\n2. Move left to [31, 9]\n3. Move left to [30, 9]\n4. Move left to [29, 9]\n5. Move left to [28, 9]\n6. Move left to [27, 9]\n7. Move left to [26, 9]\n8. Move left to [25, 9]\n9. Move left to [24, 9]\n10. Move left to [23, 9]\n11. Move up to [23, 10]\n12. Move up to [23, 11]\n13. Move up to [23, 12]\n14. Move up to [23, 13]\n15. Move left to [22, 13]\n16. Move up to [22, 14]\n17. Move up to [22, 15]\n18. Move up to [22, 16]\n19. Move left to [21, 16]\n20. Move up to [21, 17]\n21. Move up to [21, 18]\n22. Move up to [21, 19]\n23. Move up to [21, 20]\n24. Move up to [21, 21]\n25. Move up to [21, 22] (Goal)\n\n### Generated Path:\nThe generated path from the start point to the goal point is as follows:\n\nGenerated Path: [[33, 9], [32, 9], [31, 9], [30, 9], [29, 9], [28, 9], [27, 9], [26, 9], [25, 9], [24, 9], [23, 9], [23, 10], [23, 11], [23, 12], [23, 13], [22, 13], [22, 14], [22, 15], [22, 16], [21, 16], [21, 17], [21, 18], [21, 19], [21, 20], [21, 21], [21, 22]]",
+          "refusal": null,
+          "annotations": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 595,
+      "completion_tokens": 817,
+      "total_tokens": 1412,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "service_tier": "default",
+    "system_fingerprint": "fp_a7771298d9"
+  },
+  "latency_seconds": 8.775515200104564,
+  "request_seconds": 8.775515200104564,
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": 200,
+      "seconds": 8.775515200104564
+    }
+  ],
+  "request_id": "req_4e8546a090ab45758d33f9cbb5352696",
+  "response_sha256": "6b377ee420b45c4355216631c9fcde7b742cecfeb848435bea0308290c9a51ee"
+}

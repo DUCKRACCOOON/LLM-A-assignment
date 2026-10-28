@@ -1,0 +1,66 @@
+{
+  "case_id": "m029_p00",
+  "stage": "public",
+  "variant": "feedback",
+  "created_at": "2026-10-28T10:14:07.431800+00:00",
+  "request": {
+    "model": "gpt-4o-mini-2024-07-18",
+    "messages": [
+      {
+        "role": "user",
+        "content": "\nIdentify a path between the start and goal points to navigate around obstacles and find the shortest path to the goal. \nHorizontal barriers are represented as [y, x_start, x_end], and vertical barriers are represented as [x, y_start, y_end].\nConclude your response with the generated path in the format \"Generated Path: [[x1, y1], [x2, y2], ...]\".\n\nStart Point: [5, 5]\nGoal Point: [20, 20]\nHorizontal Barriers: [[10, 0, 25], [15, 30, 50]]\nVertical Barriers: [[25, 10, 22]]\nGenerated Path: [[5, 5], [26, 9], [25, 23], [20, 20]]\n\nStart Point: [2, 3]\nGoal Point: [18, 8]\nHorizontal Barriers: [[7, 0, 10], [5, 30, 40]]\nVertical Barriers: [[14, 12, 30], [40, 0, 11]] \nGenerated Path: [[2, 3], [11, 6], [18, 8]]\n\nStart Point: [40, 20]\nGoal Point: [10, 10]\nHorizontal Barriers: [[15, 20, 30], [15, 35, 50]]\nVertical Barriers: [[20, 4, 30]]\nGenerated Path: [[40, 20], [31, 15], [20, 3], [10, 10]]\n\nStart Point: [4, 4]\nGoal Point: [16, 16]\nHorizontal Barriers: [[20, 0, 20], [5, 30, 40]]\nVertical Barriers: [[40, 0, 15], [20, 10, 21]]\nGenerated Path: [[4, 4], [16, 16]]\n\nStart Point: [25, 25]\nGoal Point: [4, 4]\nHorizontal Barriers: [[7, 0, 20], [15, 10, 15]]\nVertical Barriers: [[10, 15, 30], [30, 0, 18], [10, 0, 5]]\nGenerated Path: [[25, 25], [21, 7], [10, 6], [4, 4]]\n\nStart Point: [4, 20]\nGoal Point: [39, 20]\nHorizontal Barriers: [[27, 30, 43], [0, 14, 45]]\nVertical Barriers: [[23, 12, 25], [16, 28, 30]]\nGenerated Path: \n\n\nPrevious response:\nTo find a path from the start point [4, 20] to the goal point [39, 20] while navigating around the specified obstacles, we need to analyze the barriers:\n\n1. **Horizontal Barriers**:\n   - [27, 30, 43]: This barrier spans horizontally from (30, 27) to (43, 27).\n   - [0, 14, 45]: This barrier spans horizontally from (14, 0) to (45, 0).\n\n2. **Vertical Barriers**:\n   - [23, 12, 25]: This barrier spans vertically from (12, 23) to (25, 23).\n   - [16, 28, 30]: This barrier spans vertically from (28, 16) to (30, 16).\n\nGiven these barriers, we can outline a potential path:\n\n- Start at [4, 20].\n- Move right to [20, 20] (this is clear of barriers).\n- Continue moving right to [39, 20] (this is also clear of barriers).\n\nThus, the generated path is:\n\nGenerated Path: [[4, 20], [20, 20], [39, 20]]\n\nExternal validation report:\n{\"error\": \"collision\", \"first_bad_segment\": {\"index\": 1, \"segment\": [[20, 20], [39, 20]]}, \"first_bad_wall\": {\"index\": 0, \"kind\": \"vertical_barriers\", \"wall\": [23, 12, 25]}, \"valid\": false}\n\nReview the previous response and provide one revised answer for the same original problem. Follow the original output instructions and include the final coordinate list. Do not change the start, goal, map boundaries, or barriers."
+      }
+    ],
+    "temperature": 0,
+    "max_tokens": 1000,
+    "store": false
+  },
+  "request_sha256": "b7c03233fcbc4823d706492495873a0a85237382c34cdd7cf11e9024b1b09692",
+  "response": {
+    "id": "chatcmpl-EduxTNeuA7bLIfEXGdPAPWzkNqCg6",
+    "object": "chat.completion",
+    "created": 1793182447,
+    "model": "gpt-4o-mini-2024-07-18",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "To find a path from the start point [4, 20] to the goal point [39, 20] while navigating around the specified obstacles, we need to analyze the barriers:\n\n1. **Horizontal Barriers**:\n   - [27, 30, 43]: This barrier spans horizontally from (30, 27) to (43, 27).\n   - [0, 14, 45]: This barrier spans horizontally from (14, 0) to (45, 0).\n\n2. **Vertical Barriers**:\n   - [23, 12, 25]: This barrier spans vertically from (12, 23) to (25, 23).\n   - [16, 28, 30]: This barrier spans vertically from (28, 16) to (30, 16).\n\nGiven these barriers, we can outline a potential path:\n\n- Start at [4, 20].\n- Move right to [4, 21] (to avoid the horizontal barrier at y=0).\n- Move up to [4, 22].\n- Move right to [20, 22] (this is clear of barriers).\n- Move down to [20, 20].\n- Finally, move right to [39, 20] (this is also clear of barriers).\n\nThus, the generated path is:\n\nGenerated Path: [[4, 20], [4, 21], [4, 22], [20, 22], [20, 20], [39, 20]]",
+          "refusal": null,
+          "annotations": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 948,
+      "completion_tokens": 314,
+      "total_tokens": 1262,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "service_tier": "default",
+    "system_fingerprint": "fp_d932b185f7"
+  },
+  "latency_seconds": 4.545941000105813,
+  "request_seconds": 4.545941000105813,
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": 200,
+      "seconds": 4.545941000105813
+    }
+  ],
+  "request_id": "req_3fde8fd1122c46f6868b5973610b69b6",
+  "response_sha256": "475961a231dede58f13591a9a38b35d1426fa5c3832f07487c3c7b8337422990"
+}

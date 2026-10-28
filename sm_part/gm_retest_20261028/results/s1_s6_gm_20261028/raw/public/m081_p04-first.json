@@ -1,0 +1,66 @@
+{
+  "case_id": "m081_p04",
+  "stage": "public",
+  "variant": "first",
+  "created_at": "2026-10-28T10:21:30.644244+00:00",
+  "request": {
+    "model": "gpt-4o-mini-2024-07-18",
+    "messages": [
+      {
+        "role": "user",
+        "content": "\nIdentify a path between the start and goal points to navigate around obstacles and find the shortest path to the goal. \nHorizontal barriers are represented as [y, x_start, x_end], and vertical barriers are represented as [x, y_start, y_end].\nConclude your response with the generated path in the format \"Generated Path: [[x1, y1], [x2, y2], ...]\".\n\nStart Point: [5, 5]\nGoal Point: [20, 20]\nHorizontal Barriers: [[10, 0, 25], [15, 30, 50]]\nVertical Barriers: [[25, 10, 22]]\nGenerated Path: [[5, 5], [26, 9], [25, 23], [20, 20]]\n\nStart Point: [2, 3]\nGoal Point: [18, 8]\nHorizontal Barriers: [[7, 0, 10], [5, 30, 40]]\nVertical Barriers: [[14, 12, 30], [40, 0, 11]] \nGenerated Path: [[2, 3], [11, 6], [18, 8]]\n\nStart Point: [40, 20]\nGoal Point: [10, 10]\nHorizontal Barriers: [[15, 20, 30], [15, 35, 50]]\nVertical Barriers: [[20, 4, 30]]\nGenerated Path: [[40, 20], [31, 15], [20, 3], [10, 10]]\n\nStart Point: [4, 4]\nGoal Point: [16, 16]\nHorizontal Barriers: [[20, 0, 20], [5, 30, 40]]\nVertical Barriers: [[40, 0, 15], [20, 10, 21]]\nGenerated Path: [[4, 4], [16, 16]]\n\nStart Point: [25, 25]\nGoal Point: [4, 4]\nHorizontal Barriers: [[7, 0, 20], [15, 10, 15]]\nVertical Barriers: [[10, 15, 30], [30, 0, 18], [10, 0, 5]]\nGenerated Path: [[25, 25], [21, 7], [10, 6], [4, 4]]\n\nStart Point: [24, 11]\nGoal Point: [45, 16]\nHorizontal Barriers: [[0, 12, 36], [26, 34, 42], [17, 38, 43], [8, 6, 31]]\nVertical Barriers: [[22, 1, 12], [44, 6, 22], [12, 2, 3]]\nGenerated Path: \n"
+      }
+    ],
+    "temperature": 0,
+    "max_tokens": 1000,
+    "store": false
+  },
+  "request_sha256": "382c818a3bf782c7e81b2a1ad9b5a7dcfee750ad7a51337f7c1f71d235788576",
+  "response": {
+    "id": "chatcmpl-Edv4ciM1bqa9NWK4UjXz6ztwsKdO4",
+    "object": "chat.completion",
+    "created": 1793182890,
+    "model": "gpt-4o-mini-2024-07-18",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "To find a path from the start point [24, 11] to the goal point [45, 16] while navigating around the specified horizontal and vertical barriers, we need to analyze the barriers and determine a route that avoids them.\n\n### Given Barriers:\n- **Horizontal Barriers**:\n  - [0, 12, 36] (y = 0 from x = 12 to x = 36)\n  - [26, 34, 42] (y = 26 from x = 34 to x = 42)\n  - [17, 38, 43] (y = 17 from x = 38 to x = 43)\n  - [8, 6, 31] (y = 8 from x = 6 to x = 31)\n\n- **Vertical Barriers**:\n  - [22, 1, 12] (x = 22 from y = 1 to y = 12)\n  - [44, 6, 22] (x = 44 from y = 6 to y = 22)\n  - [12, 2, 3] (x = 12 from y = 2 to y = 3)\n\n### Pathfinding:\n1. Start at [24, 11].\n2. Move right to avoid the vertical barrier at x = 22.\n3. Navigate around the horizontal barriers at y = 8 and y = 17.\n4. Continue moving towards the goal while avoiding the barriers.\n\n### Proposed Path:\n- Start at [24, 11]\n- Move to [30, 11] (right)\n- Move to [30, 15] (up)\n- Move to [35, 15] (right)\n- Move to [35, 16] (up)\n- Move to [45, 16] (right)\n\n### Generated Path:\nThe generated path avoiding the barriers is:\nGenerated Path: [[24, 11], [30, 11], [30, 15], [35, 15], [35, 16], [45, 16]]",
+          "refusal": null,
+          "annotations": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 604,
+      "completion_tokens": 439,
+      "total_tokens": 1043,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "service_tier": "default",
+    "system_fingerprint": "fp_a7771298d9"
+  },
+  "latency_seconds": 4.918795400066301,
+  "request_seconds": 4.918795400066301,
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": 200,
+      "seconds": 4.918795400066301
+    }
+  ],
+  "request_id": "req_d7d971996d234acbbab26bba4121f7b6",
+  "response_sha256": "98b0d90317cc7646fc2fe6787c7c55b4ea8bb041dc92ee1b54ecde9bb0c09b59"
+}

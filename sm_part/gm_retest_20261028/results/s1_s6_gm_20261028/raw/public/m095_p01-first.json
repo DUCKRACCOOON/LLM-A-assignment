@@ -1,0 +1,66 @@
+{
+  "case_id": "m095_p01",
+  "stage": "public",
+  "variant": "first",
+  "created_at": "2026-10-28T10:23:23.443686+00:00",
+  "request": {
+    "model": "gpt-4o-mini-2024-07-18",
+    "messages": [
+      {
+        "role": "user",
+        "content": "\nIdentify a path between the start and goal points to navigate around obstacles and find the shortest path to the goal. \nHorizontal barriers are represented as [y, x_start, x_end], and vertical barriers are represented as [x, y_start, y_end].\nConclude your response with the generated path in the format \"Generated Path: [[x1, y1], [x2, y2], ...]\".\n\nStart Point: [5, 5]\nGoal Point: [20, 20]\nHorizontal Barriers: [[10, 0, 25], [15, 30, 50]]\nVertical Barriers: [[25, 10, 22]]\nGenerated Path: [[5, 5], [26, 9], [25, 23], [20, 20]]\n\nStart Point: [2, 3]\nGoal Point: [18, 8]\nHorizontal Barriers: [[7, 0, 10], [5, 30, 40]]\nVertical Barriers: [[14, 12, 30], [40, 0, 11]] \nGenerated Path: [[2, 3], [11, 6], [18, 8]]\n\nStart Point: [40, 20]\nGoal Point: [10, 10]\nHorizontal Barriers: [[15, 20, 30], [15, 35, 50]]\nVertical Barriers: [[20, 4, 30]]\nGenerated Path: [[40, 20], [31, 15], [20, 3], [10, 10]]\n\nStart Point: [4, 4]\nGoal Point: [16, 16]\nHorizontal Barriers: [[20, 0, 20], [5, 30, 40]]\nVertical Barriers: [[40, 0, 15], [20, 10, 21]]\nGenerated Path: [[4, 4], [16, 16]]\n\nStart Point: [25, 25]\nGoal Point: [4, 4]\nHorizontal Barriers: [[7, 0, 20], [15, 10, 15]]\nVertical Barriers: [[10, 15, 30], [30, 0, 18], [10, 0, 5]]\nGenerated Path: [[25, 25], [21, 7], [10, 6], [4, 4]]\n\nStart Point: [25, 3]\nGoal Point: [30, 25]\nHorizontal Barriers: [[20, 28, 31], [4, 9, 35]]\nVertical Barriers: [[35, 21, 25], [6, 3, 26], [25, 10, 18]]\nGenerated Path: \n"
+      }
+    ],
+    "temperature": 0,
+    "max_tokens": 1000,
+    "store": false
+  },
+  "request_sha256": "0e50725524df0f02eecb0903412ba8b4d8dd60e5ddcac5467b1372351a24509f",
+  "response": {
+    "id": "chatcmpl-Edv6ROgBLi9kOkc1ezJWtBGzFxtGu",
+    "object": "chat.completion",
+    "created": 1793183003,
+    "model": "gpt-4o-mini-2024-07-18",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "To find a path from the start point [25, 3] to the goal point [30, 25] while navigating around the specified horizontal and vertical barriers, we need to analyze the barriers and determine a valid route.\n\n### Given Information:\n- **Start Point:** [25, 3]\n- **Goal Point:** [30, 25]\n- **Horizontal Barriers:** \n  - [20, 28, 31] (y = 20 from x = 28 to x = 31)\n  - [4, 9, 35] (y = 4 from x = 9 to x = 35)\n- **Vertical Barriers:** \n  - [35, 21, 25] (x = 35 from y = 21 to y = 25)\n  - [6, 3, 26] (x = 6 from y = 3 to y = 26)\n  - [25, 10, 18] (x = 25 from y = 10 to y = 18)\n\n### Analyzing the Barriers:\n1. The horizontal barrier at y = 4 from x = 9 to x = 35 means we cannot cross this line at those x-coordinates.\n2. The vertical barrier at x = 25 from y = 10 to y = 18 means we cannot cross this line at those y-coordinates.\n3. The vertical barrier at x = 6 from y = 3 to y = 26 restricts movement on the left side of the start point.\n\n### Finding the Path:\nStarting from [25, 3], we can move upwards to avoid the barriers:\n1. Move to [25, 4] (just above the horizontal barrier).\n2. Move to [26, 4] (to the right).\n3. Move to [27, 4] (to the right).\n4. Move to [28, 4] (to the right).\n5. Move to [29, 4] (to the right).\n6. Move to [30, 4] (to the right).\n7. Move to [30, 5] (upwards).\n8. Move to [30, 6] (upwards).\n9. Move to [30, 7] (upwards).\n10. Move to [30, 8] (upwards).\n11. Move to [30, 9] (upwards).\n12. Move to [30, 10] (upwards).\n13. Move to [30, 11] (upwards).\n14. Move to [30, 12] (upwards).\n15. Move to [30, 13] (upwards).\n16. Move to [30, 14] (upwards).\n17. Move to [30, 15] (upwards).\n18. Move to [30, 16] (upwards).\n19. Move to [30, 17] (upwards).\n20. Move to [30, 18] (upwards).\n21. Move to [30, 19] (upwards).\n22. Move to [30, 20] (upwards).\n23. Move to [30, 21] (upwards).\n24. Move to [30, 22] (upwards).\n25. Move to [30, 23] (upwards).\n26. Move to [30, 24] (upwards).\n27. Move to [30, 25] (upwards).\n\n### Generated Path:\nThe path can be summarized as follows:\n- Start at [25, 3]\n- Move right to [30, 4]\n- Move up to [30, 25]\n\nThus, the generated path is:\nGenerated Path: [[25, 3], [30, 4], [30, 25]]",
+          "refusal": null,
+          "annotations": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 586,
+      "completion_tokens": 802,
+      "total_tokens": 1388,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "service_tier": "default",
+    "system_fingerprint": "fp_a7771298d9"
+  },
+  "latency_seconds": 8.114238200010732,
+  "request_seconds": 8.114238200010732,
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": 200,
+      "seconds": 8.114238200010732
+    }
+  ],
+  "request_id": "req_ca256a35127044889e1e49b930a7bda3",
+  "response_sha256": "3df0d4a007915fcc6a7b50c562c5bf273a4d723f1e41a5d6b10737f4c4decd6c"
+}
