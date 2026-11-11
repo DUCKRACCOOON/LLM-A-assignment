@@ -1,5 +1,7 @@
 # LLM-A* assignment
 
+2026-11-11의 **J4 전체 평가**도 완료했다. [실행 안내](experiments/J4_full/README.md), [전체 1,000문제 결과](experiments/J4_full/results/run_20261111/REPORT.md), [독립 검증](experiments/J4_full/results/run_20261111/audit.json). ALT4/ALT8와 같은 그래프 대조를 포함해8조건×1회, 실제 새 전처리와 재사용 합산 시나리오를 구분했다. 신규 API 호출은 없다.
+
 2026-11-11의 **J3 전체 평가**도 완료했다. [실행 안내](experiments/J3_full/README.md), [전체 1,000문제 결과](experiments/J3_full/results/run_20261111/REPORT.md), [독립 검증](experiments/J3_full/results/run_20261111/audit.json). 초기 해 생성·가지치기 유무를9조건×1회로 비교했고 새 API 호출은 없다.
 
 2026-11-11의 다음 담당 방법 **J2 전체 평가**도 완료했다. [실행 안내](experiments/J2_full/README.md), [전체 1,000문제 결과](experiments/J2_full/results/run_20261111/REPORT.md), [독립 검증](experiments/J2_full/results/run_20261111/audit.json). J2 두 품질 설정과 5개 대조군을 조건별1회씩 실행했고, 저장된 세 프롬프트 응답을 사용해 새 API 호출은 없다.
