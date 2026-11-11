@@ -1,5 +1,7 @@
 # LLM-A* assignment
 
+2026-11-11의 **J5 전체 평가**도 완료했다. [실행 안내](experiments/J5_full/README.md), [전체 1,000문제 결과](experiments/J5_full/results/run_20261111/REPORT.md), [독립 검산](experiments/J5_full/results/run_20261111/audit.json). NBS octile/Euclidean, 양방향·단방향 Dijkstra 및 정확 A*를9조건×1회로 비교했고 새 API 호출은 없다.
+
 2026-11-11의 **J4 전체 평가**도 완료했다. [실행 안내](experiments/J4_full/README.md), [전체 1,000문제 결과](experiments/J4_full/results/run_20261111/REPORT.md), [독립 검증](experiments/J4_full/results/run_20261111/audit.json). ALT4/ALT8와 같은 그래프 대조를 포함해8조건×1회, 실제 새 전처리와 재사용 합산 시나리오를 구분했다. 신규 API 호출은 없다.
 
 2026-11-11의 **J3 전체 평가**도 완료했다. [실행 안내](experiments/J3_full/README.md), [전체 1,000문제 결과](experiments/J3_full/results/run_20261111/REPORT.md), [독립 검증](experiments/J3_full/results/run_20261111/audit.json). 초기 해 생성·가지치기 유무를9조건×1회로 비교했고 새 API 호출은 없다.
