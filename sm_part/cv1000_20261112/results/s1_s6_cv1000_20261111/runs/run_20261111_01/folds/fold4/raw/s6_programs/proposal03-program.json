@@ -1,0 +1,66 @@
+{
+  "case_id": "proposal03",
+  "stage": "s6_programs",
+  "variant": "program",
+  "created_at": "2026-11-11T09:39:32.465060+00:00",
+  "request": {
+    "model": "gpt-4o-mini-2024-07-18",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Propose four finite numeric coefficients, each between -2 and 2, for prioritizing walls in an exact grid path planner. The score is a linear weighted sum of these features, in order: (1) start-goal straight segment intersects wall (0 or 1), (2) wall length divided by map diagonal, (3) min(distance(start,wall endpoint)+distance(endpoint,goal)) divided by map diagonal, (4) any wall endpoint touches map boundary (0 or 1). The highest scoring k walls are initially activated, where k is the number intersecting the start-goal segment. After exact relaxed search, all walls are checked and collision walls are added; after 3 failures all walls are enabled. Aim to reduce total preparation, repeated search and validation cost. Maps have horizontal and vertical closed line-segment barriers and 8-neighbor movement. No evaluation-map outcomes are available. Fold 4. This is proposal 4 of 12. Return only a JSON array of exactly four coefficients. Do not output code."
+      }
+    ],
+    "temperature": 0,
+    "max_tokens": 1000,
+    "store": false
+  },
+  "request_sha256": "3c41cf24cb8b6d0cce2c1194ee46d83314445f764f735141ced1a4fa68e8e6ea",
+  "response": {
+    "id": "chatcmpl-Eiz5fRIk3xDCfijZ71xYjW7mzWxIc",
+    "object": "chat.completion",
+    "created": 1794389971,
+    "model": "gpt-4o-mini-2024-07-18",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n[1.5, 0.5, 1.0, -1.0]\n```",
+          "refusal": null,
+          "annotations": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 218,
+      "completion_tokens": 24,
+      "total_tokens": 242,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "service_tier": "default",
+    "system_fingerprint": "fp_eb10824ee9"
+  },
+  "latency_seconds": 1.1472925003618002,
+  "request_seconds": 1.1472925003618002,
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": 200,
+      "seconds": 1.1472925003618002
+    }
+  ],
+  "request_id": "req_eb8c73347b2b41e18f60f5b5b636b439",
+  "response_sha256": "eb6cf10f05c254e379971056f006805b132ae032e637118e833cc1c04ac5eb88"
+}
