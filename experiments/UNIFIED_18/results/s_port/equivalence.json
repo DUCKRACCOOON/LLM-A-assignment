@@ -1,0 +1,404 @@
+{
+  "sm_commit": "0c0a60821b6b3284de30aa9572926175aa65e240",
+  "cases": 1000,
+  "folds": "0,1,2,3,4",
+  "fields": [
+    "valid",
+    "error",
+    "length",
+    "operation",
+    "successor_expansions",
+    "storage",
+    "api_calls",
+    "path_sha256"
+  ],
+  "model_load_seconds": {
+    "0": 0.06397000001743436,
+    "1": 0.030203000060282648,
+    "2": 0.03209919994696975,
+    "3": 0.03379229991696775,
+    "4": 0.03846740000881255
+  },
+  "environment": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "executable": "C:\\SKKU_Projects\\수업\\인지개\\.venv-gm311\\Scripts\\python.exe",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 151 Stepping 5, GenuineIntel",
+    "cpu_count": 12,
+    "numpy": "1.26.4",
+    "scipy": "1.15.3",
+    "shapely": "2.2.0",
+    "torch": "2.7.1+cpu",
+    "device": "cpu"
+  },
+  "torch_threads": 1,
+  "summary": {
+    "V_GATE_GM": {
+      "cases": 1000,
+      "det_match": 1000,
+      "length_ulp_only": 0,
+      "mismatched_fields": {},
+      "examples": [],
+      "oracle_valid": 1000,
+      "within_bound": 1000,
+      "bound": null,
+      "family": "S1",
+      "role": "control:S1",
+      "mean_ms": 4.506861699861474,
+      "median_ms": 2.3513000924140215,
+      "artefacts_loaded_in_timed_call": 0,
+      "heap_pops_equal_paper_main_pops": 1000,
+      "mean_paper_operation": 201.731,
+      "mean_paper_storage": 229.573,
+      "s6_expansion_double_count_cases": 0
+    },
+    "V_GATE_NORMALIZED": {
+      "cases": 1000,
+      "det_match": 1000,
+      "length_ulp_only": 0,
+      "mismatched_fields": {},
+      "examples": [],
+      "oracle_valid": 1000,
+      "within_bound": 1000,
+      "bound": null,
+      "family": "S1",
+      "role": "control:S1",
+      "mean_ms": 4.159992899745703,
+      "median_ms": 2.216900000348687,
+      "artefacts_loaded_in_timed_call": 0,
+      "heap_pops_equal_paper_main_pops": 1000,
+      "mean_paper_operation": 202.485,
+      "mean_paper_storage": 230.224,
+      "s6_expansion_double_count_cases": 0
+    },
+    "S1": {
+      "cases": 1000,
+      "det_match": 1000,
+      "length_ulp_only": 0,
+      "mismatched_fields": {},
+      "examples": [],
+      "oracle_valid": 1000,
+      "within_bound": 1000,
+      "bound": null,
+      "family": "S1",
+      "role": "main",
+      "mean_ms": 4.295693298918195,
+      "median_ms": 2.041200059466064,
+      "artefacts_loaded_in_timed_call": 0,
+      "heap_pops_equal_paper_main_pops": 1000,
+      "mean_paper_operation": 201.719,
+      "mean_paper_storage": 229.443,
+      "s6_expansion_double_count_cases": 0
+    },
+    "S2_feedback": {
+      "cases": 1000,
+      "det_match": 1000,
+      "length_ulp_only": 0,
+      "mismatched_fields": {},
+      "examples": [],
+      "oracle_valid": 1000,
+      "within_bound": 1000,
+      "bound": null,
+      "family": "S2",
+      "role": "main",
+      "mean_ms": 5.573956402717158,
+      "median_ms": 3.1614999752491713,
+      "artefacts_loaded_in_timed_call": 0,
+      "heap_pops_equal_paper_main_pops": 1000,
+      "mean_paper_operation": 236.55,
+      "mean_paper_storage": 256.868,
+      "s6_expansion_double_count_cases": 0
+    },
+    "S2_control": {
+      "cases": 1000,
+      "det_match": 1000,
+      "length_ulp_only": 0,
+      "mismatched_fields": {},
+      "examples": [],
+      "oracle_valid": 1000,
+      "within_bound": 1000,
+      "bound": null,
+      "family": "S2",
+      "role": "control:S2_feedback",
+      "mean_ms": 5.456752498168498,
+      "median_ms": 3.215600037947297,
+      "artefacts_loaded_in_timed_call": 0,
+      "heap_pops_equal_paper_main_pops": 1000,
+      "mean_paper_operation": 239.064,
+      "mean_paper_storage": 258.836,
+      "s6_expansion_double_count_cases": 0
+    },
+    "S3": {
+      "cases": 1000,
+      "det_match": 1000,
+      "length_ulp_only": 0,
+      "mismatched_fields": {},
+      "examples": [],
+      "oracle_valid": 1000,
+      "within_bound": 1000,
+      "bound": null,
+      "family": "S3",
+      "role": "main",
+      "mean_ms": 5.14948720135726,
+      "median_ms": 1.95569999050349,
+      "artefacts_loaded_in_timed_call": 0,
+      "heap_pops_equal_paper_main_pops": 1000,
+      "mean_paper_operation": 235.994,
+      "mean_paper_storage": 255.576,
+      "s6_expansion_double_count_cases": 0
+    },
+    "S4_seed11": {
+      "cases": 1000,
+      "det_match": 999,
+      "length_ulp_only": 0,
+      "mismatched_fields": {
+        "successor_expansions": 1
+      },
+      "examples": [
+        {
+          "case": "m069_p00",
+          "fold": 0,
+          "mine": {
+            "successor_expansions": 507
+          },
+          "sm": {
+            "successor_expansions": 510
+          }
+        }
+      ],
+      "oracle_valid": 1000,
+      "within_bound": 1000,
+      "bound": 1.05,
+      "family": "S4",
+      "role": "main",
+      "mean_ms": 146.68677820102312,
+      "median_ms": 20.45100007671863,
+      "artefacts_loaded_in_timed_call": 0,
+      "heap_pops_equal_paper_main_pops": 1000,
+      "mean_paper_operation": 507.742,
+      "mean_paper_storage": 312.291,
+      "s6_expansion_double_count_cases": 0
+    },
+    "S4_seed22": {
+      "cases": 1000,
+      "det_match": 1000,
+      "length_ulp_only": 0,
+      "mismatched_fields": {},
+      "examples": [],
+      "oracle_valid": 1000,
+      "within_bound": 1000,
+      "bound": 1.05,
+      "family": "S4",
+      "role": "main",
+      "mean_ms": 146.3630799994571,
+      "median_ms": 19.80010000988841,
+      "artefacts_loaded_in_timed_call": 0,
+      "heap_pops_equal_paper_main_pops": 1000,
+      "mean_paper_operation": 498.025,
+      "mean_paper_storage": 302.26,
+      "s6_expansion_double_count_cases": 0
+    },
+    "S4_seed33": {
+      "cases": 1000,
+      "det_match": 999,
+      "length_ulp_only": 0,
+      "mismatched_fields": {
+        "operation": 1
+      },
+      "examples": [
+        {
+          "case": "m038_p01",
+          "fold": 3,
+          "mine": {
+            "operation": 71
+          },
+          "sm": {
+            "operation": 72
+          }
+        }
+      ],
+      "oracle_valid": 1000,
+      "within_bound": 1000,
+      "bound": 1.05,
+      "family": "S4",
+      "role": "main",
+      "mean_ms": 145.8811504993355,
+      "median_ms": 20.015400019474328,
+      "artefacts_loaded_in_timed_call": 0,
+      "heap_pops_equal_paper_main_pops": 1000,
+      "mean_paper_operation": 506.007,
+      "mean_paper_storage": 310.618,
+      "s6_expansion_double_count_cases": 0
+    },
+    "S4_untrained": {
+      "cases": 1000,
+      "det_match": 988,
+      "length_ulp_only": 0,
+      "mismatched_fields": {
+        "successor_expansions": 2,
+        "operation": 11
+      },
+      "examples": [
+        {
+          "case": "m004_p07",
+          "fold": 0,
+          "mine": {
+            "successor_expansions": 239
+          },
+          "sm": {
+            "successor_expansions": 238
+          }
+        },
+        {
+          "case": "m004_p08",
+          "fold": 0,
+          "mine": {
+            "operation": 1843
+          },
+          "sm": {
+            "operation": 1842
+          }
+        },
+        {
+          "case": "m033_p04",
+          "fold": 0,
+          "mine": {
+            "operation": 1050
+          },
+          "sm": {
+            "operation": 1049
+          }
+        },
+        {
+          "case": "m069_p07",
+          "fold": 0,
+          "mine": {
+            "operation": 264,
+            "successor_expansions": 245
+          },
+          "sm": {
+            "operation": 266,
+            "successor_expansions": 246
+          }
+        },
+        {
+          "case": "m049_p07",
+          "fold": 1,
+          "mine": {
+            "operation": 601
+          },
+          "sm": {
+            "operation": 602
+          }
+        }
+      ],
+      "oracle_valid": 1000,
+      "within_bound": 1000,
+      "bound": 1.05,
+      "family": "S4",
+      "role": "control:S4",
+      "mean_ms": 146.4404509018641,
+      "median_ms": 21.29080006852746,
+      "artefacts_loaded_in_timed_call": 0,
+      "heap_pops_equal_paper_main_pops": 1000,
+      "mean_paper_operation": 602.937,
+      "mean_paper_storage": 350.471,
+      "s6_expansion_double_count_cases": 0
+    },
+    "S5": {
+      "cases": 1000,
+      "det_match": 1000,
+      "length_ulp_only": 0,
+      "mismatched_fields": {},
+      "examples": [],
+      "oracle_valid": 1000,
+      "within_bound": 1000,
+      "bound": 1.0,
+      "family": "S5",
+      "role": "main",
+      "mean_ms": 12.3108614992816,
+      "median_ms": 4.197899950668216,
+      "artefacts_loaded_in_timed_call": 0,
+      "heap_pops_equal_paper_main_pops": 1000,
+      "mean_paper_operation": 184.56,
+      "mean_paper_storage": 216.793,
+      "s6_expansion_double_count_cases": 0
+    },
+    "S6_program": {
+      "cases": 1000,
+      "det_match": 1000,
+      "length_ulp_only": 0,
+      "mismatched_fields": {},
+      "examples": [],
+      "oracle_valid": 1000,
+      "within_bound": 1000,
+      "bound": 1.0,
+      "family": "S6",
+      "role": "main",
+      "mean_ms": 4.684657399659045,
+      "median_ms": 2.57789995521307,
+      "artefacts_loaded_in_timed_call": 0,
+      "heap_pops_equal_paper_main_pops": 1000,
+      "mean_paper_operation": 451.163,
+      "mean_paper_storage": 294.121,
+      "s6_expansion_double_count_cases": 222
+    },
+    "S6_rule": {
+      "cases": 1000,
+      "det_match": 1000,
+      "length_ulp_only": 0,
+      "mismatched_fields": {},
+      "examples": [],
+      "oracle_valid": 1000,
+      "within_bound": 1000,
+      "bound": 1.0,
+      "family": "S6",
+      "role": "control:S6_program",
+      "mean_ms": 4.587594799231738,
+      "median_ms": 2.5218999944627285,
+      "artefacts_loaded_in_timed_call": 0,
+      "heap_pops_equal_paper_main_pops": 1000,
+      "mean_paper_operation": 450.522,
+      "mean_paper_storage": 294.122,
+      "s6_expansion_double_count_cases": 208
+    },
+    "S6_random": {
+      "cases": 1000,
+      "det_match": 1000,
+      "length_ulp_only": 0,
+      "mismatched_fields": {},
+      "examples": [],
+      "oracle_valid": 1000,
+      "within_bound": 1000,
+      "bound": 1.0,
+      "family": "S6",
+      "role": "control:S6_program",
+      "mean_ms": 9.671834299573675,
+      "median_ms": 3.6143999313935637,
+      "artefacts_loaded_in_timed_call": 0,
+      "heap_pops_equal_paper_main_pops": 1000,
+      "mean_paper_operation": 461.316,
+      "mean_paper_storage": 295.432,
+      "s6_expansion_double_count_cases": 785
+    },
+    "S6_historical": {
+      "cases": 1000,
+      "det_match": 1000,
+      "length_ulp_only": 0,
+      "mismatched_fields": {},
+      "examples": [],
+      "oracle_valid": 1000,
+      "within_bound": 1000,
+      "bound": 1.0,
+      "family": "S6",
+      "role": "reference",
+      "mean_ms": 4.583207897958346,
+      "median_ms": 2.5270000332966447,
+      "artefacts_loaded_in_timed_call": 0,
+      "heap_pops_equal_paper_main_pops": 1000,
+      "mean_paper_operation": 450.522,
+      "mean_paper_storage": 294.122,
+      "s6_expansion_double_count_cases": 208
+    }
+  }
+}

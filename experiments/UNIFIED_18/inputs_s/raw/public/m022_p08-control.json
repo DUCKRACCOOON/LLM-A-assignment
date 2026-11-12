@@ -1,0 +1,66 @@
+{
+  "case_id": "m022_p08",
+  "stage": "public",
+  "variant": "control",
+  "created_at": "2026-11-11T15:46:45.920808+00:00",
+  "request": {
+    "model": "gpt-4o-mini-2024-07-18",
+    "messages": [
+      {
+        "role": "user",
+        "content": "\nIdentify a path between the start and goal points to navigate around obstacles and find the shortest path to the goal. \nHorizontal barriers are represented as [y, x_start, x_end], and vertical barriers are represented as [x, y_start, y_end].\nConclude your response with the generated path in the format \"Generated Path: [[x1, y1], [x2, y2], ...]\".\n\nStart Point: [41, 7]\nGoal Point: [15, 24]\nHorizontal Barriers: [[17, 11, 50]]\nVertical Barriers: [[17, 6, 12], [17, 3, 28]]\nGenerated Path: [[41, 7], [17, 2], [10, 19], [15, 24]]\n\nStart Point: [27, 7]\nGoal Point: [41, 18]\nHorizontal Barriers: [[18, 1, 27], [24, 5, 33]]\nVertical Barriers: [[9, 7, 21]]\nGenerated Path: [[27, 7], [41, 18]]\n\nStart Point: [46, 23]\nGoal Point: [1, 8]\nHorizontal Barriers: [[23, 4, 12], [9, 16, 26], [6, 41, 45]]\nVertical Barriers: [[6, 25, 27]]\nGenerated Path: [[46, 23], [1, 8]]\n\nStart Point: [11, 12]\nGoal Point: [21, 14]\nHorizontal Barriers: [[15, 2, 41]]\nVertical Barriers: [[32, 7, 19]]\nGenerated Path: [[11, 12], [21, 14]]\n\nStart Point: [41, 11]\nGoal Point: [4, 5]\nHorizontal Barriers: [[6, 4, 26], [23, 15, 43], [6, 11, 33], [12, 1, 15], [9, 14, 31]]\nVertical Barriers: [[45, 2, 17], [11, 11, 14]]\nGenerated Path: [[41, 11], [32, 5], [4, 5]]\n\nStart Point: [48, 5]\nGoal Point: [20, 29]\nHorizontal Barriers: [[9, 41, 43], [24, 6, 48]]\nVertical Barriers: [[30, 24, 28], [4, 1, 12], [50, 17, 17], [50, 9, 11]]\nGenerated Path: \n\n\nPrevious response:\nTo find a path from the start point [48, 5] to the goal point [20, 29] while navigating around the specified horizontal and vertical barriers, we need to analyze the barriers and determine a valid route.\n\n### Given:\n- **Start Point:** [48, 5]\n- **Goal Point:** [20, 29]\n- **Horizontal Barriers:** [[9, 41, 43], [24, 6, 48]]\n- **Vertical Barriers:** [[30, 24, 28], [4, 1, 12], [50, 17, 17], [50, 9, 11]]\n\n### Analysis of Barriers:\n1. **Horizontal Barriers:**\n   - The first barrier at y=9 spans from x=41 to x=43.\n   - The second barrier at y=24 spans from x=6 to x=48.\n\n2. **Vertical Barriers:**\n   - The first barrier at x=30 spans from y=24 to y=28.\n   - The second barrier at x=4 spans from y=1 to y=12.\n   - The third barrier at x=50 spans from y=17 to y=17 (a single line).\n   - The fourth barrier at x=50 spans from y=9 to y=11 (a single line).\n\n### Pathfinding:\nStarting from [48, 5], we can move left towards the goal while avoiding barriers. The goal is to reach [20, 29].\n\n1. Move left to [48, 6] (valid).\n2. Move left to [48, 7] (valid).\n3. Move left to [48, 8] (valid).\n4. Move left to [48, 9] (valid).\n5. Move left to [48, 10] (valid).\n6. Move left to [48, 11] (valid).\n7. Move left to [48, 12] (valid).\n8. Move left to [48, 13] (valid).\n9. Move left to [48, 14] (valid).\n10. Move left to [48, 15] (valid).\n11. Move left to [48, 16] (valid).\n12. Move left to [48, 17] (valid).\n13. Move left to [48, 18] (valid).\n14. Move left to [48, 19] (valid).\n15. Move left to [48, 20] (valid).\n16. Move left to [48, 21] (valid).\n17. Move left to [48, 22] (valid).\n18. Move left to [48, 23] (valid).\n19. Move left to [48, 24] (valid).\n20. Move left to [48, 25] (valid).\n21. Move left to [48, 26] (valid).\n22. Move left to [48, 27] (valid).\n23. Move left to [48, 28] (valid).\n24. Move left to [48, 29] (valid).\n25. Move left to [48, 30] (valid).\n26. Move left to [48, 31] (valid).\n27. Move left to [48, 32] (valid).\n28. Move left to [48, 33] (valid).\n29. Move left to [48, 34] (valid).\n30. Move left to [48, 35] (valid).\n31. Move left to [48, 36] (valid).\n32. Move left to [48, 37] (valid).\n33. Move left to [48, 38] (valid).\n34. Move left to [48, 39] (valid).\n35. Move left to [48, 40] (valid).\n36. Move left to [48, 41] (valid).\n37. Move left to [48, 42] (valid).\n38. Move left to [48, 43] (valid).\n39. Move left to [48, 44] (valid).\n40. Move left to [48, 45] (valid).\n41. Move left to [48, 46] (valid).\n42. Move left to [48, 47] (valid).\n43. Move left to [48, 48] (valid).\n44. Move down to [47, 48] (valid).\n45. Move down to [46, 48] (valid).\n46. Move down to [45, 48] (valid).\n47. Move down to [44, 48] (valid).\n48. Move down to [43, 48] (valid).\n49. Move down to [42, 48] (valid\n\nExternal validation report:\nNot provided.\n\nReview the previous response and provide one revised answer for the same original problem. Follow the original output instructions and include the final coordinate list. Do not change the start, goal, map boundaries, or barriers."
+      }
+    ],
+    "temperature": 0,
+    "max_tokens": 1000,
+    "store": false
+  },
+  "request_sha256": "42f97afe3828e862397c25b12f85c3d23cc5ea81137f3f4dac39c4ece4693109",
+  "response": {
+    "id": "chatcmpl-Ej4oov4Uge6FVuYVwhjgy9bXb2tWm",
+    "object": "chat.completion",
+    "created": 1794411990,
+    "model": "gpt-4o-mini-2024-07-18",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "To find a path from the start point [48, 5] to the goal point [20, 29] while navigating around the specified horizontal and vertical barriers, we need to analyze the barriers and determine a valid route.\n\n### Given:\n- **Start Point:** [48, 5]\n- **Goal Point:** [20, 29]\n- **Horizontal Barriers:** [[9, 41, 43], [24, 6, 48]]\n- **Vertical Barriers:** [[30, 24, 28], [4, 1, 12], [50, 17, 17], [50, 9, 11]]\n\n### Analysis of Barriers:\n1. **Horizontal Barriers:**\n   - The first barrier at y=9 spans from x=41 to x=43.\n   - The second barrier at y=24 spans from x=6 to x=48.\n\n2. **Vertical Barriers:**\n   - The first barrier at x=30 spans from y=24 to y=28.\n   - The second barrier at x=4 spans from y=1 to y=12.\n   - The third barrier at x=50 spans from y=17 to y=17 (a single line).\n   - The fourth barrier at x=50 spans from y=9 to y=11 (a single line).\n\n### Pathfinding:\nStarting from [48, 5], we can move left towards the goal while avoiding barriers. The goal is to reach [20, 29].\n\n1. Move left to [48, 6] (valid).\n2. Move left to [48, 7] (valid).\n3. Move left to [48, 8] (valid).\n4. Move left to [48, 9] (valid).\n5. Move left to [48, 10] (valid).\n6. Move left to [48, 11] (valid).\n7. Move left to [48, 12] (valid).\n8. Move left to [48, 13] (valid).\n9. Move left to [48, 14] (valid).\n10. Move left to [48, 15] (valid).\n11. Move left to [48, 16] (valid).\n12. Move left to [48, 17] (valid).\n13. Move left to [48, 18] (valid).\n14. Move left to [48, 19] (valid).\n15. Move left to [48, 20] (valid).\n16. Move left to [48, 21] (valid).\n17. Move left to [48, 22] (valid).\n18. Move left to [48, 23] (valid).\n19. Move left to [48, 24] (valid).\n20. Move left to [48, 25] (valid).\n21. Move left to [48, 26] (valid).\n22. Move left to [48, 27] (valid).\n23. Move left to [48, 28] (valid).\n24. Move left to [48, 29] (valid).\n25. Move down to [47, 29] (valid).\n26. Move down to [46, 29] (valid).\n27. Move down to [45, 29] (valid).\n28. Move down to [44, 29] (valid).\n29. Move down to [43, 29] (valid).\n30. Move down to [42, 29] (valid).\n31. Move down to [41, 29] (valid).\n32. Move down to [40, 29] (valid).\n33. Move down to [39, 29] (valid).\n34. Move down to [38, 29] (valid).\n35. Move down to [37, 29] (valid).\n36. Move down to [36, 29] (valid).\n37. Move down to [35, 29] (valid).\n38. Move down to [34, 29] (valid).\n39. Move down to [33, 29] (valid).\n40. Move down to [32, 29] (valid).\n41. Move down to [31, 29] (valid).\n42. Move down to [30, 29] (valid).\n43. Move down to [29, 29] (valid).\n44. Move down to [28, 29] (valid).\n45. Move down to [27, 29] (valid).\n46. Move down to [26, 29] (valid).\n47. Move down to [25, 29] (valid).\n48. Move down to [24, 29] (valid).\n49. Move down to [23, 29] (valid",
+          "refusal": null,
+          "annotations": []
+        },
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1622,
+      "completion_tokens": 1000,
+      "total_tokens": 2622,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "service_tier": "default",
+    "system_fingerprint": "fp_7f3cbb94ae"
+  },
+  "latency_seconds": 15.14233270008117,
+  "request_seconds": 15.14233270008117,
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": 200,
+      "seconds": 15.14233270008117
+    }
+  ],
+  "request_id": "req_18a22eed07514e62a6332bed27ec410e",
+  "response_sha256": "bff6fde2eba6b00c41842b010a16e1d2b7be9212205ebc429bf5ecb2802b1f00"
+}
