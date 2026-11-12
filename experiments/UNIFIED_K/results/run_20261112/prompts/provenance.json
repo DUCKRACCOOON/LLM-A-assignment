@@ -1,0 +1,24 @@
+{
+  "created_at": "2026-11-12T03:07:44.277780+00:00",
+  "source_template": "vendor/llm-astar/llmastar/pather/llm_a_star/prompt.py",
+  "source_template_sha256": "da7220b6faccadc6edb803bffb29b03813399d5a0260c2890bb966806b840193",
+  "example_source": "inputs/prompts/examples.json (SM seed 20261112, disjoint from public 100 maps)",
+  "example_positions": [
+    0,
+    1,
+    4
+  ],
+  "examples_count": 3,
+  "templates": {
+    "cot": {
+      "path": "results/run_20261112/prompts/cot.txt",
+      "sha256": "f9416c7d91832fdcd6f54e2fcc078628d5e8df9e2ab9b8c1c8bf652b59412702"
+    },
+    "repe": {
+      "path": "results/run_20261112/prompts/repe.txt",
+      "sha256": "419d612accee46331b2ff85eafef3997552cd53f11d92ca0e9a6278aee3de6d1"
+    }
+  },
+  "reasoning": "deterministic from geometry: walls blocking current->goal straight line are named; next waypoint reported as bypass point",
+  "note": "Upstream cot/repe use standard examples 1,2,5; same positions used here instead of first three, so detour examples are retained."
+}

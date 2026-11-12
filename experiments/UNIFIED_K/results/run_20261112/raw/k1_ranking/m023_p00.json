@@ -1,0 +1,66 @@
+{
+  "case_id": "m023_p00",
+  "stage": "public",
+  "variant": "k1_ranking",
+  "created_at": "2026-11-12T03:12:28.925509+00:00",
+  "request": {
+    "model": "gpt-4o-mini-2024-07-18",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Rank all candidate route IDs for efficient 8-neighbor grid search. Walls are line segments including endpoints. Consider detours, narrow passages and misleading branches. Candidate routes are coarse suggestions, not certified optimal paths. Return only JSON {\"ranking\":[all candidate IDs, best first]}. Do not output coordinates or explanations.\n{\"problem\":{\"range_x\":[0,51],\"range_y\":[0,31],\"start\":[42,15],\"goal\":[9,9],\"horizontal_barriers\":[[11,16,47],[23,45,47]],\"vertical_barriers\":[[10,1,7],[36,14,31],[6,6,10]]},\"candidates\":[{\"id\":0,\"points\":[[42,15],[43.0,13.5],[8.5,11.5],[11.0,10.5],[9,9]],\"estimated_length\":41.553280432554196,\"portal_count\":3},{\"id\":1,\"points\":[[42,15],[43.0,13.5],[48.5,11.5],[48.5,10.5],[9,9]],\"estimated_length\":48.18359634519655,\"portal_count\":3}]}"
+      }
+    ],
+    "temperature": 0,
+    "max_tokens": 256,
+    "store": false
+  },
+  "request_sha256": "6de0032b17e738230cdd0dc52c1496aa305653ab13d91fe0bd1affc51b946816",
+  "response": {
+    "id": "chatcmpl-EjFWeEgeCd5kMeEdzsrcnVRUX9sNz",
+    "object": "chat.completion",
+    "created": 1794453148,
+    "model": "gpt-4o-mini-2024-07-18",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"ranking\":[0,1]}",
+          "refusal": null,
+          "annotations": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 258,
+      "completion_tokens": 7,
+      "total_tokens": 265,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "service_tier": "default",
+    "system_fingerprint": "fp_758480d42c"
+  },
+  "latency_seconds": 0.9671332000289112,
+  "request_seconds": 0.9671332000289112,
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": 200,
+      "seconds": 0.9671332000289112
+    }
+  ],
+  "request_id": "req_8519cc6cac7d46e3a36b97d30ee36dff",
+  "response_sha256": "99373881536c1f4c9e6ceccea1bf40777e0cd3fe94b6bef9ceb4e40315460de9"
+}

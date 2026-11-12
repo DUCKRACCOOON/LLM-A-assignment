@@ -1,0 +1,66 @@
+{
+  "case_id": "m011_p07",
+  "stage": "public",
+  "variant": "k1_ranking",
+  "created_at": "2026-11-12T03:10:26.317586+00:00",
+  "request": {
+    "model": "gpt-4o-mini-2024-07-18",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Rank all candidate route IDs for efficient 8-neighbor grid search. Walls are line segments including endpoints. Consider detours, narrow passages and misleading branches. Candidate routes are coarse suggestions, not certified optimal paths. Return only JSON {\"ranking\":[all candidate IDs, best first]}. Do not output coordinates or explanations.\n{\"problem\":{\"range_x\":[0,51],\"range_y\":[0,31],\"start\":[8,1],\"goal\":[45,28],\"horizontal_barriers\":[[2,46,49],[19,18,39],[25,5,13]],\"vertical_barriers\":[[39,27,30],[30,23,25],[24,11,16],[3,26,28]]},\"candidates\":[{\"id\":0,\"points\":[[8,1],[23.5,1.5],[23.5,2.5],[12.5,10.5],[12.5,16.5],[9.5,18.5],[9.5,19.5],[40.0,22.5],[40.0,25.5],[44.5,26.5],[45,28]],\"estimated_length\":80.5531811036448,\"portal_count\":9},{\"id\":1,\"points\":[[8,1],[23.5,1.5],[23.5,2.5],[12.5,10.5],[12.5,16.5],[44.5,18.5],[44.5,19.5],[40.0,22.5],[40.0,25.5],[44.5,26.5],[45,28]],\"estimated_length\":83.77120998369568,\"portal_count\":9}]}"
+      }
+    ],
+    "temperature": 0,
+    "max_tokens": 256,
+    "store": false
+  },
+  "request_sha256": "c0ed7768f48e5ec1ac11e84df173aa80fcb92f37c490f8a1d58c97c98536ac43",
+  "response": {
+    "id": "chatcmpl-EjFUfSk7zCwJO675abcCItSZcGsJ1",
+    "object": "chat.completion",
+    "created": 1794453025,
+    "model": "gpt-4o-mini-2024-07-18",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"ranking\":[0,1]}\n```",
+          "refusal": null,
+          "annotations": []
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 366,
+      "completion_tokens": 11,
+      "total_tokens": 377,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "service_tier": "default",
+    "system_fingerprint": "fp_1c53d748ca"
+  },
+  "latency_seconds": 1.0042507000034675,
+  "request_seconds": 1.0042507000034675,
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": 200,
+      "seconds": 1.0042507000034675
+    }
+  ],
+  "request_id": "req_2c9cea3535d54558b41626cb658121de",
+  "response_sha256": "851861af1064359052441af6c01bccf233a8811c864b409ec293107ae4a7bb30"
+}
